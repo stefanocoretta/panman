@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://stefanocoretta.github.io/panman/sitemap.xml
+Sitemap: /sitemap.xml
