@@ -86,7 +86,7 @@ Source:
     {{ range $index, $page := (where .Site.Pages "Section" "docs") -}}
       {
         id: {{ $index }},
-        href: "{{ .Permalink | absURL }}",
+        href: "{{ .Permalink | relURL }}",
         title: {{ .Title | jsonify }},
         description: {{ .Params.description | jsonify }},
         content: {{ .Content | jsonify }}
