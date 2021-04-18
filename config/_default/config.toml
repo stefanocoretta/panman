@@ -1,4 +1,4 @@
-baseurl = "/"
+baseurl = "https://stefanocoretta.github.io/panman/"
 disableAliases = true
 disableHugoGeneratorInject = true
 enableEmoji = true
