@@ -1,0 +1,697 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-Templates" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.0.1">
+<title data-rh="true">Templates | PANMAN</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://stefanocoretta.github.io/Templates"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Templates | PANMAN"><meta data-rh="true" name="description" content="When the -s/--standalone option is used, pandoc uses a template to add"><meta data-rh="true" property="og:description" content="When the -s/--standalone option is used, pandoc uses a template to add"><link data-rh="true" rel="canonical" href="https://stefanocoretta.github.io/Templates"><link data-rh="true" rel="alternate" href="https://stefanocoretta.github.io/Templates" hreflang="en"><link data-rh="true" rel="alternate" href="https://stefanocoretta.github.io/Templates" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.a4bba1a8.css">
+<script src="/assets/js/runtime~main.777a25e5.js" defer="defer"></script>
+<script src="/assets/js/main.68f96821.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">Panman</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/Synopsis">Docs</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/stefanocoretta/panman" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/Synopsis">Introduction</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/Options">Options</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" aria-expanded="true" href="/Defaults files">Customisation</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/Defaults files">Defaults files</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/Templates">Templates</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/Extensions">Extensions</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/Pandocs Markdown">Markdown</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/Chunked HTML">Technical</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/A note on security">Security</a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Authors">Authors</a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Customisation</span><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Templates</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><h1>Templates</h1>
+<p>When the <code>-s/--standalone</code> option is used, pandoc uses a template to add
+header and footer material that is needed for a self-standing document.
+To see the default template that is used, just type</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">pandoc -D *FORMAT*</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>where <em>FORMAT</em> is the name of the output format. A custom template can
+be specified using the <code>--template</code> option. You can also override the
+system default templates for a given output format <em>FORMAT</em> by putting a
+file <code>templates/default.*FORMAT*</code> in the user data directory (see
+<code>--data-dir</code>, above). <em>Exceptions:</em></p>
+<ul>
+<li>For <code>odt</code> output, customize the <code>default.opendocument</code> template.</li>
+<li>For <code>pdf</code> output, customize the <code>default.latex</code> template (or the
+<code>default.context</code> template, if you use <code>-t context</code>, or the
+<code>default.ms</code> template, if you use <code>-t ms</code>, or the <code>default.html</code>
+template, if you use <code>-t html</code>).</li>
+<li><code>docx</code> and <code>pptx</code> have no template (however, you can use
+<code>--reference-doc</code> to customize the output).</li>
+</ul>
+<p>Templates contain <em>variables</em>, which allow for the inclusion of
+arbitrary information at any point in the file. They may be set at the
+command line using the <code>-V/--variable</code> option. If a variable is not set,
+pandoc will look for the key in the document’s metadata, which can be
+set using either <a href="#extension-yaml_metadata_block">YAML metadata blocks</a>
+or with the <code>-M/--metadata</code> option. In addition, some variables are
+given default values by pandoc. See <a href="#variables">Variables</a> below for a
+list of variables used in pandoc’s default templates.</p>
+<p>If you use custom templates, you may need to revise them as pandoc
+changes. We recommend tracking the changes in the default templates, and
+modifying your custom templates accordingly. An easy way to do this is
+to fork the <a href="https://github.com/jgm/pandoc-templates" target="_blank" rel="noopener noreferrer">pandoc-templates</a>
+repository and merge in changes after each pandoc release.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="template-syntax">Template syntax<a href="#template-syntax" class="hash-link" aria-label="Direct link to Template syntax" title="Direct link to Template syntax">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="comments">Comments<a href="#comments" class="hash-link" aria-label="Direct link to Comments" title="Direct link to Comments">​</a></h3>
+<p>Anything between the sequence <code>$--</code> and the end of the line will be
+treated as a comment and omitted from the output.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="delimiters">Delimiters<a href="#delimiters" class="hash-link" aria-label="Direct link to Delimiters" title="Direct link to Delimiters">​</a></h3>
+<p>To mark variables and control structures in the template, either <code>$</code>…<code>$</code>
+or <code>${</code>…<code>}</code> may be used as delimiters. The styles may also be mixed in
+the same template, but the opening and closing delimiter must match in
+each case. The opening delimiter may be followed by one or more spaces
+or tabs, which will be ignored. The closing delimiter may be preceded by
+one or more spaces or tabs, which will be ignored.</p>
+<p>To include a literal <code>$</code> in the document, use <code>$$</code>.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="interpolated-variables">Interpolated variables<a href="#interpolated-variables" class="hash-link" aria-label="Direct link to Interpolated variables" title="Direct link to Interpolated variables">​</a></h3>
+<p>A slot for an interpolated variable is a variable name surrounded by
+matched delimiters. Variable names must begin with a letter and can
+contain letters, numbers, <code>_</code>, <code>-</code>, and <code>.</code>. The keywords <code>it</code>, <code>if</code>,
+<code>else</code>, <code>endif</code>, <code>for</code>, <code>sep</code>, and <code>endfor</code> may not be used as variable
+names. Examples:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">$foo$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$foo.bar.baz$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$foo_bar.baz-bim$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$ foo $</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">${foo}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">${foo.bar.baz}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">${foo_bar.baz-bim}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">${ foo }</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>Variable names with periods are used to get at structured variable
+values. So, for example, <code>employee.salary</code> will return the value of the
+<code>salary</code> field of the object that is the value of the <code>employee</code> field.</p>
+<ul>
+<li>If the value of the variable is a simple value, it will be rendered
+verbatim. (Note that no escaping is done; the assumption is that the
+calling program will escape the strings appropriately for the output
+format.)</li>
+<li>If the value is a list, the values will be concatenated.</li>
+<li>If the value is a map, the string <code>true</code> will be rendered.</li>
+<li>Every other value will be rendered as the empty string.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="conditionals">Conditionals<a href="#conditionals" class="hash-link" aria-label="Direct link to Conditionals" title="Direct link to Conditionals">​</a></h3>
+<p>A conditional begins with <code>if(variable)</code> (enclosed in matched
+delimiters) and ends with <code>endif</code> (enclosed in matched delimiters). It
+may optionally contain an <code>else</code> (enclosed in matched delimiters). The
+<code>if</code> section is used if <code>variable</code> has a non-empty value, otherwise the
+<code>else</code> section is used (if present). Examples:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">$if(foo)$bar$endif$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$if(foo)$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  $foo$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$endif$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$if(foo)$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">part one</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$else$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">part two</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$endif$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">${if(foo)}bar${endif}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">${if(foo)}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  ${foo}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">${endif}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">${if(foo)}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">${ foo.bar }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">${else}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">no foo!</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">${endif}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>The keyword <code>elseif</code> may be used to simplify complex nested
+conditionals:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">$if(foo)$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">XXX</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$elseif(bar)$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">YYY</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$else$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">ZZZ</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$endif$</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="for-loops">For loops<a href="#for-loops" class="hash-link" aria-label="Direct link to For loops" title="Direct link to For loops">​</a></h3>
+<p>A for loop begins with <code>for(variable)</code> (enclosed in matched delimiters)
+and ends with <code>endfor</code> (enclosed in matched delimiters).</p>
+<ul>
+<li>If <code>variable</code> is an array, the material inside the loop will be
+evaluated repeatedly, with <code>variable</code> being set to each value of the
+array in turn, and concatenated.</li>
+<li>If <code>variable</code> is a map, the material inside will be set to the map.</li>
+<li>If the value of the associated variable is not an array or a map, a
+single iteration will be performed on its value.</li>
+</ul>
+<p>Examples:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">$for(foo)$$foo$$sep$, $endfor$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$for(foo)$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - $foo.last$, $foo.first$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$endfor$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">${ for(foo.bar) }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - ${ foo.bar.last }, ${ foo.bar.first }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">${ endfor }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$for(mymap)$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$it.name$: $it.office$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$endfor$</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>You may optionally specify a separator between consecutive values using
+<code>sep</code> (enclosed in matched delimiters). The material between <code>sep</code> and
+the <code>endfor</code> is the separator.</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">${ for(foo) }${ foo }${ sep }, ${ endfor }</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>Instead of using <code>variable</code> inside the loop, the special anaphoric
+keyword <code>it</code> may be used.</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">${ for(foo.bar) }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - ${ it.last }, ${ it.first }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">${ endfor }</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="partials">Partials<a href="#partials" class="hash-link" aria-label="Direct link to Partials" title="Direct link to Partials">​</a></h3>
+<p>Partials (subtemplates stored in different files) may be included by
+using the name of the partial, followed by <code>()</code>, for example:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">${ styles() }</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>Partials will be sought in the directory containing the main template.
+The file name will be assumed to have the same extension as the main
+template if it lacks an extension. When calling the partial, the full
+name including file extension can also be used:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">${ styles.html() }</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>(If a partial is not found in the directory of the template and the
+template path is given as a relative path, it will also be sought in the
+<code>templates</code> subdirectory of the user data directory.)</p>
+<p>Partials may optionally be applied to variables using a colon:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">${ date:fancy() }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">${ articles:bibentry() }</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>If <code>articles</code> is an array, this will iterate over its values, applying
+the partial <code>bibentry()</code> to each one. So the second example above is
+equivalent to</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">${ for(articles) }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">${ it:bibentry() }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">${ endfor }</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>Note that the anaphoric keyword <code>it</code> must be used when iterating over
+partials. In the above examples, the <code>bibentry</code> partial should contain
+<code>it.title</code> (and so on) instead of <code>articles.title</code>.</p>
+<p>Final newlines are omitted from included partials.</p>
+<p>Partials may include other partials.</p>
+<p>A separator between values of an array may be specified in square
+brackets, immediately after the variable name or partial:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">${months[, ]}$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">${articles:bibentry()[; ]$</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>The separator in this case is literal and (unlike with <code>sep</code> in an
+explicit <code>for</code> loop) cannot contain interpolated variables or other
+template directives.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="nesting">Nesting<a href="#nesting" class="hash-link" aria-label="Direct link to Nesting" title="Direct link to Nesting">​</a></h3>
+<p>To ensure that content is “nested,” that is, subsequent lines indented,
+use the <code>^</code> directive:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">$item.number$  $^$$item.description$ ($item.price$)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>In this example, if <code>item.description</code> has multiple lines, they will all
+be indented to line up with the first line:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">00123  A fine bottle of 18-year old</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">       Oban whiskey. ($148)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>To nest multiple lines to the same level, align them with the <code>^</code>
+directive in the template. For example:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">$item.number$  $^$$item.description$ ($item.price$)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">               (Available til $item.sellby$.)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>will produce</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">00123  A fine bottle of 18-year old</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">       Oban whiskey. ($148)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">       (Available til March 30, 2020.)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>If a variable occurs by itself on a line, preceded by whitespace and not
+followed by further text or directives on the same line, and the
+variable’s value contains multiple lines, it will be nested
+automatically.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="breakable-spaces">Breakable spaces<a href="#breakable-spaces" class="hash-link" aria-label="Direct link to Breakable spaces" title="Direct link to Breakable spaces">​</a></h3>
+<p>Normally, spaces in the template itself (as opposed to values of the
+interpolated variables) are not breakable, but they can be made
+breakable in part of the template by using the <code>~</code> keyword (ended with
+another <code>~</code>).</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">$~$This long line may break if the document is rendered</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">with a short line length.$~$</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="pipes">Pipes<a href="#pipes" class="hash-link" aria-label="Direct link to Pipes" title="Direct link to Pipes">​</a></h3>
+<p>A pipe transforms the value of a variable or partial. Pipes are
+specified using a slash (<code>/</code>) between the variable name (or partial) and
+the pipe name. Example:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">$for(name)$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$name/uppercase$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$endfor$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$for(metadata/pairs)$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- $it.key$: $it.value$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$endfor$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$employee:name()/uppercase$</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>Pipes may be chained:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">$for(employees/pairs)$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$it.key/alpha/uppercase$. $it.name$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$endfor$</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>Some pipes take parameters:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">|----------------------|------------|</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$for(employee)$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$it.name.first/uppercase/left 20 &quot;| &quot;$$it.name.salary/right 10 &quot; | &quot; &quot; |&quot;$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$endfor$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">|----------------------|------------|</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>Currently the following pipes are predefined:</p>
+<ul>
+<li>
+<p><code>pairs</code>: Converts a map or array to an array of maps, each with <code>key</code>
+and <code>value</code> fields. If the original value was an array, the <code>key</code> will
+be the array index, starting with 1.</p>
+</li>
+<li>
+<p><code>uppercase</code>: Converts text to uppercase.</p>
+</li>
+<li>
+<p><code>lowercase</code>: Converts text to lowercase.</p>
+</li>
+<li>
+<p><code>length</code>: Returns the length of the value: number of characters for a
+textual value, number of elements for a map or array.</p>
+</li>
+<li>
+<p><code>reverse</code>: Reverses a textual value or array, and has no effect on
+other values.</p>
+</li>
+<li>
+<p><code>first</code>: Returns the first value of an array, if applied to a
+non-empty array; otherwise returns the original value.</p>
+</li>
+<li>
+<p><code>last</code>: Returns the last value of an array, if applied to a non-empty
+array; otherwise returns the original value.</p>
+</li>
+<li>
+<p><code>rest</code>: Returns all but the first value of an array, if applied to a
+non-empty array; otherwise returns the original value.</p>
+</li>
+<li>
+<p><code>allbutlast</code>: Returns all but the last value of an array, if applied
+to a non-empty array; otherwise returns the original value.</p>
+</li>
+<li>
+<p><code>chomp</code>: Removes trailing newlines (and breakable space).</p>
+</li>
+<li>
+<p><code>nowrap</code>: Disables line wrapping on breakable spaces.</p>
+</li>
+<li>
+<p><code>alpha</code>: Converts textual values that can be read as an integer into
+lowercase alphabetic characters <code>a..z</code> (mod 26). This can be used to
+get lettered enumeration from array indices. To get uppercase letters,
+chain with <code>uppercase</code>.</p>
+</li>
+<li>
+<p><code>roman</code>: Converts textual values that can be read as an integer into
+lowercase roman numerals. This can be used to get lettered enumeration
+from array indices. To get uppercase roman, chain with <code>uppercase</code>.</p>
+</li>
+<li>
+<p><code>left n &quot;leftborder&quot; &quot;rightborder&quot;</code>: Renders a textual value in a
+block of width <code>n</code>, aligned to the left, with an optional left and
+right border. Has no effect on other values. This can be used to align
+material in tables. Widths are positive integers indicating the number
+of characters. Borders are strings inside double quotes; literal <code>&quot;</code>
+and <code>\</code> characters must be backslash-escaped.</p>
+</li>
+<li>
+<p><code>right n &quot;leftborder&quot; &quot;rightborder&quot;</code>: Renders a textual value in a
+block of width <code>n</code>, aligned to the right, and has no effect on other
+values.</p>
+</li>
+<li>
+<p><code>center n &quot;leftborder&quot; &quot;rightborder&quot;</code>: Renders a textual value in a
+block of width <code>n</code>, aligned to the center, and has no effect on other
+values.</p>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="variables">Variables<a href="#variables" class="hash-link" aria-label="Direct link to Variables" title="Direct link to Variables">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="metadata-variables">Metadata variables<a href="#metadata-variables" class="hash-link" aria-label="Direct link to Metadata variables" title="Direct link to Metadata variables">​</a></h3>
+<p><code>title</code>, <code>author</code>, <code>date</code><br>
+allow identification of basic aspects of the document. Included in PDF
+metadata through LaTeX and ConTeXt. These can be set through a <a href="#extension-pandoc_title_block">pandoc
+title block</a>, which allows for multiple
+authors, or through a <a href="#extension-yaml_metadata_block">YAML metadata
+block</a>:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">---</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">author:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Aristotle</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Peter Abelard</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">...</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>Note that if you just want to set PDF or HTML metadata, without
+including a title block in the document itself, you can set the
+<code>title-meta</code>, <code>author-meta</code>, and <code>date-meta</code> variables. (By default
+these are set automatically, based on <code>title</code>, <code>author</code>, and <code>date</code>.)
+The page title in HTML is set by <code>pagetitle</code>, which is equal to <code>title</code>
+by default.</p>
+<p><code>subtitle</code><br>
+document subtitle, included in HTML, EPUB, LaTeX, ConTeXt, and docx
+documents</p>
+<p><code>abstract</code><br>
+document summary, included in HTML, LaTeX, ConTeXt, AsciiDoc, and docx
+documents</p>
+<p><code>abstract-title</code><br>
+title of abstract, currently used only in HTML, EPUB, and docx. This
+will be set automatically to a localized value, depending on <code>lang</code>, but
+can be manually overridden.</p>
+<p><code>keywords</code><br>
+list of keywords to be included in HTML, PDF, ODT, pptx, docx and
+AsciiDoc metadata; repeat as for <code>author</code>, above</p>
+<p><code>subject</code><br>
+document subject, included in ODT, PDF, docx, EPUB, and pptx metadata</p>
+<p><code>description</code><br>
+document description, included in ODT, docx and pptx metadata. Some
+applications show this as <code>Comments</code> metadata.</p>
+<p><code>category</code><br>
+document category, included in docx and pptx metadata</p>
+<p>Additionally, any root-level string metadata, not included in ODT, docx
+or pptx metadata is added as a <em>custom property</em>. The following
+<a href="https://yaml.org/spec/1.2/spec.html" target="_blank" rel="noopener noreferrer" title="YAML v1.2 Spec">YAML</a> metadata
+block for instance:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">---</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">title:  &#x27;This is the title&#x27;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">subtitle: &quot;This is the subtitle&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">author:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Author One</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Author Two</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">description: |</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    This is a long</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    description.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    It consists of two paragraphs</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">...</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>will include <code>title</code>, <code>author</code> and <code>description</code> as standard document
+properties and <code>subtitle</code> as a custom property when converting to docx,
+ODT or pptx.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="language-variables">Language variables<a href="#language-variables" class="hash-link" aria-label="Direct link to Language variables" title="Direct link to Language variables">​</a></h3>
+<p><code>lang</code><br>
+identifies the main language of the document using IETF language tags
+(following the <a href="https://tools.ietf.org/html/bcp47" target="_blank" rel="noopener noreferrer">BCP 47</a> standard),
+such as <code>en</code> or <code>en-GB</code>. The <a href="https://r12a.github.io/app-subtags/" target="_blank" rel="noopener noreferrer">Language subtag
+lookup</a> tool can look up or verify
+these tags. This affects most formats, and controls hyphenation in PDF
+output when using LaTeX (through <a href="https://ctan.org/pkg/babel" target="_blank" rel="noopener noreferrer"><code>babel</code></a>
+and <a href="https://ctan.org/pkg/polyglossia" target="_blank" rel="noopener noreferrer"><code>polyglossia</code></a>) or ConTeXt.</p>
+<p>Use native pandoc <a href="#divs-and-spans">Divs and Spans</a> with the <code>lang</code>
+attribute to switch the language:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">---</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">lang: en-GB</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">...</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Text in the main document language (British English).</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">::: {lang=fr-CA}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">&gt; Cette citation est écrite en français canadien.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">:::</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">More text in English. [&#x27;Zitat auf Deutsch.&#x27;]{lang=de}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p><code>dir</code><br>
+the base script direction, either <code>rtl</code> (right-to-left) or <code>ltr</code>
+(left-to-right).</p>
+<p>For bidirectional documents, native pandoc <code>span</code>s and <code>div</code>s with the
+<code>dir</code> attribute (value <code>rtl</code> or <code>ltr</code>) can be used to override the base
+direction in some output formats. This may not always be necessary if
+the final renderer (e.g. the browser, when generating HTML) supports the
+<a href="https://www.w3.org/International/articles/inline-bidi-markup/uba-basics" target="_blank" rel="noopener noreferrer">Unicode Bidirectional
+Algorithm</a>.</p>
+<p>When using LaTeX for bidirectional documents, only the <code>xelatex</code> engine
+is fully supported (use <code>--pdf-engine=xelatex</code>).</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="variables-for-html">Variables for HTML<a href="#variables-for-html" class="hash-link" aria-label="Direct link to Variables for HTML" title="Direct link to Variables for HTML">​</a></h3>
+<p><code>document-css</code><br>
+Enables inclusion of most of the
+<a href="https://developer.mozilla.org/en-US/docs/Learn/CSS" target="_blank" rel="noopener noreferrer">CSS</a> in the
+<code>styles.html</code> <a href="#partials">partial</a> (have a look with
+<code>pandoc --print-default-data-file=templates/styles.html</code>). Unless you
+use <a href="#option--css"><code>--css</code></a>, this variable is set to <code>true</code> by default.
+You can disable it with e.g. <code>pandoc -M document-css=false</code>.</p>
+<p><code>mainfont</code><br>
+sets the CSS <code>font-family</code> property on the <code>html</code> element.</p>
+<p><code>fontsize</code><br>
+sets the base CSS <code>font-size</code>, which you’d usually set to e.g. <code>20px</code>,
+but it also accepts <code>pt</code> (12pt = 16px in most browsers).</p>
+<p><code>fontcolor</code><br>
+sets the CSS <code>color</code> property on the <code>html</code> element.</p>
+<p><code>linkcolor</code><br>
+sets the CSS <code>color</code> property on all links.</p>
+<p><code>monofont</code><br>
+sets the CSS <code>font-family</code> property on <code>code</code> elements.</p>
+<p><code>monobackgroundcolor</code><br>
+sets the CSS <code>background-color</code> property on <code>code</code> elements and adds
+extra padding.</p>
+<p><code>linestretch</code><br>
+sets the CSS <code>line-height</code> property on the <code>html</code> element, which is
+preferred to be unitless.</p>
+<p><code>maxwidth</code><br>
+sets the CSS <code>max-width</code> property (default is 32em).</p>
+<p><code>backgroundcolor</code><br>
+sets the CSS <code>background-color</code> property on the <code>html</code> element.</p>
+<p><code>margin-left</code>, <code>margin-right</code>, <code>margin-top</code>, <code>margin-bottom</code><br>
+sets the corresponding CSS <code>padding</code> properties on the <code>body</code> element.</p>
+<p>To override or extend some
+<a href="https://developer.mozilla.org/en-US/docs/Learn/CSS" target="_blank" rel="noopener noreferrer">CSS</a> for just one
+document, include for example:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">---</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">header-includes: |</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  &lt;style&gt;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  blockquote {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    font-style: italic;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  tr.even {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    background-color: #f0f0f0;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  td, th {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    padding: 0.5em 2em 0.5em 0.5em;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  tbody {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    border-bottom: none;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  &lt;/style&gt;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">---</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="variables-for-html-math">Variables for HTML math<a href="#variables-for-html-math" class="hash-link" aria-label="Direct link to Variables for HTML math" title="Direct link to Variables for HTML math">​</a></h3>
+<p><code>classoption</code><br>
+when using <a href="#option--katex">KaTeX</a>, you can render display math
+equations flush left using <a href="#layout">YAML metadata</a> or with
+<code>-M classoption=fleqn</code>.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="variables-for-html-slides">Variables for HTML slides<a href="#variables-for-html-slides" class="hash-link" aria-label="Direct link to Variables for HTML slides" title="Direct link to Variables for HTML slides">​</a></h3>
+<p>These affect HTML output when <a href="#slide-shows">producing slide shows with
+pandoc</a>.</p>
+<p><code>institute</code><br>
+author affiliations: can be a list when there are multiple authors</p>
+<p><code>revealjs-url</code><br>
+base URL for reveal.js documents (defaults to
+<code>https://unpkg.com/reveal.js@^4/</code>)</p>
+<p><code>s5-url</code><br>
+base URL for S5 documents (defaults to <code>s5/default</code>)</p>
+<p><code>slidy-url</code><br>
+base URL for Slidy documents (defaults to
+<code>https://www.w3.org/Talks/Tools/Slidy2</code>)</p>
+<p><code>slideous-url</code><br>
+base URL for Slideous documents (defaults to <code>slideous</code>)</p>
+<p><code>title-slide-attributes</code><br>
+additional attributes for the title slide of reveal.js slide shows. See
+<a href="#background-in-reveal.js-beamer-and-pptx">background in reveal.js, beamer, and
+pptx</a> for an example.</p>
+<p>All <a href="https://revealjs.com/config/" target="_blank" rel="noopener noreferrer">reveal.js configuration options</a> are
+available as variables. To turn off boolean flags that default to true
+in reveal.js, use <code>0</code>.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="variables-for-beamer-slides">Variables for Beamer slides<a href="#variables-for-beamer-slides" class="hash-link" aria-label="Direct link to Variables for Beamer slides" title="Direct link to Variables for Beamer slides">​</a></h3>
+<p>These variables change the appearance of PDF slides using
+<a href="https://ctan.org/pkg/beamer" target="_blank" rel="noopener noreferrer"><code>beamer</code></a>.</p>
+<p><code>aspectratio</code><br>
+slide aspect ratio (<code>43</code> for 4:3 [default], <code>169</code> for 16:9, <code>1610</code> for
+16:10, <code>149</code> for 14:9, <code>141</code> for 1.41:1, <code>54</code> for 5:4, <code>32</code> for 3:2)</p>
+<p><code>beameroption</code><br>
+add extra beamer option with <code>\setbeameroption{}</code></p>
+<p><code>institute</code><br>
+author affiliations: can be a list when there are multiple authors</p>
+<p><code>logo</code><br>
+logo image for slides</p>
+<p><code>navigation</code><br>
+controls navigation symbols (default is <code>empty</code> for no navigation
+symbols; other valid values are <code>frame</code>, <code>vertical</code>, and <code>horizontal</code>)</p>
+<p><code>section-titles</code><br>
+enables “title pages” for new sections (default is true)</p>
+<p><code>theme</code>, <code>colortheme</code>, <code>fonttheme</code>, <code>innertheme</code>, <code>outertheme</code><br>
+beamer themes</p>
+<p><code>themeoptions</code><br>
+options for LaTeX beamer themes (a list).</p>
+<p><code>titlegraphic</code><br>
+image for title slide</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="variables-for-powerpoint">Variables for PowerPoint<a href="#variables-for-powerpoint" class="hash-link" aria-label="Direct link to Variables for PowerPoint" title="Direct link to Variables for PowerPoint">​</a></h3>
+<p>These variables control the visual aspects of a slide show that are not
+easily controlled via templates.</p>
+<p><code>monofont</code><br>
+font to use for code.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="variables-for-latex">Variables for LaTeX<a href="#variables-for-latex" class="hash-link" aria-label="Direct link to Variables for LaTeX" title="Direct link to Variables for LaTeX">​</a></h3>
+<p>Pandoc uses these variables when <a href="#creating-a-pdf">creating a PDF</a> with
+a LaTeX engine.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="layout">Layout<a href="#layout" class="hash-link" aria-label="Direct link to Layout" title="Direct link to Layout">​</a></h4>
+<p><code>block-headings</code><br>
+make <code>\paragraph</code> and <code>\subparagraph</code> (fourth- and fifth-level headings,
+or fifth- and sixth-level with book classes) free-standing rather than
+run-in; requires further formatting to distinguish from <code>\subsubsection</code>
+(third- or fourth-level headings). Instead of using this option,
+<a href="https://ctan.org/pkg/koma-script" target="_blank" rel="noopener noreferrer">KOMA-Script</a> can adjust headings more
+extensively:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">---</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">documentclass: scrartcl</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">header-includes: |</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  \RedeclareSectionCommand[</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    beforeskip=-10pt plus -2pt minus -1pt,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    afterskip=1sp plus -1sp minus 1sp,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    font=\normalfont\itshape]{paragraph}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  \RedeclareSectionCommand[</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    beforeskip=-10pt plus -2pt minus -1pt,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    afterskip=1sp plus -1sp minus 1sp,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    font=\normalfont\scshape,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    indent=0pt]{subparagraph}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">...</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p><code>classoption</code><br>
+option for document class, e.g. <code>oneside</code>; repeat for multiple options:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">---</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">classoption:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- twocolumn</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- landscape</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">...</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p><code>documentclass</code><br>
+document class: usually one of the standard classes,
+<a href="https://ctan.org/pkg/article" target="_blank" rel="noopener noreferrer"><code>article</code></a>,
+<a href="https://ctan.org/pkg/book" target="_blank" rel="noopener noreferrer"><code>book</code></a>, and
+<a href="https://ctan.org/pkg/report" target="_blank" rel="noopener noreferrer"><code>report</code></a>; the
+<a href="https://ctan.org/pkg/koma-script" target="_blank" rel="noopener noreferrer">KOMA-Script</a> equivalents, <code>scrartcl</code>,
+<code>scrbook</code>, and <code>scrreprt</code>, which default to smaller margins; or
+<a href="https://ctan.org/pkg/memoir" target="_blank" rel="noopener noreferrer"><code>memoir</code></a></p>
+<p><code>geometry</code><br>
+option for <a href="https://ctan.org/pkg/geometry" target="_blank" rel="noopener noreferrer"><code>geometry</code></a> package,
+e.g. <code>margin=1in</code>; repeat for multiple options:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">---</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">geometry:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- top=30mm</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- left=20mm</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- heightrounded</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">...</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p><code>hyperrefoptions</code><br>
+option for <a href="https://ctan.org/pkg/hyperref" target="_blank" rel="noopener noreferrer"><code>hyperref</code></a> package,
+e.g. <code>linktoc=all</code>; repeat for multiple options:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">---</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">hyperrefoptions:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- linktoc=all</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- pdfwindowui</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- pdfpagemode=FullScreen</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">...</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p><code>indent</code><br>
+if true, pandoc will use document class settings for indentation (the
+default LaTeX template otherwise removes indentation and adds space
+between paragraphs)</p>
+<p><code>linestretch</code><br>
+adjusts line spacing using the
+<a href="https://ctan.org/pkg/setspace" target="_blank" rel="noopener noreferrer"><code>setspace</code></a> package, e.g. <code>1.25</code>, <code>1.5</code></p>
+<p><code>margin-left</code>, <code>margin-right</code>, <code>margin-top</code>, <code>margin-bottom</code><br>
+sets margins if <code>geometry</code> is not used (otherwise <code>geometry</code> overrides
+these)</p>
+<p><code>pagestyle</code><br>
+control <code>\pagestyle{}</code>: the default article class supports <code>plain</code>
+(default), <code>empty</code> (no running heads or page numbers), and <code>headings</code>
+(section titles in running heads)</p>
+<p><code>papersize</code><br>
+paper size, e.g. <code>letter</code>, <code>a4</code></p>
+<p><code>secnumdepth</code><br>
+numbering depth for sections (with <code>--number-sections</code> option or
+<code>numbersections</code> variable)</p>
+<p><code>beamerarticle</code><br>
+produce an article from Beamer slides</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="fonts">Fonts<a href="#fonts" class="hash-link" aria-label="Direct link to Fonts" title="Direct link to Fonts">​</a></h4>
+<p><code>fontenc</code><br>
+allows font encoding to be specified through <code>fontenc</code> package (with
+<code>pdflatex</code>); default is <code>T1</code> (see <a href="https://ctan.org/pkg/encguide" target="_blank" rel="noopener noreferrer">LaTeX font encodings
+guide</a>)</p>
+<p><code>fontfamily</code><br>
+font package for use with <code>pdflatex</code>: <a href="https://www.tug.org/texlive/" target="_blank" rel="noopener noreferrer">TeX
+Live</a> includes many options, documented in
+the <a href="https://tug.org/FontCatalogue/" target="_blank" rel="noopener noreferrer">LaTeX Font Catalogue</a>. The default
+is <a href="https://ctan.org/pkg/lm" target="_blank" rel="noopener noreferrer">Latin Modern</a>.</p>
+<p><code>fontfamilyoptions</code><br>
+options for package used as <code>fontfamily</code>; repeat for multiple options.
+For example, to use the Libertine font with proportional lowercase
+(old-style) figures through the
+<a href="https://ctan.org/pkg/libertinus" target="_blank" rel="noopener noreferrer"><code>libertinus</code></a> package:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">---</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">fontfamily: libertinus</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">fontfamilyoptions:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- osf</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- p</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">...</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p><code>fontsize</code><br>
+font size for body text. The standard classes allow 10pt, 11pt, and
+12pt. To use another size, set <code>documentclass</code> to one of the
+<a href="https://ctan.org/pkg/koma-script" target="_blank" rel="noopener noreferrer">KOMA-Script</a> classes, such as
+<code>scrartcl</code> or <code>scrbook</code>.</p>
+<p><code>mainfont</code>, <code>sansfont</code>, <code>monofont</code>, <code>mathfont</code>, <code>CJKmainfont</code>, <code>CJKsansfont</code>, <code>CJKmonofont</code><br>
+font families for use with <code>xelatex</code> or <code>lualatex</code>: take the name of any
+system font, using the <a href="https://ctan.org/pkg/fontspec" target="_blank" rel="noopener noreferrer"><code>fontspec</code></a>
+package. <code>CJKmainfont</code> uses the <a href="https://ctan.org/pkg/xecjk" target="_blank" rel="noopener noreferrer"><code>xecjk</code></a>
+package.</p>
+<p><code>mainfontoptions</code>, <code>sansfontoptions</code>, <code>monofontoptions</code>, <code>mathfontoptions</code>, <code>CJKoptions</code><br>
+options to use with <code>mainfont</code>, <code>sansfont</code>, <code>monofont</code>, <code>mathfont</code>,
+<code>CJKmainfont</code> in <code>xelatex</code> and <code>lualatex</code>. Allow for any choices
+available through <a href="https://ctan.org/pkg/fontspec" target="_blank" rel="noopener noreferrer"><code>fontspec</code></a>; repeat
+for multiple options. For example, to use the <a href="http://www.gust.org.pl/projects/e-foundry/tex-gyre" target="_blank" rel="noopener noreferrer">TeX
+Gyre</a> version of
+Palatino with lowercase figures:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">---</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">mainfont: TeX Gyre Pagella</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">mainfontoptions:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Numbers=Lowercase</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Numbers=Proportional</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">...</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p><code>babelfonts</code><br>
+a map of Babel language names (e.g. <code>chinese</code>) to the font to be used
+with the language:</p>
+<hr>
+<p>babelfonts: chinese-hant: “Noto Serif CJK TC” russian: “Noto Serif” …</p>
+<p><code>microtypeoptions</code><br>
+options to pass to the microtype package</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="links">Links<a href="#links" class="hash-link" aria-label="Direct link to Links" title="Direct link to Links">​</a></h4>
+<p><code>colorlinks</code><br>
+add color to link text; automatically enabled if any of <code>linkcolor</code>,
+<code>filecolor</code>, <code>citecolor</code>, <code>urlcolor</code>, or <code>toccolor</code> are set</p>
+<p><code>boxlinks</code><br>
+add visible box around links (has no effect if <code>colorlinks</code> is set)</p>
+<p><code>linkcolor</code>, <code>filecolor</code>, <code>citecolor</code>, <code>urlcolor</code>, <code>toccolor</code><br>
+color for internal links, external links, citation links, linked URLs,
+and links in table of contents, respectively: uses options allowed by
+<a href="https://ctan.org/pkg/xcolor" target="_blank" rel="noopener noreferrer"><code>xcolor</code></a>, including the <code>dvipsnames</code>,
+<code>svgnames</code>, and <code>x11names</code> lists</p>
+<p><code>links-as-notes</code><br>
+causes links to be printed as footnotes</p>
+<p><code>urlstyle</code><br>
+style for URLs (e.g., <code>tt</code>, <code>rm</code>, <code>sf</code>, and, the default, <code>same</code>)</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="front-matter">Front matter<a href="#front-matter" class="hash-link" aria-label="Direct link to Front matter" title="Direct link to Front matter">​</a></h4>
+<p><code>lof</code>, <code>lot</code><br>
+include list of figures, list of tables</p>
+<p><code>thanks</code><br>
+contents of acknowledgments footnote after document title</p>
+<p><code>toc</code><br>
+include table of contents (can also be set using
+<code>--toc/--table-of-contents</code>)</p>
+<p><code>toc-depth</code><br>
+level of section to include in table of contents</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="biblatex-bibliographies">BibLaTeX Bibliographies<a href="#biblatex-bibliographies" class="hash-link" aria-label="Direct link to BibLaTeX Bibliographies" title="Direct link to BibLaTeX Bibliographies">​</a></h4>
+<p>These variables function when using BibLaTeX for <a href="#citation-rendering">citation
+rendering</a>.</p>
+<p><code>biblatexoptions</code><br>
+list of options for biblatex</p>
+<p><code>biblio-style</code><br>
+bibliography style, when used with <code>--natbib</code> and <code>--biblatex</code></p>
+<p><code>biblio-title</code><br>
+bibliography title, when used with <code>--natbib</code> and <code>--biblatex</code></p>
+<p><code>bibliography</code><br>
+bibliography to use for resolving references</p>
+<p><code>natbiboptions</code><br>
+list of options for natbib</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="variables-for-context">Variables for ConTeXt<a href="#variables-for-context" class="hash-link" aria-label="Direct link to Variables for ConTeXt" title="Direct link to Variables for ConTeXt">​</a></h3>
+<p>Pandoc uses these variables when <a href="#creating-a-pdf">creating a PDF</a> with
+ConTeXt.</p>
+<p><code>fontsize</code><br>
+font size for body text (e.g. <code>10pt</code>, <code>12pt</code>)</p>
+<p><code>headertext</code>, <code>footertext</code><br>
+text to be placed in running header or footer (see <a href="https://wiki.contextgarden.net/Headers_and_Footers" target="_blank" rel="noopener noreferrer">ConTeXt Headers and
+Footers</a>); repeat up
+to four times for different placement</p>
+<p><code>indenting</code><br>
+controls indentation of paragraphs, e.g. <code>yes,small,next</code> (see <a href="https://wiki.contextgarden.net/Indentation" target="_blank" rel="noopener noreferrer">ConTeXt
+Indentation</a>); repeat for
+multiple options</p>
+<p><code>interlinespace</code><br>
+adjusts line spacing, e.g. <code>4ex</code> (using
+<a href="https://wiki.contextgarden.net/Command/setupinterlinespace" target="_blank" rel="noopener noreferrer"><code>setupinterlinespace</code></a>);
+repeat for multiple options</p>
+<p><code>layout</code><br>
+options for page margins and text arrangement (see <a href="https://wiki.contextgarden.net/Layout" target="_blank" rel="noopener noreferrer">ConTeXt
+Layout</a>); repeat for multiple
+options</p>
+<p><code>linkcolor</code>, <code>contrastcolor</code><br>
+color for links outside and inside a page, e.g. <code>red</code>, <code>blue</code> (see
+<a href="https://wiki.contextgarden.net/Color" target="_blank" rel="noopener noreferrer">ConTeXt Color</a>)</p>
+<p><code>linkstyle</code><br>
+typeface style for links, e.g. <code>normal</code>, <code>bold</code>, <code>slanted</code>,
+<code>boldslanted</code>, <code>type</code>, <code>cap</code>, <code>small</code></p>
+<p><code>lof</code>, <code>lot</code><br>
+include list of figures, list of tables</p>
+<p><code>mainfont</code>, <code>sansfont</code>, <code>monofont</code>, <code>mathfont</code><br>
+font families: take the name of any system font (see <a href="https://wiki.contextgarden.net/Font_Switching" target="_blank" rel="noopener noreferrer">ConTeXt Font
+Switching</a>)</p>
+<p><code>margin-left</code>, <code>margin-right</code>, <code>margin-top</code>, <code>margin-bottom</code><br>
+sets margins, if <code>layout</code> is not used (otherwise <code>layout</code> overrides
+these)</p>
+<p><code>pagenumbering</code><br>
+page number style and location (using
+<a href="https://wiki.contextgarden.net/Command/setuppagenumbering" target="_blank" rel="noopener noreferrer"><code>setuppagenumbering</code></a>);
+repeat for multiple options</p>
+<p><code>papersize</code><br>
+paper size, e.g. <code>letter</code>, <code>A4</code>, <code>landscape</code> (see <a href="https://wiki.contextgarden.net/PaperSetup" target="_blank" rel="noopener noreferrer">ConTeXt Paper
+Setup</a>); repeat for multiple
+options</p>
+<p><code>pdfa</code><br>
+adds to the preamble the setup necessary to generate PDF/A of the type
+specified, e.g. <code>1a:2005</code>, <code>2a</code>. If no type is specified (i.e. the value
+is set to True, by e.g. <code>--metadata=pdfa</code> or <code>pdfa: true</code> in a YAML
+metadata block), <code>1b:2005</code> will be used as default, for reasons of
+backwards compatibility. Using <code>--variable=pdfa</code> without specified value
+is not supported. To successfully generate PDF/A the required ICC color
+profiles have to be available and the content and all included files
+(such as images) have to be standard-conforming. The ICC profiles and
+output intent may be specified using the variables <code>pdfaiccprofile</code> and
+<code>pdfaintent</code>. See also <a href="https://wiki.contextgarden.net/PDF/A" target="_blank" rel="noopener noreferrer">ConTeXt
+PDFA</a> for more details.</p>
+<p><code>pdfaiccprofile</code><br>
+when used in conjunction with <code>pdfa</code>, specifies the ICC profile to use
+in the PDF, e.g. <code>default.cmyk</code>. If left unspecified, <code>sRGB.icc</code> is used
+as default. May be repeated to include multiple profiles. Note that the
+profiles have to be available on the system. They can be obtained from
+<a href="https://wiki.contextgarden.net/PDFX#ICC_profiles" target="_blank" rel="noopener noreferrer">ConTeXt ICC
+Profiles</a>.</p>
+<p><code>pdfaintent</code><br>
+when used in conjunction with <code>pdfa</code>, specifies the output intent for
+the colors, e.g. <code>ISO coated v2 300\letterpercent\space (ECI)</code> If left
+unspecified, <code>sRGB IEC61966-2.1</code> is used as default.</p>
+<p><code>toc</code><br>
+include table of contents (can also be set using
+<code>--toc/--table-of-contents</code>)</p>
+<p><code>urlstyle</code><br>
+typeface style for links without link text, e.g. <code>normal</code>, <code>bold</code>,
+<code>slanted</code>, <code>boldslanted</code>, <code>type</code>, <code>cap</code>, <code>small</code></p>
+<p><code>whitespace</code><br>
+spacing between paragraphs, e.g. <code>none</code>, <code>small</code> (using
+<a href="https://wiki.contextgarden.net/Command/setupwhitespace" target="_blank" rel="noopener noreferrer"><code>setupwhitespace</code></a>)</p>
+<p><code>includesource</code><br>
+include all source documents as file attachments in the PDF file</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="variables-for-wkhtmltopdf">Variables for <code>wkhtmltopdf</code><a href="#variables-for-wkhtmltopdf" class="hash-link" aria-label="Direct link to variables-for-wkhtmltopdf" title="Direct link to variables-for-wkhtmltopdf">​</a></h3>
+<p>Pandoc uses these variables when <a href="#creating-a-pdf">creating a PDF</a> with
+<a href="https://wkhtmltopdf.org" target="_blank" rel="noopener noreferrer"><code>wkhtmltopdf</code></a>. The <code>--css</code> option also
+affects the output.</p>
+<p><code>footer-html</code>, <code>header-html</code><br>
+add information to the header and footer</p>
+<p><code>margin-left</code>, <code>margin-right</code>, <code>margin-top</code>, <code>margin-bottom</code><br>
+set the page margins</p>
+<p><code>papersize</code><br>
+sets the PDF paper size</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="variables-for-man-pages">Variables for man pages<a href="#variables-for-man-pages" class="hash-link" aria-label="Direct link to Variables for man pages" title="Direct link to Variables for man pages">​</a></h3>
+<p><code>adjusting</code><br>
+adjusts text to left (<code>l</code>), right (<code>r</code>), center (<code>c</code>), or both (<code>b</code>)
+margins</p>
+<p><code>footer</code><br>
+footer in man pages</p>
+<p><code>header</code><br>
+header in man pages</p>
+<p><code>section</code><br>
+section number in man pages</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="variables-for-typst">Variables for Typst<a href="#variables-for-typst" class="hash-link" aria-label="Direct link to Variables for Typst" title="Direct link to Variables for Typst">​</a></h3>
+<p><code>margin</code><br>
+A dictionary with the fields defined in the Typst documentation: <code>x</code>,
+<code>y</code>, <code>top</code>, <code>bottom</code>, <code>left</code>, <code>right</code>.</p>
+<p><code>papersize</code><br>
+Paper size: <code>a4</code>, <code>us-letter</code>, etc.</p>
+<p><code>mainfont</code><br>
+Name of system font to use for the main font.</p>
+<p><code>fontsize</code><br>
+Font size (e.g., <code>12pt</code>).</p>
+<p><code>section-numbering</code><br>
+Schema to use for numbering sections, e.g. <code>1.A.1</code>.</p>
+<p><code>columns</code><br>
+Number of columns for body text.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="variables-for-ms">Variables for ms<a href="#variables-for-ms" class="hash-link" aria-label="Direct link to Variables for ms" title="Direct link to Variables for ms">​</a></h3>
+<p><code>fontfamily</code><br>
+<code>A</code> (Avant Garde), <code>B</code> (Bookman), <code>C</code> (Helvetica), <code>HN</code> (Helvetica
+Narrow), <code>P</code> (Palatino), or <code>T</code> (Times New Roman). This setting does not
+affect source code, which is always displayed using monospace Courier.
+These built-in fonts are limited in their coverage of characters.
+Additional fonts may be installed using the script
+<a href="https://www.schaffter.ca/mom/bin/install-font.sh" target="_blank" rel="noopener noreferrer"><code>install-font.sh</code></a>
+provided by Peter Schaffter and documented in detail on <a href="https://www.schaffter.ca/mom/momdoc/appendices.html#steps" target="_blank" rel="noopener noreferrer">his web
+site</a>.</p>
+<p><code>indent</code><br>
+paragraph indent (e.g. <code>2m</code>)</p>
+<p><code>lineheight</code><br>
+line height (e.g. <code>12p</code>)</p>
+<p><code>pointsize</code><br>
+point size (e.g. <code>10p</code>)</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="variables-set-automatically">Variables set automatically<a href="#variables-set-automatically" class="hash-link" aria-label="Direct link to Variables set automatically" title="Direct link to Variables set automatically">​</a></h3>
+<p>Pandoc sets these variables automatically in response to
+<a href="#options">options</a> or document contents; users can also modify them.
+These vary depending on the output format, and include the following:</p>
+<p><code>body</code><br>
+body of document</p>
+<p><code>date-meta</code><br>
+the <code>date</code> variable converted to ISO 8601 YYYY-MM-DD, included in all
+HTML based formats (dzslides, epub, html, html4, html5, revealjs, s5,
+slideous, slidy). The recognized formats for <code>date</code> are: <code>mm/dd/yyyy</code>,
+<code>mm/dd/yy</code>, <code>yyyy-mm-dd</code> (ISO 8601), <code>dd MM yyyy</code> (e.g. either
+<code>02 Apr 2018</code> or <code>02 April 2018</code>), <code>MM dd, yyyy</code> (e.g. <code>Apr. 02, 2018</code>
+or <code>April 02, 2018),</code>yyyy[mm[dd]]<code>(e.g.</code>20180402, <code>201804</code> or
+<code>2018</code>).</p>
+<p><code>header-includes</code><br>
+contents specified by <code>-H/--include-in-header</code> (may have multiple
+values)</p>
+<p><code>include-before</code><br>
+contents specified by <code>-B/--include-before-body</code> (may have multiple
+values)</p>
+<p><code>include-after</code><br>
+contents specified by <code>-A/--include-after-body</code> (may have multiple
+values)</p>
+<p><code>meta-json</code><br>
+JSON representation of all of the document’s metadata. Field values are
+transformed to the selected output format.</p>
+<p><code>numbersections</code><br>
+non-null value if <code>-N/--number-sections</code> was specified</p>
+<p><code>sourcefile</code>, <code>outputfile</code><br>
+source and destination filenames, as given on the command line.
+<code>sourcefile</code> can also be a list if input comes from multiple files, or
+empty if input is from stdin. You can use the following snippet in your
+template to distinguish them:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">$if(sourcefile)$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$for(sourcefile)$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$sourcefile$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$endfor$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$else$</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">(stdin)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$endif$</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>Similarly, <code>outputfile</code> can be <code>-</code> if output goes to the terminal.</p>
+<p>If you need absolute paths, use e.g. <code>$curdir$/$sourcefile$</code>.</p>
+<p><code>curdir</code><br>
+working directory from which pandoc is run.</p>
+<p><code>pandoc-version</code><br>
+pandoc version.</p>
+<p><code>toc</code><br>
+non-null value if <code>--toc/--table-of-contents</code> was specified</p>
+<p><code>toc-title</code><br>
+title of table of contents (works only with EPUB, HTML, revealjs,
+opendocument, odt, docx, pptx, beamer, LaTeX)</p></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/Defaults files"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Defaults files</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/Extensions"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Extensions</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#template-syntax" class="table-of-contents__link toc-highlight">Template syntax</a><ul><li><a href="#comments" class="table-of-contents__link toc-highlight">Comments</a></li><li><a href="#delimiters" class="table-of-contents__link toc-highlight">Delimiters</a></li><li><a href="#interpolated-variables" class="table-of-contents__link toc-highlight">Interpolated variables</a></li><li><a href="#conditionals" class="table-of-contents__link toc-highlight">Conditionals</a></li><li><a href="#for-loops" class="table-of-contents__link toc-highlight">For loops</a></li><li><a href="#partials" class="table-of-contents__link toc-highlight">Partials</a></li><li><a href="#nesting" class="table-of-contents__link toc-highlight">Nesting</a></li><li><a href="#breakable-spaces" class="table-of-contents__link toc-highlight">Breakable spaces</a></li><li><a href="#pipes" class="table-of-contents__link toc-highlight">Pipes</a></li></ul></li><li><a href="#variables" class="table-of-contents__link toc-highlight">Variables</a><ul><li><a href="#metadata-variables" class="table-of-contents__link toc-highlight">Metadata variables</a></li><li><a href="#language-variables" class="table-of-contents__link toc-highlight">Language variables</a></li><li><a href="#variables-for-html" class="table-of-contents__link toc-highlight">Variables for HTML</a></li><li><a href="#variables-for-html-math" class="table-of-contents__link toc-highlight">Variables for HTML math</a></li><li><a href="#variables-for-html-slides" class="table-of-contents__link toc-highlight">Variables for HTML slides</a></li><li><a href="#variables-for-beamer-slides" class="table-of-contents__link toc-highlight">Variables for Beamer slides</a></li><li><a href="#variables-for-powerpoint" class="table-of-contents__link toc-highlight">Variables for PowerPoint</a></li><li><a href="#variables-for-latex" class="table-of-contents__link toc-highlight">Variables for LaTeX</a></li><li><a href="#variables-for-context" class="table-of-contents__link toc-highlight">Variables for ConTeXt</a></li><li><a href="#variables-for-wkhtmltopdf" class="table-of-contents__link toc-highlight">Variables for <code>wkhtmltopdf</code></a></li><li><a href="#variables-for-man-pages" class="table-of-contents__link toc-highlight">Variables for man pages</a></li><li><a href="#variables-for-typst" class="table-of-contents__link toc-highlight">Variables for Typst</a></li><li><a href="#variables-for-ms" class="table-of-contents__link toc-highlight">Variables for ms</a></li><li><a href="#variables-set-automatically" class="table-of-contents__link toc-highlight">Variables set automatically</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Panman</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/Synopsis">Docs</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Site built with Docusaurus by <a href="https://stefanocoretta.github.io">Stefano Coretta</a>.</div></div></div></footer></div>
+</body>
+</html>

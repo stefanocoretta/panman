@@ -1,0 +1,1006 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-Options" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.0.1">
+<title data-rh="true">Options | PANMAN</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://stefanocoretta.github.io/Options"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Options | PANMAN"><meta data-rh="true" name="description" content="General options"><meta data-rh="true" property="og:description" content="General options"><link data-rh="true" rel="canonical" href="https://stefanocoretta.github.io/Options"><link data-rh="true" rel="alternate" href="https://stefanocoretta.github.io/Options" hreflang="en"><link data-rh="true" rel="alternate" href="https://stefanocoretta.github.io/Options" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.a4bba1a8.css">
+<script src="/assets/js/runtime~main.777a25e5.js" defer="defer"></script>
+<script src="/assets/js/main.68f96821.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">Panman</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/Synopsis">Docs</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/stefanocoretta/panman" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/Synopsis">Introduction</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" aria-expanded="true" href="/Options">Options</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/Options">Options</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/Exit codes">Exit codes</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/Defaults files">Customisation</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/Pandocs Markdown">Markdown</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/Chunked HTML">Technical</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/A note on security">Security</a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Authors">Authors</a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Options</span><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Options</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><h1>Options</h1>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="general-options">General options<a href="#general-options" class="hash-link" aria-label="Direct link to General options" title="Direct link to General options">​</a></h2>
+<p><code>-f</code> <em>FORMAT</em>, <code>-r</code> <em>FORMAT</em>, <code>--from=</code><em>FORMAT</em>, <code>--read=</code><em>FORMAT</em><br>
+Specify input format. <em>FORMAT</em> can be:</p>
+<div id="input-formats">
+<ul>
+<li><code>bibtex</code> (<a href="https://ctan.org/pkg/bibtex" target="_blank" rel="noopener noreferrer">BibTeX</a> bibliography)</li>
+<li><code>biblatex</code> (<a href="https://ctan.org/pkg/biblatex" target="_blank" rel="noopener noreferrer">BibLaTeX</a> bibliography)</li>
+<li><code>bits</code> (<a href="https://jats.nlm.nih.gov/extensions/bits/" target="_blank" rel="noopener noreferrer">BITS</a> XML, alias
+for <code>jats</code>)</li>
+<li><code>commonmark</code> (<a href="https://commonmark.org" target="_blank" rel="noopener noreferrer">CommonMark</a> Markdown)</li>
+<li><code>commonmark_x</code> (<a href="https://commonmark.org" target="_blank" rel="noopener noreferrer">CommonMark</a> Markdown with
+extensions)</li>
+<li><code>creole</code> (<a href="http://www.wikicreole.org/wiki/Creole1.0" target="_blank" rel="noopener noreferrer">Creole 1.0</a>)</li>
+<li><code>csljson</code> (<a href="https://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html" target="_blank" rel="noopener noreferrer">CSL
+JSON</a>
+bibliography)</li>
+<li><code>csv</code> (<a href="https://tools.ietf.org/html/rfc4180" target="_blank" rel="noopener noreferrer">CSV</a> table)</li>
+<li><code>tsv</code>
+(<a href="https://www.iana.org/assignments/media-types/text/tab-separated-values" target="_blank" rel="noopener noreferrer">TSV</a>
+table)</li>
+<li><code>docbook</code> (<a href="https://docbook.org" target="_blank" rel="noopener noreferrer">DocBook</a>)</li>
+<li><code>docx</code> (<a href="https://en.wikipedia.org/wiki/Office_Open_XML" target="_blank" rel="noopener noreferrer">Word docx</a>)</li>
+<li><code>dokuwiki</code> (<a href="https://www.dokuwiki.org/dokuwiki" target="_blank" rel="noopener noreferrer">DokuWiki markup</a>)</li>
+<li><code>endnotexml</code> (<a href="https://support.clarivate.com/Endnote/s/article/EndNote-XML-Document-Type-Definition" target="_blank" rel="noopener noreferrer">EndNote XML
+bibliography</a>)</li>
+<li><code>epub</code> (<a href="http://idpf.org/epub" target="_blank" rel="noopener noreferrer">EPUB</a>)</li>
+<li><code>fb2</code>
+(<a href="http://www.fictionbook.org/index.php/Eng:XML_Schema_Fictionbook_2.1" target="_blank" rel="noopener noreferrer">FictionBook2</a>
+e-book)</li>
+<li><code>gfm</code> (<a href="https://help.github.com/articles/github-flavored-markdown/" target="_blank" rel="noopener noreferrer">GitHub-Flavored
+Markdown</a>),
+or the deprecated and less accurate <code>markdown_github</code>; use
+<a href="#markdown-variants"><code>markdown_github</code></a> only if you need extensions
+not supported in <a href="#markdown-variants"><code>gfm</code></a>.</li>
+<li><code>haddock</code> (<a href="https://www.haskell.org/haddock/doc/html/ch03s08.html" target="_blank" rel="noopener noreferrer">Haddock
+markup</a>)</li>
+<li><code>html</code> (<a href="https://www.w3.org/html/" target="_blank" rel="noopener noreferrer">HTML</a>)</li>
+<li><code>ipynb</code> (<a href="https://nbformat.readthedocs.io/en/latest/" target="_blank" rel="noopener noreferrer">Jupyter
+notebook</a>)</li>
+<li><code>jats</code> (<a href="https://jats.nlm.nih.gov" target="_blank" rel="noopener noreferrer">JATS</a> XML)</li>
+<li><code>jira</code>
+(<a href="https://jira.atlassian.com/secure/WikiRendererHelpAction.jspa?section=all" target="_blank" rel="noopener noreferrer">Jira</a>/Confluence
+wiki markup)</li>
+<li><code>json</code> (JSON version of native AST)</li>
+<li><code>latex</code> (<a href="https://www.latex-project.org/" target="_blank" rel="noopener noreferrer">LaTeX</a>)</li>
+<li><code>markdown</code> (<a href="#pandocs-markdown">Pandoc’s Markdown</a>)</li>
+<li><code>markdown_mmd</code>
+(<a href="https://fletcherpenney.net/multimarkdown/" target="_blank" rel="noopener noreferrer">MultiMarkdown</a>)</li>
+<li><code>markdown_phpextra</code> (<a href="https://michelf.ca/projects/php-markdown/extra/" target="_blank" rel="noopener noreferrer">PHP Markdown
+Extra</a>)</li>
+<li><code>markdown_strict</code> (original unextended
+<a href="https://daringfireball.net/projects/markdown/" target="_blank" rel="noopener noreferrer">Markdown</a>)</li>
+<li><code>mediawiki</code> (<a href="https://www.mediawiki.org/wiki/Help:Formatting" target="_blank" rel="noopener noreferrer">MediaWiki
+markup</a>)</li>
+<li><code>man</code> (<a href="https://man.cx/groff_man(7)" target="_blank" rel="noopener noreferrer">roff man</a>)</li>
+<li><code>muse</code> (<a href="https://amusewiki.org/library/manual" target="_blank" rel="noopener noreferrer">Muse</a>)</li>
+<li><code>native</code> (native Haskell)</li>
+<li><code>odt</code> (<a href="https://en.wikipedia.org/wiki/OpenDocument" target="_blank" rel="noopener noreferrer">ODT</a>)</li>
+<li><code>opml</code> (<a href="http://dev.opml.org/spec2.html" target="_blank" rel="noopener noreferrer">OPML</a>)</li>
+<li><code>org</code> (<a href="https://orgmode.org" target="_blank" rel="noopener noreferrer">Emacs Org mode</a>)</li>
+<li><code>ris</code> (<a href="https://en.wikipedia.org/wiki/RIS_(file_format)" target="_blank" rel="noopener noreferrer">RIS</a>
+bibliography)</li>
+<li><code>rtf</code> (<a href="https://en.wikipedia.org/wiki/Rich_Text_Format" target="_blank" rel="noopener noreferrer">Rich Text
+Format</a>)</li>
+<li><code>rst</code>
+(<a href="https://docutils.sourceforge.io/docs/ref/rst/introduction.html" target="_blank" rel="noopener noreferrer">reStructuredText</a>)</li>
+<li><code>t2t</code> (<a href="https://txt2tags.org" target="_blank" rel="noopener noreferrer">txt2tags</a>)</li>
+<li><code>textile</code> (<a href="https://textile-lang.com" target="_blank" rel="noopener noreferrer">Textile</a>)</li>
+<li><code>tikiwiki</code> (<a href="https://doc.tiki.org/Wiki-Syntax-Text#The_Markup_Language_Wiki-Syntax" target="_blank" rel="noopener noreferrer">TikiWiki
+markup</a>)</li>
+<li><code>twiki</code> (<a href="https://twiki.org/cgi-bin/view/TWiki/TextFormattingRules" target="_blank" rel="noopener noreferrer">TWiki
+markup</a>)</li>
+<li><code>typst</code> (<a href="https://typst.app" target="_blank" rel="noopener noreferrer">typst</a>)</li>
+<li><code>vimwiki</code> (<a href="https://vimwiki.github.io" target="_blank" rel="noopener noreferrer">Vimwiki</a>)</li>
+<li>the path of a custom Lua reader, see <a href="#custom-readers-and-writers">Custom readers and
+writers</a> below</li>
+</ul>
+</div>
+<p>Extensions can be individually enabled or disabled by appending
+<code>+EXTENSION</code> or <code>-EXTENSION</code> to the format name. See
+<a href="#extensions">Extensions</a> below, for a list of extensions and their
+names. See <code>--list-input-formats</code> and <code>--list-extensions</code>, below.</p>
+<p><code>-t</code> <em>FORMAT</em>, <code>-w</code> <em>FORMAT</em>, <code>--to=</code><em>FORMAT</em>, <code>--write=</code><em>FORMAT</em><br>
+Specify output format. <em>FORMAT</em> can be:</p>
+<div id="output-formats">
+<ul>
+<li><code>asciidoc</code> (modern <a href="https://www.methods.co.nz/asciidoc/" target="_blank" rel="noopener noreferrer">AsciiDoc</a> as
+interpreted by <a href="https://asciidoctor.org/" target="_blank" rel="noopener noreferrer">AsciiDoctor</a>)</li>
+<li><code>asciidoc_legacy</code> (<a href="https://www.methods.co.nz/asciidoc/" target="_blank" rel="noopener noreferrer">AsciiDoc</a> as
+interpreted by
+<a href="https://github.com/asciidoc-py/asciidoc-py" target="_blank" rel="noopener noreferrer"><code>asciidoc-py</code></a>).</li>
+<li><code>asciidoctor</code> (deprecated synonym for <code>asciidoc</code>)</li>
+<li><code>beamer</code> (<a href="https://ctan.org/pkg/beamer" target="_blank" rel="noopener noreferrer">LaTeX beamer</a> slide show)</li>
+<li><code>bibtex</code> (<a href="https://ctan.org/pkg/bibtex" target="_blank" rel="noopener noreferrer">BibTeX</a> bibliography)</li>
+<li><code>biblatex</code> (<a href="https://ctan.org/pkg/biblatex" target="_blank" rel="noopener noreferrer">BibLaTeX</a> bibliography)</li>
+<li><code>chunkedhtml</code> (zip archive of multiple linked HTML files)</li>
+<li><code>commonmark</code> (<a href="https://commonmark.org" target="_blank" rel="noopener noreferrer">CommonMark</a> Markdown)</li>
+<li><code>commonmark_x</code> (<a href="https://commonmark.org" target="_blank" rel="noopener noreferrer">CommonMark</a> Markdown with
+extensions)</li>
+<li><code>context</code> (<a href="https://www.contextgarden.net/" target="_blank" rel="noopener noreferrer">ConTeXt</a>)</li>
+<li><code>csljson</code> (<a href="https://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html" target="_blank" rel="noopener noreferrer">CSL
+JSON</a>
+bibliography)</li>
+<li><code>docbook</code> or <code>docbook4</code> (<a href="https://docbook.org" target="_blank" rel="noopener noreferrer">DocBook</a> 4)</li>
+<li><code>docbook5</code> (DocBook 5)</li>
+<li><code>docx</code> (<a href="https://en.wikipedia.org/wiki/Office_Open_XML" target="_blank" rel="noopener noreferrer">Word docx</a>)</li>
+<li><code>dokuwiki</code> (<a href="https://www.dokuwiki.org/dokuwiki" target="_blank" rel="noopener noreferrer">DokuWiki markup</a>)</li>
+<li><code>epub</code> or <code>epub3</code> (<a href="http://idpf.org/epub" target="_blank" rel="noopener noreferrer">EPUB</a> v3 book)</li>
+<li><code>epub2</code> (EPUB v2)</li>
+<li><code>fb2</code>
+(<a href="http://www.fictionbook.org/index.php/Eng:XML_Schema_Fictionbook_2.1" target="_blank" rel="noopener noreferrer">FictionBook2</a>
+e-book)</li>
+<li><code>gfm</code> (<a href="https://help.github.com/articles/github-flavored-markdown/" target="_blank" rel="noopener noreferrer">GitHub-Flavored
+Markdown</a>),
+or the deprecated and less accurate <code>markdown_github</code>; use
+<a href="#markdown-variants"><code>markdown_github</code></a> only if you need extensions
+not supported in <a href="#markdown-variants"><code>gfm</code></a>.</li>
+<li><code>haddock</code> (<a href="https://www.haskell.org/haddock/doc/html/ch03s08.html" target="_blank" rel="noopener noreferrer">Haddock
+markup</a>)</li>
+<li><code>html</code> or <code>html5</code> (<a href="https://www.w3.org/html/" target="_blank" rel="noopener noreferrer">HTML</a>,
+i.e. <a href="https://html.spec.whatwg.org/" target="_blank" rel="noopener noreferrer">HTML5</a>/XHTML <a href="https://www.w3.org/TR/html-polyglot/" target="_blank" rel="noopener noreferrer">polyglot
+markup</a>)</li>
+<li><code>html4</code> (<a href="https://www.w3.org/TR/xhtml1/" target="_blank" rel="noopener noreferrer">XHTML</a> 1.0 Transitional)</li>
+<li><code>icml</code> (<a href="https://wwwimages.adobe.com/www.adobe.com/content/dam/acom/en/devnet/indesign/sdk/cs6/idml/idml-cookbook.pdf" target="_blank" rel="noopener noreferrer">InDesign
+ICML</a>)</li>
+<li><code>ipynb</code> (<a href="https://nbformat.readthedocs.io/en/latest/" target="_blank" rel="noopener noreferrer">Jupyter
+notebook</a>)</li>
+<li><code>jats_archiving</code> (<a href="https://jats.nlm.nih.gov" target="_blank" rel="noopener noreferrer">JATS</a> XML, Archiving and
+Interchange Tag Set)</li>
+<li><code>jats_articleauthoring</code> (<a href="https://jats.nlm.nih.gov" target="_blank" rel="noopener noreferrer">JATS</a> XML, Article
+Authoring Tag Set)</li>
+<li><code>jats_publishing</code> (<a href="https://jats.nlm.nih.gov" target="_blank" rel="noopener noreferrer">JATS</a> XML, Journal
+Publishing Tag Set)</li>
+<li><code>jats</code> (alias for <code>jats_archiving</code>)</li>
+<li><code>jira</code>
+(<a href="https://jira.atlassian.com/secure/WikiRendererHelpAction.jspa?section=all" target="_blank" rel="noopener noreferrer">Jira</a>/Confluence
+wiki markup)</li>
+<li><code>json</code> (JSON version of native AST)</li>
+<li><code>latex</code> (<a href="https://www.latex-project.org/" target="_blank" rel="noopener noreferrer">LaTeX</a>)</li>
+<li><code>man</code> (<a href="https://man.cx/groff_man(7)" target="_blank" rel="noopener noreferrer">roff man</a>)</li>
+<li><code>markdown</code> (<a href="#pandocs-markdown">Pandoc’s Markdown</a>)</li>
+<li><code>markdown_mmd</code>
+(<a href="https://fletcherpenney.net/multimarkdown/" target="_blank" rel="noopener noreferrer">MultiMarkdown</a>)</li>
+<li><code>markdown_phpextra</code> (<a href="https://michelf.ca/projects/php-markdown/extra/" target="_blank" rel="noopener noreferrer">PHP Markdown
+Extra</a>)</li>
+<li><code>markdown_strict</code> (original unextended
+<a href="https://daringfireball.net/projects/markdown/" target="_blank" rel="noopener noreferrer">Markdown</a>)</li>
+<li><code>markua</code> (<a href="https://leanpub.com/markua/read" target="_blank" rel="noopener noreferrer">Markua</a>)</li>
+<li><code>mediawiki</code> (<a href="https://www.mediawiki.org/wiki/Help:Formatting" target="_blank" rel="noopener noreferrer">MediaWiki
+markup</a>)</li>
+<li><code>ms</code> (<a href="https://man.cx/groff_ms(7)" target="_blank" rel="noopener noreferrer">roff ms</a>)</li>
+<li><code>muse</code> (<a href="https://amusewiki.org/library/manual" target="_blank" rel="noopener noreferrer">Muse</a>)</li>
+<li><code>native</code> (native Haskell)</li>
+<li><code>odt</code> (<a href="https://en.wikipedia.org/wiki/OpenDocument" target="_blank" rel="noopener noreferrer">OpenOffice text
+document</a>)</li>
+<li><code>opml</code> (<a href="http://dev.opml.org/spec2.html" target="_blank" rel="noopener noreferrer">OPML</a>)</li>
+<li><code>opendocument</code> (<a href="http://opendocument.xml.org" target="_blank" rel="noopener noreferrer">OpenDocument</a>)</li>
+<li><code>org</code> (<a href="https://orgmode.org" target="_blank" rel="noopener noreferrer">Emacs Org mode</a>)</li>
+<li><code>pdf</code> (<a href="https://www.adobe.com/pdf/" target="_blank" rel="noopener noreferrer">PDF</a>)</li>
+<li><code>plain</code> (plain text)</li>
+<li><code>pptx</code>
+(<a href="https://en.wikipedia.org/wiki/Microsoft_PowerPoint" target="_blank" rel="noopener noreferrer">PowerPoint</a>
+slide show)</li>
+<li><code>rst</code>
+(<a href="https://docutils.sourceforge.io/docs/ref/rst/introduction.html" target="_blank" rel="noopener noreferrer">reStructuredText</a>)</li>
+<li><code>rtf</code> (<a href="https://en.wikipedia.org/wiki/Rich_Text_Format" target="_blank" rel="noopener noreferrer">Rich Text
+Format</a>)</li>
+<li><code>texinfo</code> (<a href="https://www.gnu.org/software/texinfo/" target="_blank" rel="noopener noreferrer">GNU Texinfo</a>)</li>
+<li><code>textile</code> (<a href="https://textile-lang.com" target="_blank" rel="noopener noreferrer">Textile</a>)</li>
+<li><code>slideous</code> (<a href="https://goessner.net/articles/slideous/" target="_blank" rel="noopener noreferrer">Slideous</a> HTML
+and JavaScript slide show)</li>
+<li><code>slidy</code> (<a href="https://www.w3.org/Talks/Tools/Slidy2/" target="_blank" rel="noopener noreferrer">Slidy</a> HTML and
+JavaScript slide show)</li>
+<li><code>dzslides</code> (<a href="https://paulrouget.com/dzslides/" target="_blank" rel="noopener noreferrer">DZSlides</a> HTML5 +
+JavaScript slide show)</li>
+<li><code>revealjs</code> (<a href="https://revealjs.com/" target="_blank" rel="noopener noreferrer">reveal.js</a> HTML5 + JavaScript
+slide show)</li>
+<li><code>s5</code> (<a href="https://meyerweb.com/eric/tools/s5/" target="_blank" rel="noopener noreferrer">S5</a> HTML and JavaScript
+slide show)</li>
+<li><code>tei</code> (<a href="https://github.com/TEIC/TEI-Simple" target="_blank" rel="noopener noreferrer">TEI Simple</a>)</li>
+<li><code>typst</code> (<a href="https://typst.app" target="_blank" rel="noopener noreferrer">typst</a>)</li>
+<li><code>xwiki</code> (<a href="https://www.xwiki.org/xwiki/bin/view/Documentation/UserGuide/Features/XWikiSyntax/" target="_blank" rel="noopener noreferrer">XWiki
+markup</a>)</li>
+<li><code>zimwiki</code> (<a href="https://zim-wiki.org/manual/Help/Wiki_Syntax.html" target="_blank" rel="noopener noreferrer">ZimWiki
+markup</a>)</li>
+<li>the path of a custom Lua writer, see <a href="#custom-readers-and-writers">Custom readers and
+writers</a> below</li>
+</ul>
+</div>
+<p>Note that <code>odt</code>, <code>docx</code>, <code>epub</code>, and <code>pdf</code> output will not be directed
+to <em>stdout</em> unless forced with <code>-o -</code>.</p>
+<p>Extensions can be individually enabled or disabled by appending
+<code>+EXTENSION</code> or <code>-EXTENSION</code> to the format name. See
+<a href="#extensions">Extensions</a> below, for a list of extensions and their
+names. See <code>--list-output-formats</code> and <code>--list-extensions</code>, below.</p>
+<p><code>-o</code> <em>FILE</em>, <code>--output=</code><em>FILE</em><br>
+Write output to <em>FILE</em> instead of <em>stdout</em>. If <em>FILE</em> is <code>-</code>, output
+will go to <em>stdout</em>, even if a non-textual format (<code>docx</code>, <code>odt</code>,
+<code>epub2</code>, <code>epub3</code>) is specified. If the output format is <code>chunkedhtml</code>
+and <em>FILE</em> has no extension, then instead of producing a <code>.zip</code> file
+pandoc will create a directory <em>FILE</em> and unpack the zip archive there
+(unless <em>FILE</em> already exists, in which case an error will be raised).</p>
+<p><code>--data-dir=</code><em>DIRECTORY</em><br>
+Specify the user data directory to search for pandoc data files. If this
+option is not specified, the default user data directory will be used.
+On *nix and macOS systems this will be the <code>pandoc</code> subdirectory of the
+XDG data directory (by default, <code>$HOME/.local/share</code>, overridable by
+setting the <code>XDG_DATA_HOME</code> environment variable). If that directory
+does not exist and <code>$HOME/.pandoc</code> exists, it will be used (for
+backwards compatibility). On Windows the default user data directory is
+<code>%APPDATA%\pandoc</code>. You can find the default user data directory on your
+system by looking at the output of <code>pandoc --version</code>. Data files placed
+in this directory (for example, <code>reference.odt</code>, <code>reference.docx</code>,
+<code>epub.css</code>, <code>templates</code>) will override pandoc’s normal defaults. (Note
+that the user data directory is not created by pandoc, so you will need
+to create it yourself if you want to make use of it.)</p>
+<p><code>-d</code> <em>FILE</em>, <code>--defaults=</code><em>FILE</em><br>
+Specify a set of default option settings. <em>FILE</em> is a YAML file whose
+fields correspond to command-line option settings. All options for
+document conversion, including input and output files, can be set using
+a defaults file. The file will be searched for first in the working
+directory, and then in the <code>defaults</code> subdirectory of the user data
+directory (see <code>--data-dir</code>). The <code>.yaml</code> extension may be omitted. See
+the section <a href="#defaults-files">Defaults files</a> for more information on
+the file format. Settings from the defaults file may be overridden or
+extended by subsequent options on the command line.</p>
+<p><code>--bash-completion</code><br>
+Generate a bash completion script. To enable bash completion with
+pandoc, add this to your <code>.bashrc</code>:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">eval &quot;$(pandoc --bash-completion)&quot;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p><code>--verbose</code><br>
+Give verbose debugging output.</p>
+<p><code>--quiet</code><br>
+Suppress warning messages.</p>
+<p><code>--fail-if-warnings[=true|false]</code><br>
+Exit with error status if there are any warnings.</p>
+<p><code>--log=</code><em>FILE</em><br>
+Write log messages in machine-readable JSON format to <em>FILE</em>. All
+messages above DEBUG level will be written, regardless of verbosity
+settings (<code>--verbose</code>, <code>--quiet</code>).</p>
+<p><code>--list-input-formats</code><br>
+List supported input formats, one per line.</p>
+<p><code>--list-output-formats</code><br>
+List supported output formats, one per line.</p>
+<p><code>--list-extensions</code>[<code>=</code><em>FORMAT</em>]<br>
+List supported extensions for <em>FORMAT</em>, one per line, preceded by a <code>+</code>
+or <code>-</code> indicating whether it is enabled by default in <em>FORMAT</em>. If
+<em>FORMAT</em> is not specified, defaults for pandoc’s Markdown are given.</p>
+<p><code>--list-highlight-languages</code><br>
+List supported languages for syntax highlighting, one per line.</p>
+<p><code>--list-highlight-styles</code><br>
+List supported styles for syntax highlighting, one per line. See
+<code>--highlight-style</code>.</p>
+<p><code>-v</code>, <code>--version</code><br>
+Print version.</p>
+<p><code>-h</code>, <code>--help</code><br>
+Show usage message.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="reader-options">Reader options<a href="#reader-options" class="hash-link" aria-label="Direct link to Reader options" title="Direct link to Reader options">​</a></h2>
+<p><code>--shift-heading-level-by=</code><em>NUMBER</em><br>
+Shift heading levels by a positive or negative integer. For example,
+with <code>--shift-heading-level-by=-1</code>, level 2 headings become level 1
+headings, and level 3 headings become level 2 headings. Headings cannot
+have a level less than 1, so a heading that would be shifted below level
+1 becomes a regular paragraph. Exception: with a shift of -N, a level-N
+heading at the beginning of the document replaces the metadata title.
+<code>--shift-heading-level-by=-1</code> is a good choice when converting HTML or
+Markdown documents that use an initial level-1 heading for the document
+title and level-2+ headings for sections. <code>--shift-heading-level-by=1</code>
+may be a good choice for converting Markdown documents that use level-1
+headings for sections to HTML, since pandoc uses a level-1 heading to
+render the document title.</p>
+<p><code>--base-header-level=</code><em>NUMBER</em><br>
+<em>Deprecated. Use <code>--shift-heading-level-by</code>=X instead, where X =
+NUMBER - 1.</em> Specify the base level for headings (defaults to 1).</p>
+<p><code>--indented-code-classes=</code><em>CLASSES</em><br>
+Specify classes to use for indented code blocks–for example,
+<code>perl,numberLines</code> or <code>haskell</code>. Multiple classes may be separated by
+spaces or commas.</p>
+<p><code>--default-image-extension=</code><em>EXTENSION</em><br>
+Specify a default extension to use when image paths/URLs have no
+extension. This allows you to use the same source for formats that
+require different kinds of images. Currently this option only affects
+the Markdown and LaTeX readers.</p>
+<p><code>--file-scope[=true|false]</code><br>
+Parse each file individually before combining for multifile documents.
+This will allow footnotes in different files with the same identifiers
+to work as expected. If this option is set, footnotes and links will not
+work across files. Reading binary files (docx, odt, epub) implies
+<code>--file-scope</code>.</p>
+<p>If two or more files are processed using <code>--file-scope</code>, prefixes based
+on the filenames will be added to identifiers in order to disambiguate
+them, and internal links will be adjusted accordingly. For example, a
+header with identifier <code>foo</code> in <code>subdir/file1.txt</code> will have its
+identifier changed to <code>subdir__file1.txt__foo</code>.</p>
+<p>In addition, a Div with an identifier based on the filename will be
+added around the file’s content, so that internal links to the filename
+will point to this Div’s identifier.</p>
+<p><code>-F</code> <em>PROGRAM</em>, <code>--filter=</code><em>PROGRAM</em><br>
+Specify an executable to be used as a filter transforming the pandoc AST
+after the input is parsed and before the output is written. The
+executable should read JSON from stdin and write JSON to stdout. The
+JSON must be formatted like pandoc’s own JSON input and output. The name
+of the output format will be passed to the filter as the first argument.
+Hence,</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">pandoc --filter ./caps.py -t latex</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>is equivalent to</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">pandoc -t json | ./caps.py latex | pandoc -f json -t latex</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>The latter form may be useful for debugging filters.</p>
+<p>Filters may be written in any language. <code>Text.Pandoc.JSON</code> exports
+<code>toJSONFilter</code> to facilitate writing filters in Haskell. Those who would
+prefer to write filters in python can use the module
+<a href="https://github.com/jgm/pandocfilters" target="_blank" rel="noopener noreferrer"><code>pandocfilters</code></a>, installable
+from PyPI. There are also pandoc filter libraries in
+<a href="https://github.com/vinai/pandocfilters-php" target="_blank" rel="noopener noreferrer">PHP</a>,
+<a href="https://metacpan.org/pod/Pandoc::Filter" target="_blank" rel="noopener noreferrer">perl</a>, and
+<a href="https://github.com/mvhenderson/pandoc-filter-node" target="_blank" rel="noopener noreferrer">JavaScript/node.js</a>.</p>
+<p>In order of preference, pandoc will look for filters in</p>
+<ol>
+<li>
+<p>a specified full or relative path (executable or non-executable),</p>
+</li>
+<li>
+<p><code>$DATADIR/filters</code> (executable or non-executable) where <code>$DATADIR</code>
+is the user data directory (see <code>--data-dir</code>, above),</p>
+</li>
+<li>
+<p><code>$PATH</code> (executable only).</p>
+</li>
+</ol>
+<p>Filters, Lua-filters, and citeproc processing are applied in the order
+specified on the command line.</p>
+<p><code>-L</code> <em>SCRIPT</em>, <code>--lua-filter=</code><em>SCRIPT</em><br>
+Transform the document in a similar fashion as JSON filters (see
+<code>--filter</code>), but use pandoc’s built-in Lua filtering system. The given
+Lua script is expected to return a list of Lua filters which will be
+applied in order. Each Lua filter must contain element-transforming
+functions indexed by the name of the AST element on which the filter
+function should be applied.</p>
+<p>The <code>pandoc</code> Lua module provides helper functions for element creation.
+It is always loaded into the script’s Lua environment.</p>
+<p>See the <a href="https://pandoc.org/lua-filters.html" target="_blank" rel="noopener noreferrer">Lua filters documentation</a>
+for further details.</p>
+<p>In order of preference, pandoc will look for Lua filters in</p>
+<ol>
+<li>
+<p>a specified full or relative path,</p>
+</li>
+<li>
+<p><code>$DATADIR/filters</code> where <code>$DATADIR</code> is the user data directory (see
+<code>--data-dir</code>, above).</p>
+</li>
+</ol>
+<p>Filters, Lua filters, and citeproc processing are applied in the order
+specified on the command line.</p>
+<p><code>-M</code> <em>KEY</em>[<code>=</code><em>VAL</em>], <code>--metadata=</code><em>KEY</em>[<code>:</code><em>VAL</em>]<br>
+Set the metadata field <em>KEY</em> to the value <em>VAL</em>. A value specified on
+the command line overrides a value specified in the document using <a href="#extension-yaml_metadata_block">YAML
+metadata blocks</a>. Values will be parsed
+as YAML boolean or string values. If no value is specified, the value
+will be treated as Boolean true. Like <code>--variable</code>, <code>--metadata</code> causes
+template variables to be set. But unlike <code>--variable</code>, <code>--metadata</code>
+affects the metadata of the underlying document (which is accessible
+from filters and may be printed in some output formats) and metadata
+values will be escaped when inserted into the template.</p>
+<p><code>--metadata-file=</code><em>FILE</em><br>
+Read metadata from the supplied YAML (or JSON) file. This option can be
+used with every input format, but string scalars in the metadata file
+will always be parsed as Markdown. (If the input format is Markdown or a
+Markdown variant, then the same variant will be used to parse the
+metadata file; if it is a non-Markdown format, pandoc’s default Markdown
+extensions will be used.) This option can be used repeatedly to include
+multiple metadata files; values in files specified later on the command
+line will be preferred over those specified in earlier files. Metadata
+values specified inside the document, or by using <code>-M</code>, overwrite values
+specified with this option. The file will be searched for first in the
+working directory, and then in the <code>metadata</code> subdirectory of the user
+data directory (see <code>--data-dir</code>).</p>
+<p><code>-p</code>, <code>--preserve-tabs[=true|false]</code><br>
+Preserve tabs instead of converting them to spaces. (By default, pandoc
+converts tabs to spaces before parsing its input.) Note that this will
+only affect tabs in literal code spans and code blocks. Tabs in regular
+text are always treated as spaces.</p>
+<p><code>--tab-stop=</code><em>NUMBER</em><br>
+Specify the number of spaces per tab (default is 4).</p>
+<p><code>--track-changes=accept</code>|<code>reject</code>|<code>all</code><br>
+Specifies what to do with insertions, deletions, and comments produced
+by the MS Word “Track Changes” feature. <code>accept</code> (the default) processes
+all the insertions and deletions. <code>reject</code> ignores them. Both <code>accept</code>
+and <code>reject</code> ignore comments. <code>all</code> includes all insertions, deletions,
+and comments, wrapped in spans with <code>insertion</code>, <code>deletion</code>,
+<code>comment-start</code>, and <code>comment-end</code> classes, respectively. The author and
+time of change is included. <code>all</code> is useful for scripting: only
+accepting changes from a certain reviewer, say, or before a certain
+date. If a paragraph is inserted or deleted, <code>track-changes=all</code>
+produces a span with the class
+<code>paragraph-insertion</code>/<code>paragraph-deletion</code> before the affected paragraph
+break. This option only affects the docx reader.</p>
+<p><code>--extract-media=</code><em>DIR</em><br>
+Extract images and other media contained in or linked from the source
+document to the path <em>DIR</em>, creating it if necessary, and adjust the
+images references in the document so they point to the extracted files.
+Media are downloaded, read from the file system, or extracted from a
+binary container (e.g. docx), as needed. The original file paths are
+used if they are relative paths not containing <code>..</code>. Otherwise filenames
+are constructed from the SHA1 hash of the contents.</p>
+<p><code>--abbreviations=</code><em>FILE</em><br>
+Specifies a custom abbreviations file, with abbreviations one to a line.
+If this option is not specified, pandoc will read the data file
+<code>abbreviations</code> from the user data directory or fall back on a system
+default. To see the system default, use
+<code>pandoc --print-default-data-file=abbreviations</code>. The only use pandoc
+makes of this list is in the Markdown reader. Strings found in this list
+will be followed by a nonbreaking space, and the period will not produce
+sentence-ending space in formats like LaTeX. The strings may not contain
+spaces.</p>
+<p><code>--trace[=true|false]</code><br>
+Print diagnostic output tracing parser progress to stderr. This option
+is intended for use by developers in diagnosing performance issues.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="general-writer-options">General writer options<a href="#general-writer-options" class="hash-link" aria-label="Direct link to General writer options" title="Direct link to General writer options">​</a></h2>
+<p><code>-s</code>, <code>--standalone</code><br>
+Produce output with an appropriate header and footer (e.g. a standalone
+HTML, LaTeX, TEI, or RTF file, not a fragment). This option is set
+automatically for <code>pdf</code>, <code>epub</code>, <code>epub3</code>, <code>fb2</code>, <code>docx</code>, and <code>odt</code>
+output. For <code>native</code> output, this option causes metadata to be included;
+otherwise, metadata is suppressed.</p>
+<p><code>--template=</code><em>FILE</em>|<em>URL</em><br>
+Use the specified file as a custom template for the generated document.
+Implies <code>--standalone</code>. See <a href="#templates">Templates</a>, below, for a
+description of template syntax. If no extension is specified, an
+extension corresponding to the writer will be added, so that
+<code>--template=special</code> looks for <code>special.html</code> for HTML output. If the
+template is not found, pandoc will search for it in the <code>templates</code>
+subdirectory of the user data directory (see <code>--data-dir</code>). If this
+option is not used, a default template appropriate for the output format
+will be used (see <code>-D/--print-default-template</code>).</p>
+<p><code>-V</code> <em>KEY</em>[<code>=</code><em>VAL</em>], <code>--variable=</code><em>KEY</em>[<code>:</code><em>VAL</em>]<br>
+Set the template variable <em>KEY</em> to the value <em>VAL</em> when rendering the
+document in standalone mode. If no <em>VAL</em> is specified, the key will be
+given the value <code>true</code>.</p>
+<p><code>--sandbox[=true|false]</code><br>
+Run pandoc in a sandbox, limiting IO operations in readers and writers
+to reading the files specified on the command line. Note that this
+option does not limit IO operations by filters or in the production of
+PDF documents. But it does offer security against, for example,
+disclosure of files through the use of <code>include</code> directives. Anyone
+using pandoc on untrusted user input should use this option.</p>
+<p>Note: some readers and writers (e.g., <code>docx</code>) need access to data files.
+If these are stored on the file system, then pandoc will not be able to
+find them when run in <code>--sandbox</code> mode and will raise an error. For
+these applications, we recommend using a pandoc binary compiled with the
+<code>embed_data_files</code> option, which causes the data files to be baked into
+the binary instead of being stored on the file system.</p>
+<p><code>-D</code> <em>FORMAT</em>, <code>--print-default-template=</code><em>FORMAT</em><br>
+Print the system default template for an output <em>FORMAT</em>. (See <code>-t</code> for
+a list of possible <em>FORMAT</em>s.) Templates in the user data directory are
+ignored. This option may be used with <code>-o</code>/<code>--output</code> to redirect output
+to a file, but <code>-o</code>/<code>--output</code> must come before
+<code>--print-default-template</code> on the command line.</p>
+<p>Note that some of the default templates use partials, for example
+<code>styles.html</code>. To print the partials, use <code>--print-default-data-file</code>:
+for example, <code>--print-default-data-file=templates/styles.html</code>.</p>
+<p><code>--print-default-data-file=</code><em>FILE</em><br>
+Print a system default data file. Files in the user data directory are
+ignored. This option may be used with <code>-o</code>/<code>--output</code> to redirect output
+to a file, but <code>-o</code>/<code>--output</code> must come before
+<code>--print-default-data-file</code> on the command line.</p>
+<p><code>--eol=crlf</code>|<code>lf</code>|<code>native</code><br>
+Manually specify line endings: <code>crlf</code> (Windows), <code>lf</code>
+(macOS/Linux/UNIX), or <code>native</code> (line endings appropriate to the OS on
+which pandoc is being run). The default is <code>native</code>.</p>
+<p><code>--dpi</code>=<em>NUMBER</em><br>
+Specify the default dpi (dots per inch) value for conversion from pixels
+to inch/centimeters and vice versa. (Technically, the correct term would
+be ppi: pixels per inch.) The default is 96dpi. When images contain
+information about dpi internally, the encoded value is used instead of
+the default specified by this option.</p>
+<p><code>--wrap=auto</code>|<code>none</code>|<code>preserve</code><br>
+Determine how text is wrapped in the output (the source code, not the
+rendered version). With <code>auto</code> (the default), pandoc will attempt to
+wrap lines to the column width specified by <code>--columns</code> (default 72).
+With <code>none</code>, pandoc will not wrap lines at all. With <code>preserve</code>, pandoc
+will attempt to preserve the wrapping from the source document (that is,
+where there are nonsemantic newlines in the source, there will be
+nonsemantic newlines in the output as well). In <code>ipynb</code> output, this
+option affects wrapping of the contents of markdown cells.</p>
+<p><code>--columns=</code><em>NUMBER</em><br>
+Specify length of lines in characters. This affects text wrapping in the
+generated source code (see <code>--wrap</code>). It also affects calculation of
+column widths for plain text tables (see <a href="#tables">Tables</a> below).</p>
+<p><code>--toc[=true|false]</code>, <code>--table-of-contents[=true|false]</code><br>
+Include an automatically generated table of contents (or, in the case of
+<code>latex</code>, <code>context</code>, <code>docx</code>, <code>odt</code>, <code>opendocument</code>, <code>rst</code>, or <code>ms</code>, an
+instruction to create one) in the output document. This option has no
+effect unless <code>-s/--standalone</code> is used, and it has no effect on <code>man</code>,
+<code>docbook4</code>, <code>docbook5</code>, or <code>jats</code> output.</p>
+<p>Note that if you are producing a PDF via <code>ms</code>, the table of contents
+will appear at the beginning of the document, before the title. If you
+would prefer it to be at the end of the document, use the option
+<code>--pdf-engine-opt=--no-toc-relocation</code>.</p>
+<p><code>--toc-depth=</code><em>NUMBER</em><br>
+Specify the number of section levels to include in the table of
+contents. The default is 3 (which means that level-1, 2, and 3 headings
+will be listed in the contents).</p>
+<p><code>--strip-comments[=true|false]</code><br>
+Strip out HTML comments in the Markdown or Textile source, rather than
+passing them on to Markdown, Textile or HTML output as raw HTML. This
+does not apply to HTML comments inside raw HTML blocks when the
+<code>markdown_in_html_blocks</code> extension is not set.</p>
+<p><code>--no-highlight</code><br>
+Disables syntax highlighting for code blocks and inlines, even when a
+language attribute is given.</p>
+<p><code>--highlight-style=</code><em>STYLE</em>|<em>FILE</em><br>
+Specifies the coloring style to be used in highlighted source code.
+Options are <code>pygments</code> (the default), <code>kate</code>, <code>monochrome</code>,
+<code>breezeDark</code>, <code>espresso</code>, <code>zenburn</code>, <code>haddock</code>, and <code>tango</code>. For more
+information on syntax highlighting in pandoc, see <a href="#syntax-highlighting">Syntax
+highlighting</a>, below. See also
+<code>--list-highlight-styles</code>.</p>
+<p>Instead of a <em>STYLE</em> name, a JSON file with extension <code>.theme</code> may be
+supplied. This will be parsed as a KDE syntax highlighting theme and (if
+valid) used as the highlighting style.</p>
+<p>To generate the JSON version of an existing style, use
+<code>--print-highlight-style</code>.</p>
+<p><code>--print-highlight-style=</code><em>STYLE</em>|<em>FILE</em><br>
+Prints a JSON version of a highlighting style, which can be modified,
+saved with a <code>.theme</code> extension, and used with <code>--highlight-style</code>. This
+option may be used with <code>-o</code>/<code>--output</code> to redirect output to a file,
+but <code>-o</code>/<code>--output</code> must come before <code>--print-highlight-style</code> on the
+command line.</p>
+<p><code>--syntax-definition=</code><em>FILE</em><br>
+Instructs pandoc to load a KDE XML syntax definition file, which will be
+used for syntax highlighting of appropriately marked code blocks. This
+can be used to add support for new languages or to use altered syntax
+definitions for existing languages. This option may be repeated to add
+multiple syntax definitions.</p>
+<p><code>-H</code> <em>FILE</em>, <code>--include-in-header=</code><em>FILE</em>|<em>URL</em><br>
+Include contents of <em>FILE</em>, verbatim, at the end of the header. This can
+be used, for example, to include special CSS or JavaScript in HTML
+documents. This option can be used repeatedly to include multiple files
+in the header. They will be included in the order specified. Implies
+<code>--standalone</code>.</p>
+<p><code>-B</code> <em>FILE</em>, <code>--include-before-body=</code><em>FILE</em>|<em>URL</em><br>
+Include contents of <em>FILE</em>, verbatim, at the beginning of the document
+body (e.g. after the <code>&lt;body&gt;</code> tag in HTML, or the <code>\begin{document}</code>
+command in LaTeX). This can be used to include navigation bars or
+banners in HTML documents. This option can be used repeatedly to include
+multiple files. They will be included in the order specified. Implies
+<code>--standalone</code>.</p>
+<p><code>-A</code> <em>FILE</em>, <code>--include-after-body=</code><em>FILE</em>|<em>URL</em><br>
+Include contents of <em>FILE</em>, verbatim, at the end of the document body
+(before the <code>&lt;/body&gt;</code> tag in HTML, or the <code>\end{document}</code> command in
+LaTeX). This option can be used repeatedly to include multiple files.
+They will be included in the order specified. Implies <code>--standalone</code>.</p>
+<p><code>--resource-path=</code><em>SEARCHPATH</em><br>
+List of paths to search for images and other resources. The paths should
+be separated by <code>:</code> on Linux, UNIX, and macOS systems, and by <code>;</code> on
+Windows. If <code>--resource-path</code> is not specified, the default resource
+path is the working directory. Note that, if <code>--resource-path</code> is
+specified, the working directory must be explicitly listed or it will
+not be searched. For example: <code>--resource-path=.:test</code> will search the
+working directory and the <code>test</code> subdirectory, in that order. This
+option can be used repeatedly. Search path components that come later on
+the command line will be searched before those that come earlier, so
+<code>--resource-path foo:bar --resource-path baz:bim</code> is equivalent to
+<code>--resource-path baz:bim:foo:bar</code>.</p>
+<p><code>--request-header=</code><em>NAME</em><code>:</code><em>VAL</em><br>
+Set the request header <em>NAME</em> to the value <em>VAL</em> when making HTTP
+requests (for example, when a URL is given on the command line, or when
+resources used in a document must be downloaded). If you’re behind a
+proxy, you also need to set the environment variable <code>http_proxy</code> to
+<code>http://...</code>.</p>
+<p><code>--no-check-certificate[=true|false]</code><br>
+Disable the certificate verification to allow access to unsecure HTTP
+resources (for example when the certificate is no longer valid or self
+signed).</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="options-affecting-specific-writers">Options affecting specific writers<a href="#options-affecting-specific-writers" class="hash-link" aria-label="Direct link to Options affecting specific writers" title="Direct link to Options affecting specific writers">​</a></h2>
+<p><code>--self-contained[=true|false]</code><br>
+<em>Deprecated synonym for <code>--embed-resources --standalone</code>.</em></p>
+<p><code>--embed-resources[=true|false]</code><br>
+Produce a standalone HTML file with no external dependencies, using
+<code>data:</code> URIs to incorporate the contents of linked scripts, stylesheets,
+images, and videos. The resulting file should be “self-contained,” in
+the sense that it needs no external files and no net access to be
+displayed properly by a browser. This option works only with HTML output
+formats, including <code>html4</code>, <code>html5</code>, <code>html+lhs</code>, <code>html5+lhs</code>, <code>s5</code>,
+<code>slidy</code>, <code>slideous</code>, <code>dzslides</code>, and <code>revealjs</code>. Scripts, images, and
+stylesheets at absolute URLs will be downloaded; those at relative URLs
+will be sought relative to the working directory (if the first source
+file is local) or relative to the base URL (if the first source file is
+remote). Elements with the attribute <code>data-external=&quot;1&quot;</code> will be left
+alone; the documents they link to will not be incorporated in the
+document. Limitation: resources that are loaded dynamically through
+JavaScript cannot be incorporated; as a result, fonts may be missing
+when <code>--mathjax</code> is used, and some advanced features (e.g. zoom or
+speaker notes) may not work in an offline “self-contained” <code>reveal.js</code>
+slide show.</p>
+<p><code>--html-q-tags[=true|false]</code><br>
+Use <code>&lt;q&gt;</code> tags for quotes in HTML. (This option only has an effect if
+the <code>smart</code> extension is enabled for the input format used.)</p>
+<p><code>--ascii[=true|false]</code><br>
+Use only ASCII characters in output. Currently supported for XML and
+HTML formats (which use entities instead of UTF-8 when this option is
+selected), CommonMark, gfm, and Markdown (which use entities), roff man
+and ms (which use hexadecimal escapes), and to a limited degree LaTeX
+(which uses standard commands for accented characters when possible).</p>
+<p><code>--reference-links[=true|false]</code><br>
+Use reference-style links, rather than inline links, in writing Markdown
+or reStructuredText. By default inline links are used. The placement of
+link references is affected by the <code>--reference-location</code> option.</p>
+<p><code>--reference-location=block</code>|<code>section</code>|<code>document</code><br>
+Specify whether footnotes (and references, if <code>reference-links</code> is set)
+are placed at the end of the current (top-level) block, the current
+section, or the document. The default is <code>document</code>. Currently this
+option only affects the <code>markdown</code>, <code>muse</code>, <code>html</code>, <code>epub</code>, <code>slidy</code>,
+<code>s5</code>, <code>slideous</code>, <code>dzslides</code>, and <code>revealjs</code> writers. In slide formats,
+specifying <code>--reference-location=section</code> will cause notes to be
+rendered at the bottom of a slide.</p>
+<p><code>--markdown-headings=setext</code>|<code>atx</code><br>
+Specify whether to use ATX-style (<code>#</code>-prefixed) or Setext-style
+(underlined) headings for level 1 and 2 headings in Markdown output.
+(The default is <code>atx</code>.) ATX-style headings are always used for levels
+3+. This option also affects Markdown cells in <code>ipynb</code> output.</p>
+<p><code>--list-tables[=true|false]</code><br>
+Render tables as list tables in RST output.</p>
+<p><code>--top-level-division=default</code>|<code>section</code>|<code>chapter</code>|<code>part</code><br>
+Treat top-level headings as the given division type in LaTeX, ConTeXt,
+DocBook, and TEI output. The hierarchy order is part, chapter, then
+section; all headings are shifted such that the top-level heading
+becomes the specified type. The default behavior is to determine the
+best division type via heuristics: unless other conditions apply,
+<code>section</code> is chosen. When the <code>documentclass</code> variable is set to
+<code>report</code>, <code>book</code>, or <code>memoir</code> (unless the <code>article</code> option is
+specified), <code>chapter</code> is implied as the setting for this option. If
+<code>beamer</code> is the output format, specifying either <code>chapter</code> or <code>part</code>
+will cause top-level headings to become <code>\part{..}</code>, while second-level
+headings remain as their default type.</p>
+<p><code>-N</code>, <code>--number-sections</code><br>
+Number section headings in LaTeX, ConTeXt, HTML, Docx, ms, or EPUB
+output. By default, sections are not numbered. Sections with class
+<code>unnumbered</code> will never be numbered, even if <code>--number-sections</code> is
+specified.</p>
+<p><code>--number-offset=</code><em>NUMBER</em>[<code>,</code><em>NUMBER</em><code>,</code><em>…</em>]<br>
+Offset for section headings in HTML output (ignored in other output
+formats). The first number is added to the section number for top-level
+headings, the second for second-level headings, and so on. So, for
+example, if you want the first top-level heading in your document to be
+numbered “6”, specify <code>--number-offset=5</code>. If your document starts with
+a level-2 heading which you want to be numbered “1.5”, specify
+<code>--number-offset=1,4</code>. Offsets are 0 by default. Implies
+<code>--number-sections</code>.</p>
+<p><code>--listings[=true|false]</code><br>
+Use the <a href="https://ctan.org/pkg/listings" target="_blank" rel="noopener noreferrer"><code>listings</code></a> package for LaTeX
+code blocks. The package does not support multi-byte encoding for source
+code. To handle UTF-8 you would need to use a custom template. This
+issue is fully documented here: <a href="https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings#Encoding_issue" target="_blank" rel="noopener noreferrer">Encoding issue with the listings
+package</a>.</p>
+<p><code>-i</code>, <code>--incremental[=true|false]</code><br>
+Make list items in slide shows display incrementally (one by one). The
+default is for lists to be displayed all at once.</p>
+<p><code>--slide-level=</code><em>NUMBER</em><br>
+Specifies that headings with the specified level create slides (for
+<code>beamer</code>, <code>s5</code>, <code>slidy</code>, <code>slideous</code>, <code>dzslides</code>). Headings above this
+level in the hierarchy are used to divide the slide show into sections;
+headings below this level create subheads within a slide. Valid values
+are 0-6. If a slide level of 0 is specified, slides will not be split
+automatically on headings, and horizontal rules must be used to indicate
+slide boundaries. If a slide level is not specified explicitly, the
+slide level will be set automatically based on the contents of the
+document; see <a href="#structuring-the-slide-show">Structuring the slide show</a>.</p>
+<p><code>--section-divs[=true|false]</code><br>
+Wrap sections in <code>&lt;section&gt;</code> tags (or <code>&lt;div&gt;</code> tags for <code>html4</code>), and
+attach identifiers to the enclosing <code>&lt;section&gt;</code> (or <code>&lt;div&gt;</code>) rather than
+the heading itself (see <a href="#heading-identifiers">Heading identifiers</a>,
+below). This option only affects HTML output (and does not affect HTML
+slide formats).</p>
+<p><code>--email-obfuscation=none</code>|<code>javascript</code>|<code>references</code><br>
+Specify a method for obfuscating <code>mailto:</code> links in HTML documents.
+<code>none</code> leaves <code>mailto:</code> links as they are. <code>javascript</code> obfuscates them
+using JavaScript. <code>references</code> obfuscates them by printing their letters
+as decimal or hexadecimal character references. The default is <code>none</code>.</p>
+<p><code>--id-prefix=</code><em>STRING</em><br>
+Specify a prefix to be added to all identifiers and internal links in
+HTML and DocBook output, and to footnote numbers in Markdown and Haddock
+output. This is useful for preventing duplicate identifiers when
+generating fragments to be included in other pages.</p>
+<p><code>-T</code> <em>STRING</em>, <code>--title-prefix=</code><em>STRING</em><br>
+Specify <em>STRING</em> as a prefix at the beginning of the title that appears
+in the HTML header (but not in the title as it appears at the beginning
+of the HTML body). Implies <code>--standalone</code>.</p>
+<p><code>-c</code> <em>URL</em>, <code>--css=</code><em>URL</em><br>
+Link to a CSS style sheet. This option can be used repeatedly to include
+multiple files. They will be included in the order specified. This
+option only affects HTML (including HTML slide shows) and EPUB output.
+It should be used together with <code>-s/--standalone</code>, because the link to
+the stylesheet goes in the document header.</p>
+<p>A stylesheet is required for generating EPUB. If none is provided using
+this option (or the <code>css</code> or <code>stylesheet</code> metadata fields), pandoc will
+look for a file <code>epub.css</code> in the user data directory (see
+<code>--data-dir</code>). If it is not found there, sensible defaults will be used.</p>
+<p><code>--reference-doc=</code><em>FILE</em>|<em>URL</em><br>
+Use the specified file as a style reference in producing a docx or ODT
+file.</p>
+<p>Docx<br>
+For best results, the reference docx should be a modified version of a
+docx file produced using pandoc. The contents of the reference docx are
+ignored, but its stylesheets and document properties (including margins,
+page size, header, and footer) are used in the new docx. If no reference
+docx is specified on the command line, pandoc will look for a file
+<code>reference.docx</code> in the user data directory (see <code>--data-dir</code>). If this
+is not found either, sensible defaults will be used.</p>
+<p>To produce a custom <code>reference.docx</code>, first get a copy of the default
+<code>reference.docx</code>:
+<code>pandoc -o custom-reference.docx --print-default-data-file reference.docx</code>.
+Then open <code>custom-reference.docx</code> in Word, modify the styles as you
+wish, and save the file. For best results, do not make changes to this
+file other than modifying the styles used by pandoc:</p>
+<p>Paragraph styles:</p>
+<ul>
+<li>Normal</li>
+<li>Body Text</li>
+<li>First Paragraph</li>
+<li>Compact</li>
+<li>Title</li>
+<li>Subtitle</li>
+<li>Author</li>
+<li>Date</li>
+<li>Abstract</li>
+<li>AbstractTitle</li>
+<li>Bibliography</li>
+<li>Heading 1</li>
+<li>Heading 2</li>
+<li>Heading 3</li>
+<li>Heading 4</li>
+<li>Heading 5</li>
+<li>Heading 6</li>
+<li>Heading 7</li>
+<li>Heading 8</li>
+<li>Heading 9</li>
+<li>Block Text [for block quotes]</li>
+<li>Footnote Block Text [for block quotes in footnotes]</li>
+<li>Source Code</li>
+<li>Footnote Text</li>
+<li>Definition Term</li>
+<li>Definition</li>
+<li>Caption</li>
+<li>Table Caption</li>
+<li>Image Caption</li>
+<li>Figure</li>
+<li>Captioned Figure</li>
+<li>TOC Heading</li>
+</ul>
+<p>Character styles:</p>
+<ul>
+<li>Default Paragraph Font</li>
+<li>Body Text Char</li>
+<li>Verbatim Char</li>
+<li>Footnote Reference</li>
+<li>Hyperlink</li>
+<li>Section Number</li>
+</ul>
+<p>Table style:</p>
+<ul>
+<li>Table</li>
+</ul>
+<p>ODT<br>
+For best results, the reference ODT should be a modified version of an
+ODT produced using pandoc. The contents of the reference ODT are
+ignored, but its stylesheets are used in the new ODT. If no reference
+ODT is specified on the command line, pandoc will look for a file
+<code>reference.odt</code> in the user data directory (see <code>--data-dir</code>). If this
+is not found either, sensible defaults will be used.</p>
+<p>To produce a custom <code>reference.odt</code>, first get a copy of the default
+<code>reference.odt</code>:
+<code>pandoc -o custom-reference.odt --print-default-data-file reference.odt</code>.
+Then open <code>custom-reference.odt</code> in LibreOffice, modify the styles as
+you wish, and save the file.</p>
+<p>PowerPoint<br>
+Templates included with Microsoft PowerPoint 2013 (either with <code>.pptx</code>
+or <code>.potx</code> extension) are known to work, as are most templates derived
+from these.</p>
+<p>The specific requirement is that the template should contain layouts
+with the following names (as seen within PowerPoint):</p>
+<ul>
+<li>Title Slide</li>
+<li>Title and Content</li>
+<li>Section Header</li>
+<li>Two Content</li>
+<li>Comparison</li>
+<li>Content with Caption</li>
+<li>Blank</li>
+</ul>
+<p>For each name, the first layout found with that name will be used. If no
+layout is found with one of the names, pandoc will output a warning and
+use the layout with that name from the default reference doc instead.
+(How these layouts are used is described in <a href="#powerpoint-layout-choice">PowerPoint layout
+choice</a>.)</p>
+<p>All templates included with a recent version of MS PowerPoint will fit
+these criteria. (You can click on <code>Layout</code> under the <code>Home</code> menu to
+check.)</p>
+<p>You can also modify the default <code>reference.pptx</code>: first run
+<code>pandoc -o custom-reference.pptx --print-default-data-file reference.pptx</code>,
+and then modify <code>custom-reference.pptx</code> in MS PowerPoint (pandoc will
+use the layouts with the names listed above).</p>
+<p><code>--split-level=</code><em>NUMBER</em><br>
+Specify the heading level at which to split an EPUB or chunked HTML
+document into separate files. The default is to split into chapters at
+level-1 headings. In the case of EPUB, this option only affects the
+internal composition of the EPUB, not the way chapters and sections are
+displayed to users. Some readers may be slow if the chapter files are
+too large, so for large documents with few level-1 headings, one might
+want to use a chapter level of 2 or 3. For chunked HTML, this option
+determines how much content goes in each “chunk.”</p>
+<p><code>--chunk-template=</code><em>PATHTEMPLATE</em><br>
+Specify a template for the filenames in a <code>chunkedhtml</code> document. In the
+template, <code>%n</code> will be replaced by the chunk number (padded with leading
+0s to 3 digits), <code>%s</code> with the section number of the chunk, <code>%h</code> with
+the heading text (with formatting removed), <code>%i</code> with the section
+identifier. For example, <code>%section-%s-%i.html</code> might be resolved to
+<code>section-1.1-introduction.html</code>. The characters <code>/</code> and <code>\</code> are not
+allowed in chunk templates and will be ignored. The default is
+<code>%s-%i.html</code>.</p>
+<p><code>--epub-chapter-level=</code><em>NUMBER</em><br>
+<em>Deprecated synonym for <code>--split-level</code>.</em></p>
+<p><code>--epub-cover-image=</code><em>FILE</em><br>
+Use the specified image as the EPUB cover. It is recommended that the
+image be less than 1000px in width and height. Note that in a Markdown
+source document you can also specify <code>cover-image</code> in a YAML metadata
+block (see <a href="#epub-metadata">EPUB Metadata</a>, below).</p>
+<p><code>--epub-title-page=true</code>|<code>false</code><br>
+Determines whether a the title page is included in the EPUB (default is
+<code>true</code>).</p>
+<p><code>--epub-metadata=</code><em>FILE</em><br>
+Look in the specified XML file for metadata for the EPUB. The file
+should contain a series of <a href="https://www.dublincore.org/specifications/dublin-core/dces/" target="_blank" rel="noopener noreferrer">Dublin Core
+elements</a>.
+For example:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain"> &lt;dc:rights&gt;Creative Commons&lt;/dc:rights&gt;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> &lt;dc:language&gt;es-AR&lt;/dc:language&gt;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>By default, pandoc will include the following metadata elements:
+<code>&lt;dc:title&gt;</code> (from the document title), <code>&lt;dc:creator&gt;</code> (from the
+document authors), <code>&lt;dc:date&gt;</code> (from the document date, which should be
+in <a href="https://www.w3.org/TR/NOTE-datetime" target="_blank" rel="noopener noreferrer">ISO 8601 format</a>),
+<code>&lt;dc:language&gt;</code> (from the <code>lang</code> variable, or, if is not set, the
+locale), and <code>&lt;dc:identifier id=&quot;BookId&quot;&gt;</code> (a randomly generated UUID).
+Any of these may be overridden by elements in the metadata file.</p>
+<p>Note: if the source document is Markdown, a YAML metadata block in the
+document can be used instead. See below under <a href="#epub-metadata">EPUB
+Metadata</a>.</p>
+<p><code>--epub-embed-font=</code><em>FILE</em><br>
+Embed the specified font in the EPUB. This option can be repeated to
+embed multiple fonts. Wildcards can also be used: for example,
+<code>DejaVuSans-*.ttf</code>. However, if you use wildcards on the command line,
+be sure to escape them or put the whole filename in single quotes, to
+prevent them from being interpreted by the shell. To use the embedded
+fonts, you will need to add declarations like the following to your CSS
+(see <code>--css</code>):</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">@font-face {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   font-family: DejaVuSans;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   font-style: normal;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   font-weight: normal;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   src:url(&quot;../fonts/DejaVuSans-Regular.ttf&quot;);</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">@font-face {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   font-family: DejaVuSans;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   font-style: normal;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   font-weight: bold;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   src:url(&quot;../fonts/DejaVuSans-Bold.ttf&quot;);</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">@font-face {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   font-family: DejaVuSans;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   font-style: italic;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   font-weight: normal;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   src:url(&quot;../fonts/DejaVuSans-Oblique.ttf&quot;);</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">@font-face {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   font-family: DejaVuSans;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   font-style: italic;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   font-weight: bold;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   src:url(&quot;../fonts/DejaVuSans-BoldOblique.ttf&quot;);</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">body { font-family: &quot;DejaVuSans&quot;; }</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p><code>--epub-subdirectory=</code><em>DIRNAME</em><br>
+Specify the subdirectory in the OCF container that is to hold the
+EPUB-specific contents. The default is <code>EPUB</code>. To put the EPUB contents
+in the top level, use an empty string.</p>
+<p><code>--ipynb-output=all|none|best</code><br>
+Determines how ipynb output cells are treated. <code>all</code> means that all of
+the data formats included in the original are preserved. <code>none</code> means
+that the contents of data cells are omitted. <code>best</code> causes pandoc to try
+to pick the richest data block in each output cell that is compatible
+with the output format. The default is <code>best</code>.</p>
+<p><code>--pdf-engine=</code><em>PROGRAM</em><br>
+Use the specified engine when producing PDF output. Valid values are
+<code>pdflatex</code>, <code>lualatex</code>, <code>xelatex</code>, <code>latexmk</code>, <code>tectonic</code>, <code>wkhtmltopdf</code>,
+<code>weasyprint</code>, <code>pagedjs-cli</code>, <code>prince</code>, <code>context</code>, <code>pdfroff</code>, and
+<code>typst</code>. If the engine is not in your PATH, the full path of the engine
+may be specified here. If this option is not specified, pandoc uses the
+following defaults depending on the output format specified using
+<code>-t/--to</code>:</p>
+<ul>
+<li><code>-t latex</code> or none: <code>pdflatex</code> (other options: <code>xelatex</code>, <code>lualatex</code>,
+<code>tectonic</code>, <code>latexmk</code>)</li>
+<li><code>-t context</code>: <code>context</code></li>
+<li><code>-t html</code>: <code>wkhtmltopdf</code> (other options: <code>prince</code>, <code>weasyprint</code>,
+<code>pagedjs-cli</code>; see <a href="https://print-css.rocks" target="_blank" rel="noopener noreferrer">print-css.rocks</a> for a
+good introduction to PDF generation from HTML/CSS)</li>
+<li><code>-t ms</code>: <code>pdfroff</code></li>
+<li><code>-t typst</code>: <code>typst</code></li>
+</ul>
+<p><code>--pdf-engine-opt=</code><em>STRING</em><br>
+Use the given string as a command-line argument to the <code>pdf-engine</code>. For
+example, to use a persistent directory <code>foo</code> for <code>latexmk</code>’s auxiliary
+files, use <code>--pdf-engine-opt=-outdir=foo</code>. Note that no check for
+duplicate options is done.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="citation-rendering">Citation rendering<a href="#citation-rendering" class="hash-link" aria-label="Direct link to Citation rendering" title="Direct link to Citation rendering">​</a></h2>
+<p><code>-C</code>, <code>--citeproc</code><br>
+Process the citations in the file, replacing them with rendered
+citations and adding a bibliography. Citation processing will not take
+place unless bibliographic data is supplied, either through an external
+file specified using the <code>--bibliography</code> option or the <code>bibliography</code>
+field in metadata, or via a <code>references</code> section in metadata containing
+a list of citations in CSL YAML format with Markdown formatting. The
+style is controlled by a
+<a href="https://docs.citationstyles.org/en/stable/specification.html" target="_blank" rel="noopener noreferrer">CSL</a>
+stylesheet specified using the <code>--csl</code> option or the <code>csl</code> field in
+metadata. (If no stylesheet is specified, the <code>chicago-author-date</code>
+style will be used by default.) The citation processing transformation
+may be applied before or after filters or Lua filters (see <code>--filter</code>,
+<code>--lua-filter</code>): these transformations are applied in the order they
+appear on the command line. For more information, see the section on
+<a href="#citations">Citations</a>.</p>
+<p><code>--bibliography=</code><em>FILE</em><br>
+Set the <code>bibliography</code> field in the document’s metadata to <em>FILE</em>,
+overriding any value set in the metadata. If you supply this argument
+multiple times, each <em>FILE</em> will be added to bibliography. If <em>FILE</em> is
+a URL, it will be fetched via HTTP. If <em>FILE</em> is not found relative to
+the working directory, it will be sought in the resource path (see
+<code>--resource-path</code>).</p>
+<p><code>--csl=</code><em>FILE</em><br>
+Set the <code>csl</code> field in the document’s metadata to <em>FILE</em>, overriding any
+value set in the metadata. (This is equivalent to
+<code>--metadata csl=FILE</code>.) If <em>FILE</em> is a URL, it will be fetched via HTTP.
+If <em>FILE</em> is not found relative to the working directory, it will be
+sought in the resource path (see <code>--resource-path</code>) and finally in the
+<code>csl</code> subdirectory of the pandoc user data directory.</p>
+<p><code>--citation-abbreviations=</code><em>FILE</em><br>
+Set the <code>citation-abbreviations</code> field in the document’s metadata to
+<em>FILE</em>, overriding any value set in the metadata. (This is equivalent to
+<code>--metadata citation-abbreviations=FILE</code>.) If <em>FILE</em> is a URL, it will
+be fetched via HTTP. If <em>FILE</em> is not found relative to the working
+directory, it will be sought in the resource path (see
+<code>--resource-path</code>) and finally in the <code>csl</code> subdirectory of the pandoc
+user data directory.</p>
+<p><code>--natbib</code><br>
+Use <a href="https://ctan.org/pkg/natbib" target="_blank" rel="noopener noreferrer"><code>natbib</code></a> for citations in LaTeX
+output. This option is not for use with the <code>--citeproc</code> option or with
+PDF output. It is intended for use in producing a LaTeX file that can be
+processed with <a href="https://ctan.org/pkg/bibtex" target="_blank" rel="noopener noreferrer"><code>bibtex</code></a>.</p>
+<p><code>--biblatex</code><br>
+Use <a href="https://ctan.org/pkg/biblatex" target="_blank" rel="noopener noreferrer"><code>biblatex</code></a> for citations in LaTeX
+output. This option is not for use with the <code>--citeproc</code> option or with
+PDF output. It is intended for use in producing a LaTeX file that can be
+processed with <a href="https://ctan.org/pkg/bibtex" target="_blank" rel="noopener noreferrer"><code>bibtex</code></a> or
+<a href="https://ctan.org/pkg/biber" target="_blank" rel="noopener noreferrer"><code>biber</code></a>.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="math-rendering-in-html">Math rendering in HTML<a href="#math-rendering-in-html" class="hash-link" aria-label="Direct link to Math rendering in HTML" title="Direct link to Math rendering in HTML">​</a></h2>
+<p>The default is to render TeX math as far as possible using Unicode
+characters. Formulas are put inside a <code>span</code> with <code>class=&quot;math&quot;</code>, so
+that they may be styled differently from the surrounding text if needed.
+However, this gives acceptable results only for basic math, usually you
+will want to use <code>--mathjax</code> or another of the following options.</p>
+<p><code>--mathjax</code>[<code>=</code><em>URL</em>]<br>
+Use <a href="https://www.mathjax.org" target="_blank" rel="noopener noreferrer">MathJax</a> to display embedded TeX math in
+HTML output. TeX math will be put between <code>\(...\)</code> (for inline math) or
+<code>\[...\]</code> (for display math) and wrapped in <code>&lt;span&gt;</code> tags with class
+<code>math</code>. Then the MathJax JavaScript will render it. The <em>URL</em> should
+point to the <code>MathJax.js</code> load script. If a <em>URL</em> is not provided, a
+link to the Cloudflare CDN will be inserted.</p>
+<p><code>--mathml</code><br>
+Convert TeX math to <a href="https://www.w3.org/Math/" target="_blank" rel="noopener noreferrer">MathML</a> (in <code>epub3</code>,
+<code>docbook4</code>, <code>docbook5</code>, <code>jats</code>, <code>html4</code> and <code>html5</code>). This is the
+default in <code>odt</code> output. MathML is supported natively by the main web
+browsers and select e-book readers.</p>
+<p><code>--webtex</code>[<code>=</code><em>URL</em>]<br>
+Convert TeX formulas to <code>&lt;img&gt;</code> tags that link to an external script
+that converts formulas to images. The formula will be URL-encoded and
+concatenated with the URL provided. For SVG images you can for example
+use <code>--webtex https://latex.codecogs.com/svg.latex?</code>. If no URL is
+specified, the CodeCogs URL generating PNGs will be used
+(<code>https://latex.codecogs.com/png.latex?</code>). Note: the <code>--webtex</code> option
+will affect Markdown output as well as HTML, which is useful if you’re
+targeting a version of Markdown without native math support.</p>
+<p><code>--katex</code>[<code>=</code><em>URL</em>]<br>
+Use <a href="https://github.com/Khan/KaTeX" target="_blank" rel="noopener noreferrer">KaTeX</a> to display embedded TeX math
+in HTML output. The <em>URL</em> is the base URL for the KaTeX library. That
+directory should contain a <code>katex.min.js</code> and a <code>katex.min.css</code> file. If
+a <em>URL</em> is not provided, a link to the KaTeX CDN will be inserted.</p>
+<p><code>--gladtex</code><br>
+Enclose TeX math in <code>&lt;eq&gt;</code> tags in HTML output. The resulting HTML can
+then be processed by <a href="https://humenda.github.io/GladTeX/" target="_blank" rel="noopener noreferrer">GladTeX</a> to
+produce SVG images of the typeset formulas and an HTML file with these
+images embedded.</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">pandoc -s --gladtex input.md -o myfile.htex</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">gladtex -d image_dir myfile.htex</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># produces myfile.html and images in image_dir</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="options-for-wrapper-scripts">Options for wrapper scripts<a href="#options-for-wrapper-scripts" class="hash-link" aria-label="Direct link to Options for wrapper scripts" title="Direct link to Options for wrapper scripts">​</a></h2>
+<p><code>--dump-args[=true|false]</code><br>
+Print information about command-line arguments to <em>stdout</em>, then exit.
+This option is intended primarily for use in wrapper scripts. The first
+line of output contains the name of the output file specified with the
+<code>-o</code> option, or <code>-</code> (for <em>stdout</em>) if no output file was specified. The
+remaining lines contain the command-line arguments, one per line, in the
+order they appear. These do not include regular pandoc options and their
+arguments, but do include any options appearing after a <code>--</code> separator
+at the end of the line.</p>
+<p><code>--ignore-args[=true|false]</code><br>
+Ignore command-line arguments (for use in wrapper scripts). Regular
+pandoc options are not ignored. Thus, for example,</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">pandoc --ignore-args -o foo.html -s foo.txt -- -e latin1</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>is equivalent to</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">pandoc -o foo.html -s</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/Description"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Description</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/Exit codes"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Exit codes</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#general-options" class="table-of-contents__link toc-highlight">General options</a></li><li><a href="#reader-options" class="table-of-contents__link toc-highlight">Reader options</a></li><li><a href="#general-writer-options" class="table-of-contents__link toc-highlight">General writer options</a></li><li><a href="#options-affecting-specific-writers" class="table-of-contents__link toc-highlight">Options affecting specific writers</a></li><li><a href="#citation-rendering" class="table-of-contents__link toc-highlight">Citation rendering</a></li><li><a href="#math-rendering-in-html" class="table-of-contents__link toc-highlight">Math rendering in HTML</a></li><li><a href="#options-for-wrapper-scripts" class="table-of-contents__link toc-highlight">Options for wrapper scripts</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Panman</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/Synopsis">Docs</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Site built with Docusaurus by <a href="https://stefanocoretta.github.io">Stefano Coretta</a>.</div></div></div></footer></div>
+</body>
+</html>

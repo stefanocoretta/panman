@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-Extensions" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.0.1">
+<title data-rh="true">Extensions | PANMAN</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://stefanocoretta.github.io/Extensions"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Extensions | PANMAN"><meta data-rh="true" name="description" content="The behavior of some of the readers and writers can be adjusted by"><meta data-rh="true" property="og:description" content="The behavior of some of the readers and writers can be adjusted by"><link data-rh="true" rel="canonical" href="https://stefanocoretta.github.io/Extensions"><link data-rh="true" rel="alternate" href="https://stefanocoretta.github.io/Extensions" hreflang="en"><link data-rh="true" rel="alternate" href="https://stefanocoretta.github.io/Extensions" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.a4bba1a8.css">
+<script src="/assets/js/runtime~main.777a25e5.js" defer="defer"></script>
+<script src="/assets/js/main.68f96821.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">Panman</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/Synopsis">Docs</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/stefanocoretta/panman" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/Synopsis">Introduction</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/Options">Options</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" aria-expanded="true" href="/Defaults files">Customisation</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/Defaults files">Defaults files</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/Templates">Templates</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/Extensions">Extensions</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/Pandocs Markdown">Markdown</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/Chunked HTML">Technical</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/A note on security">Security</a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Authors">Authors</a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Customisation</span><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Extensions</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><h1>Extensions</h1>
+<p>The behavior of some of the readers and writers can be adjusted by
+enabling or disabling various extensions.</p>
+<p>An extension can be enabled by adding <code>+EXTENSION</code> to the format name
+and disabled by adding <code>-EXTENSION</code>. For example,
+<code>--from markdown_strict+footnotes</code> is strict Markdown with footnotes
+enabled, while <code>--from markdown-footnotes-pipe_tables</code> is pandoc’s
+Markdown without footnotes or pipe tables.</p>
+<p>The markdown reader and writer make by far the most use of extensions.
+Extensions only used by them are therefore covered in the section
+<a href="#pandocs-markdown">Pandoc’s Markdown</a> below (see <a href="#markdown-variants">Markdown
+variants</a> for <code>commonmark</code> and <code>gfm</code>). In the
+following, extensions that also work for other formats are covered.</p>
+<p>Note that markdown extensions added to the <code>ipynb</code> format affect
+Markdown cells in Jupyter notebooks (as do command-line options like
+<code>--markdown-headings</code>).</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="typography">Typography<a href="#typography" class="hash-link" aria-label="Direct link to Typography" title="Direct link to Typography">​</a></h2>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="extension-smart">Extension: <code>smart</code><a href="#extension-smart" class="hash-link" aria-label="Direct link to extension-smart" title="Direct link to extension-smart">​</a></h4>
+<p>Interpret straight quotes as curly quotes, <code>---</code> as em-dashes, <code>--</code> as
+en-dashes, and <code>...</code> as ellipses. Nonbreaking spaces are inserted after
+certain abbreviations, such as “Mr.”</p>
+<p>This extension can be enabled/disabled for the following formats:</p>
+<p>input formats<br>
+<code>markdown</code>, <code>commonmark</code>, <code>latex</code>, <code>mediawiki</code>, <code>org</code>, <code>rst</code>, <code>twiki</code>,
+<code>html</code></p>
+<p>output formats<br>
+<code>markdown</code>, <code>latex</code>, <code>context</code>, <code>rst</code></p>
+<p>enabled by default in<br>
+<code>markdown</code>, <code>latex</code>, <code>context</code> (both input and output)</p>
+<p>Note: If you are <em>writing</em> Markdown, then the <code>smart</code> extension has the
+reverse effect: what would have been curly quotes comes out straight.</p>
+<p>In LaTeX, <code>smart</code> means to use the standard TeX ligatures for quotation
+marks (<code>``</code> and <code>&#x27;&#x27;</code> for double quotes, <code>`</code> and <code>&#x27;</code> for single
+quotes) and dashes (<code>--</code> for en-dash and <code>---</code> for em-dash). If <code>smart</code>
+is disabled, then in reading LaTeX pandoc will parse these characters
+literally. In writing LaTeX, enabling <code>smart</code> tells pandoc to use the
+ligatures when possible; if <code>smart</code> is disabled pandoc will use unicode
+quotation mark and dash characters.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="headings-and-sections">Headings and sections<a href="#headings-and-sections" class="hash-link" aria-label="Direct link to Headings and sections" title="Direct link to Headings and sections">​</a></h2>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="extension-auto_identifiers">Extension: <code>auto_identifiers</code><a href="#extension-auto_identifiers" class="hash-link" aria-label="Direct link to extension-auto_identifiers" title="Direct link to extension-auto_identifiers">​</a></h4>
+<p>A heading without an explicitly specified identifier will be
+automatically assigned a unique identifier based on the heading text.</p>
+<p>This extension can be enabled/disabled for the following formats:</p>
+<p>input formats<br>
+<code>markdown</code>, <code>latex</code>, <code>rst</code>, <code>mediawiki</code>, <code>textile</code></p>
+<p>output formats<br>
+<code>markdown</code>, <code>muse</code></p>
+<p>enabled by default in<br>
+<code>markdown</code>, <code>muse</code></p>
+<p>The default algorithm used to derive the identifier from the heading
+text is:</p>
+<ul>
+<li>Remove all formatting, links, etc.</li>
+<li>Remove all footnotes.</li>
+<li>Remove all non-alphanumeric characters, except underscores, hyphens,
+and periods.</li>
+<li>Replace all spaces and newlines with hyphens.</li>
+<li>Convert all alphabetic characters to lowercase.</li>
+<li>Remove everything up to the first letter (identifiers may not begin
+with a number or punctuation mark).</li>
+<li>If nothing is left after this, use the identifier <code>section</code>.</li>
+</ul>
+<p>Thus, for example,</p>
+<table><thead><tr class="header"><th style="text-align:left">Heading</th><th style="text-align:left">Identifier</th></tr></thead><tbody><tr class="odd"><td style="text-align:left"><code>Heading identifiers in HTML</code></td><td style="text-align:left"><code>heading-identifiers-in-html</code></td></tr><tr class="even"><td style="text-align:left"><code>Maître d&#x27;hôtel</code></td><td style="text-align:left"><code>maître-dhôtel</code></td></tr><tr class="odd"><td style="text-align:left"><code>*Dogs*?--in *my* house?</code></td><td style="text-align:left"><code>dogs--in-my-house</code></td></tr><tr class="even"><td style="text-align:left"><code>[HTML], [S5], or [RTF]?</code></td><td style="text-align:left"><code>html-s5-or-rtf</code></td></tr><tr class="odd"><td style="text-align:left"><code>3. Applications</code></td><td style="text-align:left"><code>applications</code></td></tr><tr class="even"><td style="text-align:left"><code>33</code></td><td style="text-align:left"><code>section</code></td></tr></tbody></table>
+<p>These rules should, in most cases, allow one to determine the identifier
+from the heading text. The exception is when several headings have the
+same text; in this case, the first will get an identifier as described
+above; the second will get the same identifier with <code>-1</code> appended; the
+third with <code>-2</code>; and so on.</p>
+<p>(However, a different algorithm is used if <code>gfm_auto_identifiers</code> is
+enabled; see below.)</p>
+<p>These identifiers are used to provide link targets in the table of
+contents generated by the <code>--toc|--table-of-contents</code> option. They also
+make it easy to provide links from one section of a document to another.
+A link to this section, for example, might look like this:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">See the section on</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">[heading identifiers](#heading-identifiers-in-html-latex-and-context).</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>Note, however, that this method of providing links to sections works
+only in HTML, LaTeX, and ConTeXt formats.</p>
+<p>If the <code>--section-divs</code> option is specified, then each section will be
+wrapped in a <code>section</code> (or a <code>div</code>, if <code>html4</code> was specified), and the
+identifier will be attached to the enclosing <code>&lt;section&gt;</code> (or <code>&lt;div&gt;</code>)
+tag rather than the heading itself. This allows entire sections to be
+manipulated using JavaScript or treated differently in CSS.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="extension-ascii_identifiers">Extension: <code>ascii_identifiers</code><a href="#extension-ascii_identifiers" class="hash-link" aria-label="Direct link to extension-ascii_identifiers" title="Direct link to extension-ascii_identifiers">​</a></h4>
+<p>Causes the identifiers produced by <code>auto_identifiers</code> to be pure ASCII.
+Accents are stripped off of accented Latin letters, and non-Latin
+letters are omitted.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="extension-gfm_auto_identifiers">Extension: <code>gfm_auto_identifiers</code><a href="#extension-gfm_auto_identifiers" class="hash-link" aria-label="Direct link to extension-gfm_auto_identifiers" title="Direct link to extension-gfm_auto_identifiers">​</a></h4>
+<p>Changes the algorithm used by <code>auto_identifiers</code> to conform to GitHub’s
+method. Spaces are converted to dashes (<code>-</code>), uppercase characters to
+lowercase characters, and punctuation characters other than <code>-</code> and <code>_</code>
+are removed. Emojis are replaced by their names.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="math-input">Math Input<a href="#math-input" class="hash-link" aria-label="Direct link to Math Input" title="Direct link to Math Input">​</a></h2>
+<p>The extensions <a href="#extension-tex_math_dollars"><code>tex_math_dollars</code></a>,
+<a href="#extension-tex_math_gfm"><code>tex_math_gfm</code></a>,
+<a href="#extension-tex_math_single_backslash"><code>tex_math_single_backslash</code></a>, and
+<a href="#extension-tex_math_double_backslash"><code>tex_math_double_backslash</code></a> are
+described in the section about Pandoc’s Markdown.</p>
+<p>However, they can also be used with HTML input. This is handy for
+reading web pages formatted using MathJax, for example.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="raw-htmltex">Raw HTML/TeX<a href="#raw-htmltex" class="hash-link" aria-label="Direct link to Raw HTML/TeX" title="Direct link to Raw HTML/TeX">​</a></h2>
+<p>The following extensions are described in more detail in their
+respective sections of <a href="#pandocs-markdown">Pandoc’s Markdown</a>:</p>
+<ul>
+<li>
+<p><a href="#extension-raw_html"><code>raw_html</code></a> allows HTML elements which are not
+representable in pandoc’s AST to be parsed as raw HTML. By default,
+this is disabled for HTML input.</p>
+</li>
+<li>
+<p><a href="#extension-raw_tex"><code>raw_tex</code></a> allows raw LaTeX, TeX, and ConTeXt to
+be included in a document. This extension can be enabled/disabled for
+the following formats (in addition to <code>markdown</code>):</p>
+<p>input formats<br>
+<code>latex</code>, <code>textile</code>, <code>html</code> (environments, <code>\ref</code>, and <code>\eqref</code> only),
+<code>ipynb</code></p>
+<p>output formats<br>
+<code>textile</code>, <code>commonmark</code></p>
+<p>Note: as applied to <code>ipynb</code>, <code>raw_html</code> and <code>raw_tex</code> affect not only
+raw TeX in markdown cells, but data with mime type <code>text/html</code> in
+output cells. Since the <code>ipynb</code> reader attempts to preserve the
+richest possible outputs when several options are given, you will get
+best results if you disable <code>raw_html</code> and <code>raw_tex</code> when converting
+to formats like <code>docx</code> which don’t allow raw <code>html</code> or <code>tex</code>.</p>
+</li>
+<li>
+<p><a href="#extension-native_divs"><code>native_divs</code></a> causes HTML <code>div</code> elements to
+be parsed as native pandoc Div blocks. If you want them to be parsed
+as raw HTML, use <code>-f html-native_divs+raw_html</code>.</p>
+</li>
+<li>
+<p><a href="#extension-native_spans"><code>native_spans</code></a> causes HTML <code>span</code> elements
+to be parsed as native pandoc Span inlines. If you want them to be
+parsed as raw HTML, use <code>-f html-native_spans+raw_html</code>. If you want
+to drop all <code>div</code>s and <code>span</code>s when converting HTML to Markdown, you
+can use <code>pandoc -f html-native_divs-native_spans -t markdown</code>.</p>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="literate-haskell-support">Literate Haskell support<a href="#literate-haskell-support" class="hash-link" aria-label="Direct link to Literate Haskell support" title="Direct link to Literate Haskell support">​</a></h2>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="extension-literate_haskell">Extension: <code>literate_haskell</code><a href="#extension-literate_haskell" class="hash-link" aria-label="Direct link to extension-literate_haskell" title="Direct link to extension-literate_haskell">​</a></h4>
+<p>Treat the document as literate Haskell source.</p>
+<p>This extension can be enabled/disabled for the following formats:</p>
+<p>input formats<br>
+<code>markdown</code>, <code>rst</code>, <code>latex</code></p>
+<p>output formats<br>
+<code>markdown</code>, <code>rst</code>, <code>latex</code>, <code>html</code></p>
+<p>If you append <code>+lhs</code> (or <code>+literate_haskell</code>) to one of the formats
+above, pandoc will treat the document as literate Haskell source. This
+means that</p>
+<ul>
+<li>
+<p>In Markdown input, “bird track” sections will be parsed as Haskell
+code rather than block quotations. Text between <code>\begin{code}</code> and
+<code>\end{code}</code> will also be treated as Haskell code. For ATX-style
+headings the character ‘=’ will be used instead of ‘#’.</p>
+</li>
+<li>
+<p>In Markdown output, code blocks with classes <code>haskell</code> and <code>literate</code>
+will be rendered using bird tracks, and block quotations will be
+indented one space, so they will not be treated as Haskell code. In
+addition, headings will be rendered setext-style (with underlines)
+rather than ATX-style (with ‘#’ characters). (This is because ghc
+treats ‘#’ characters in column 1 as introducing line numbers.)</p>
+</li>
+<li>
+<p>In restructured text input, “bird track” sections will be parsed as
+Haskell code.</p>
+</li>
+<li>
+<p>In restructured text output, code blocks with class <code>haskell</code> will be
+rendered using bird tracks.</p>
+</li>
+<li>
+<p>In LaTeX input, text in <code>code</code> environments will be parsed as Haskell
+code.</p>
+</li>
+<li>
+<p>In LaTeX output, code blocks with class <code>haskell</code> will be rendered
+inside <code>code</code> environments.</p>
+</li>
+<li>
+<p>In HTML output, code blocks with class <code>haskell</code> will be rendered with
+class <code>literatehaskell</code> and bird tracks.</p>
+</li>
+</ul>
+<p>Examples:</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">pandoc -f markdown+lhs -t html</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>reads literate Haskell source formatted with Markdown conventions and
+writes ordinary HTML (without bird tracks).</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">pandoc -f markdown+lhs -t html+lhs</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>writes HTML with the Haskell code in bird tracks, so it can be copied
+and pasted as literate Haskell source.</p>
+<p>Note that GHC expects the bird tracks in the first column, so indented
+literate code blocks (e.g. inside an itemized environment) will not be
+picked up by the Haskell compiler.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="other-extensions">Other extensions<a href="#other-extensions" class="hash-link" aria-label="Direct link to Other extensions" title="Direct link to Other extensions">​</a></h2>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="extension-empty_paragraphs">Extension: <code>empty_paragraphs</code><a href="#extension-empty_paragraphs" class="hash-link" aria-label="Direct link to extension-empty_paragraphs" title="Direct link to extension-empty_paragraphs">​</a></h4>
+<p>Allows empty paragraphs. By default empty paragraphs are omitted.</p>
+<p>This extension can be enabled/disabled for the following formats:</p>
+<p>input formats<br>
+<code>docx</code>, <code>html</code></p>
+<p>output formats<br>
+<code>docx</code>, <code>odt</code>, <code>opendocument</code>, <code>html</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="extension-native_numbering">Extension: <code>native_numbering</code><a href="#extension-native_numbering" class="hash-link" aria-label="Direct link to extension-native_numbering" title="Direct link to extension-native_numbering">​</a></h4>
+<p>Enables native numbering of figures and tables. Enumeration starts at 1.</p>
+<p>This extension can be enabled/disabled for the following formats:</p>
+<p>output formats<br>
+<code>odt</code>, <code>opendocument</code>, <code>docx</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="extension-xrefs_name">Extension: <code>xrefs_name</code><a href="#extension-xrefs_name" class="hash-link" aria-label="Direct link to extension-xrefs_name" title="Direct link to extension-xrefs_name">​</a></h4>
+<p>Links to headings, figures and tables inside the document are
+substituted with cross-references that will use the name or caption of
+the referenced item. The original link text is replaced once the
+generated document is refreshed. This extension can be combined with
+<code>xrefs_number</code> in which case numbers will appear before the name.</p>
+<p>Text in cross-references is only made consistent with the referenced
+item once the document has been refreshed.</p>
+<p>This extension can be enabled/disabled for the following formats:</p>
+<p>output formats<br>
+<code>odt</code>, <code>opendocument</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="extension-xrefs_number">Extension: <code>xrefs_number</code><a href="#extension-xrefs_number" class="hash-link" aria-label="Direct link to extension-xrefs_number" title="Direct link to extension-xrefs_number">​</a></h4>
+<p>Links to headings, figures and tables inside the document are
+substituted with cross-references that will use the number of the
+referenced item. The original link text is discarded. This extension can
+be combined with <code>xrefs_name</code> in which case the name or caption numbers
+will appear after the number.</p>
+<p>For the <code>xrefs_number</code> to be useful heading numbers must be enabled in
+the generated document, also table and figure captions must be enabled
+using for example the <code>native_numbering</code> extension.</p>
+<p>Numbers in cross-references are only visible in the final document once
+it has been refreshed.</p>
+<p>This extension can be enabled/disabled for the following formats:</p>
+<p>output formats<br>
+<code>odt</code>, <code>opendocument</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="extension-styles">Extension: <code>styles</code><a href="#extension-styles" class="hash-link" aria-label="Direct link to extension-styles" title="Direct link to extension-styles">​</a></h4>
+<p>When converting from docx, read all docx styles as divs (for paragraph
+styles) and spans (for character styles) regardless of whether pandoc
+understands the meaning of these styles. This can be used with <a href="#custom-styles">docx
+custom styles</a>. Disabled by default.</p>
+<p>input formats<br>
+<code>docx</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="extension-amuse">Extension: <code>amuse</code><a href="#extension-amuse" class="hash-link" aria-label="Direct link to extension-amuse" title="Direct link to extension-amuse">​</a></h4>
+<p>In the <code>muse</code> input format, this enables Text::Amuse extensions to Emacs
+Muse markup.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="extension-raw_markdown">Extension: <code>raw_markdown</code><a href="#extension-raw_markdown" class="hash-link" aria-label="Direct link to extension-raw_markdown" title="Direct link to extension-raw_markdown">​</a></h4>
+<p>In the <code>ipynb</code> input format, this causes Markdown cells to be included
+as raw Markdown blocks (allowing lossless round-tripping) rather than
+being parsed. Use this only when you are targeting <code>ipynb</code> or a
+markdown-based output format.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="extension-citations">Extension: <code>citations</code><a href="#extension-citations" class="hash-link" aria-label="Direct link to extension-citations" title="Direct link to extension-citations">​</a></h4>
+<p>When the <code>citations</code> extension is enabled in <code>org</code>, org-cite and org-ref
+style citations will be parsed as native pandoc citations.</p>
+<p>When <code>citations</code> is enabled in <code>docx</code>, citations inserted by Zotero or
+Mendeley or EndNote plugins will be parsed as native pandoc citations.
+(Otherwise, the formatted citations generated by the bibliographic
+software will be parsed as regular text.)</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="extension-fancy_lists">Extension: <code>fancy_lists</code><a href="#extension-fancy_lists" class="hash-link" aria-label="Direct link to extension-fancy_lists" title="Direct link to extension-fancy_lists">​</a></h4>
+<p>Some aspects of <a href="#extension-fancy_lists">Pandoc’s Markdown fancy lists</a>
+are also accepted in <code>org</code> input, mimicking the option
+<code>org-list-allow-alphabetical</code> in Emacs. As in Org Mode, enabling this
+extension allows lowercase and uppercase alphabetical markers for
+ordered lists to be parsed in addition to arabic ones. Note that for
+Org, this does not include roman numerals or the <code>#</code> placeholder that
+are enabled by the extension in Pandoc’s Markdown.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="extension-element_citations">Extension: <code>element_citations</code><a href="#extension-element_citations" class="hash-link" aria-label="Direct link to extension-element_citations" title="Direct link to extension-element_citations">​</a></h4>
+<p>In the <code>jats</code> output formats, this causes reference items to be replaced
+with <code>&lt;element-citation&gt;</code> elements. These elements are not influenced by
+CSL styles, but all information on the item is included in tags.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="extension-ntb">Extension: <code>ntb</code><a href="#extension-ntb" class="hash-link" aria-label="Direct link to extension-ntb" title="Direct link to extension-ntb">​</a></h4>
+<p>In the <code>context</code> output format this enables the use of <a href="https://wiki.contextgarden.net/TABLE" target="_blank" rel="noopener noreferrer">Natural Tables
+(TABLE)</a> instead of the default
+<a href="https://wiki.contextgarden.net/xtables" target="_blank" rel="noopener noreferrer">Extreme Tables (xtables)</a>.
+Natural tables allow more fine-grained global customization but come at
+a performance penalty compared to extreme tables.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="extension-tagging">Extension: <code>tagging</code><a href="#extension-tagging" class="hash-link" aria-label="Direct link to extension-tagging" title="Direct link to extension-tagging">​</a></h4>
+<p>Enabling this extension with <code>context</code> output will produce markup
+suitable for the production of tagged PDFs. This includes additional
+markers for paragraphs and alternative markup for emphasized text. The
+<code>emphasis-command</code> template variable is set if the extension is enabled.</p></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/Templates"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Templates</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/Pandocs Markdown"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Pandoc’s Markdown</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#typography" class="table-of-contents__link toc-highlight">Typography</a></li><li><a href="#headings-and-sections" class="table-of-contents__link toc-highlight">Headings and sections</a></li><li><a href="#math-input" class="table-of-contents__link toc-highlight">Math Input</a></li><li><a href="#raw-htmltex" class="table-of-contents__link toc-highlight">Raw HTML/TeX</a></li><li><a href="#literate-haskell-support" class="table-of-contents__link toc-highlight">Literate Haskell support</a></li><li><a href="#other-extensions" class="table-of-contents__link toc-highlight">Other extensions</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Panman</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/Synopsis">Docs</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Site built with Docusaurus by <a href="https://stefanocoretta.github.io">Stefano Coretta</a>.</div></div></div></footer></div>
+</body>
+</html>
