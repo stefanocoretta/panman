@@ -141,7 +141,8 @@ Live](https://www.tug.org/texlive/)):
 [`listings`](https://ctan.org/pkg/listings) (if the `--listings` option
 is used), [`fancyvrb`](https://ctan.org/pkg/fancyvrb),
 [`longtable`](https://ctan.org/pkg/longtable),
-[`booktabs`](https://ctan.org/pkg/booktabs),
+[`booktabs`](https://ctan.org/pkg/booktabs), \[`multirow`\] (if the
+document contains a table with cells that cross multiple rows),
 [`graphicx`](https://ctan.org/pkg/graphicx) (if the document contains
 images), [`bookmark`](https://ctan.org/pkg/bookmark),
 [`xcolor`](https://ctan.org/pkg/xcolor),
@@ -149,10 +150,14 @@ images), [`bookmark`](https://ctan.org/pkg/bookmark),
 [`geometry`](https://ctan.org/pkg/geometry) (with the `geometry`
 variable set), [`setspace`](https://ctan.org/pkg/setspace) (with
 `linestretch`), and [`babel`](https://ctan.org/pkg/babel) (with `lang`).
-If `CJKmainfont` is set, [`xeCJK`](https://ctan.org/pkg/xecjk) is
-needed. The use of `xelatex` or `lualatex` as the PDF engine requires
-[`fontspec`](https://ctan.org/pkg/fontspec). `lualatex` uses
-[`selnolig`](https://ctan.org/pkg/selnolig). `xelatex` uses
+If `CJKmainfont` is set, [`xeCJK`](https://ctan.org/pkg/xecjk) is needed
+if `xelatex` is used, else [`luatexja`](https://ctan.org/pkg/luatexja)
+is needed if `lualatex` is used. [`framed`](https://ctan.org/pkg/framed)
+is required if code is highlighted in a scheme that use a colored
+background. The use of `xelatex` or `lualatex` as the PDF engine
+requires [`fontspec`](https://ctan.org/pkg/fontspec). `lualatex` uses
+[`selnolig`](https://ctan.org/pkg/selnolig) and
+[`lua-ul`](https://ctan.org/pkg/lua-ul). `xelatex` uses
 [`bidi`](https://ctan.org/pkg/bidi) (with the `dir` variable set). If
 the `mathspec` variable is set, `xelatex` will use
 [`mathspec`](https://ctan.org/pkg/mathspec) instead of

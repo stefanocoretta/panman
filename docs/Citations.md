@@ -26,29 +26,29 @@ formats:
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;">Format</th>
 <th>File extension</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">BibLaTeX</td>
 <td>.bib</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;">BibTeX</td>
 <td>.bibtex</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">CSL JSON</td>
 <td>.json</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;">CSL YAML</td>
 <td>.yaml</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">RIS</td>
 <td>.ris</td>
 </tr>
@@ -61,7 +61,7 @@ the extension `.bibtex` to force interpretation as BibTeX.
 In BibTeX and BibLaTeX databases, pandoc parses LaTeX markup inside
 fields such as `title`; in CSL YAML databases, pandoc Markdown; and in
 CSL JSON databases, an [HTML-like
-markup](https://docs.citationstyles.org/en/1.0/release-notes.html#rich-text-markup-within-fields):
+markup](https://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html#html-like-formatting-tags):
 
 `<i>...</i>`  
 italics
@@ -224,7 +224,7 @@ can be illustrated with an example:
 ## Citations in note styles
 
 Pandoc’s citation processing is designed to allow you to move between
-author-date, numerical, and note styles without modifying the markdown
+author-date, numerical, and note styles without modifying the Markdown
 source. When you’re using a note style, avoid inserting footnotes
 manually. Instead, insert citations just as you would in an author-date
 style—for example,
@@ -344,12 +344,12 @@ A BCP 47 language tag is expected: for example, `en`, `de`, `en-US`,
 used to specify options for collation (sorting) more precisely. Here are
 some examples:
 
-- `zh-u-co-pinyin` – Chinese with the Pinyin collation.
-- `es-u-co-trad` – Spanish with the traditional collation (with `Ch`
+- `zh-u-co-pinyin`: Chinese with the Pinyin collation.
+- `es-u-co-trad`: Spanish with the traditional collation (with `Ch`
   sorting after `C`).
-- `fr-u-kb` – French with “backwards” accent sorting (with `coté`
-  sorting after `côte`).
-- `en-US-u-kf-upper` – English with uppercase letters sorting before
+- `fr-u-kb`: French with “backwards” accent sorting (with `coté` sorting
+  after `côte`).
+- `en-US-u-kf-upper`: English with uppercase letters sorting before
   lower (default is lower before upper).
 
 `notes-after-punctuation`  

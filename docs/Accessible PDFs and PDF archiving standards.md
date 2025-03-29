@@ -56,6 +56,12 @@ various PDF standards as well as tagging. E.g.:
 
 See the prince documentation for more info.
 
+## Typst
+
+Typst 0.12 can produce PDF/A-2b:
+
+    pandoc --pdf-engine=typst --pdf-engine-opt=--pdf-standard=a-2b ...
+
 ## Word Processors
 
 Word processors like LibreOffice and MS Word can also be used to
@@ -66,5 +72,5 @@ converted to PDF with the respective word processor. See the
 documentation for
 [Word](https://support.microsoft.com/en-us/office/create-accessible-pdfs-064625e0-56ea-4e16-ad71-3aa33bb4b7ed)
 and
-[LibreOffice](https://help.libreoffice.org/7.1/en-US/text/shared/01/ref_pdf_export_general.html).
+[LibreOffice](https://help.libreoffice.org/latest/en-US/text/shared/01/ref_pdf_export_general.html).
 

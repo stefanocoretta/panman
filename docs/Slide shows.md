@@ -294,6 +294,8 @@ with class `column` and a `width` attribute:
     :::
     ::::::::::::::
 
+Note: Specifying column widths does not currently work for PowerPoint.
+
 ### Additional columns attributes in beamer
 
 The div containers with classes `columns` and `column` can optionally
@@ -370,9 +372,8 @@ variable to get the same image on every slide.
 Note that for reveal.js, the `background-image` will be used as a
 `parallaxBackgroundImage` (see below).
 
-For pptx, you can use a [reference doc](#option--reference-doc) in which
-background images have been set on the [relevant
-layouts](#powerpoint-layout-choice).
+For pptx, you can use a `--reference-doc` in which background images
+have been set on the [relevant layouts](#powerpoint-layout-choice).
 
 #### `parallaxBackgroundImage` (reveal.js)
 
@@ -412,8 +413,8 @@ metadata block. It must contain a map of attribute names and values.
 (Note that the `data-` prefix is required here, as it isn’t added
 automatically.)
 
-For pptx, pass a [reference doc](#option--reference-doc) with the
-background image set on the “Title Slide” layout.
+For pptx, pass a `--reference-doc` with the background image set on the
+“Title Slide” layout.
 
 ### Example (reveal.js)
 

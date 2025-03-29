@@ -2,9 +2,15 @@
 
 ## EPUB Metadata
 
-EPUB metadata may be specified using the `--epub-metadata` option, but
-if the source document is Markdown, it is better to use a [YAML metadata
-block](#extension-yaml_metadata_block). Here is an example:
+There are two ways to specify metadata for an EPUB. The first is to use
+the `--epub-metadata` option, which takes as its argument an XML file
+with [Dublin Core
+elements](https://www.dublincore.org/specifications/dublin-core/dces/).
+
+The second way is to use YAML, either in a [YAML metadata
+block](#extension-yaml_metadata_block) in a Markdown document, or in a
+separate YAML file specified with `--metadata-file`. Here is an example
+of a YAML metadata block with EPUB metadata:
 
     ---
     title:
@@ -104,6 +110,34 @@ Either `ltr` or `rtl`. Specifies the `page-progression-direction`
 attribute for the [`spine`
 element](http://idpf.org/epub/301/spec/epub-publications.html#sec-spine-elem).
 
+`accessModes`  
+An array of strings
+([schema](https://kb.daisy.org/publishing/docs/metadata/schema.org/index.html)).
+Defaults to `["textual"]`.
+
+`accessModeSufficient`  
+An array of strings
+([schema](https://kb.daisy.org/publishing/docs/metadata/schema.org/index.html)).
+Defaults to `["textual"]`.
+
+`accessibilityHazards`  
+An array of strings
+([schema](https://kb.daisy.org/publishing/docs/metadata/schema.org/index.html)).
+Defaults to `["none"]`.
+
+`accessibilityFeatures`  
+An array of strings
+([schema](https://kb.daisy.org/publishing/docs/metadata/schema.org/index.html)).
+Defaults to
+
+    - "alternativeText"
+    - "readingOrder"
+    - "structuralNavigation"
+    - "tableOfContents"
+
+`accessibilitySummary`  
+A string value.
+
 `ibooks`  
 iBooks-specific metadata, with the following fields:
 
@@ -120,7 +154,7 @@ For `epub3` output, you can mark up the heading that corresponds to an
 EPUB chapter using the [`epub:type`
 attribute](http://www.idpf.org/epub/31/spec/epub-contentdocs.html#sec-epub-type-attribute).
 For example, to set the attribute to the value `prologue`, use this
-markdown:
+Markdown:
 
     # My chapter {epub:type=prologue}
 
@@ -136,97 +170,97 @@ of the following values, in which case either `frontmatter` or
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th><code>epub:type</code> of first section</th>
 <th><code>epub:type</code> of body</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>prologue</td>
 <td>frontmatter</td>
 </tr>
-<tr class="even">
+<tr>
 <td>abstract</td>
 <td>frontmatter</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>acknowledgments</td>
 <td>frontmatter</td>
 </tr>
-<tr class="even">
+<tr>
 <td>copyright-page</td>
 <td>frontmatter</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>dedication</td>
 <td>frontmatter</td>
 </tr>
-<tr class="even">
+<tr>
 <td>credits</td>
 <td>frontmatter</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>keywords</td>
 <td>frontmatter</td>
 </tr>
-<tr class="even">
+<tr>
 <td>imprint</td>
 <td>frontmatter</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>contributors</td>
 <td>frontmatter</td>
 </tr>
-<tr class="even">
+<tr>
 <td>other-credits</td>
 <td>frontmatter</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>errata</td>
 <td>frontmatter</td>
 </tr>
-<tr class="even">
+<tr>
 <td>revision-history</td>
 <td>frontmatter</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>titlepage</td>
 <td>frontmatter</td>
 </tr>
-<tr class="even">
+<tr>
 <td>halftitlepage</td>
 <td>frontmatter</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>seriespage</td>
 <td>frontmatter</td>
 </tr>
-<tr class="even">
+<tr>
 <td>foreword</td>
 <td>frontmatter</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>preface</td>
 <td>frontmatter</td>
 </tr>
-<tr class="even">
+<tr>
 <td>frontispiece</td>
 <td>frontmatter</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>appendix</td>
 <td>backmatter</td>
 </tr>
-<tr class="even">
+<tr>
 <td>colophon</td>
 <td>backmatter</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>bibliography</td>
 <td>backmatter</td>
 </tr>
-<tr class="even">
+<tr>
 <td>index</td>
 <td>backmatter</td>
 </tr>

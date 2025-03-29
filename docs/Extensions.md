@@ -9,19 +9,19 @@ and disabled by adding `-EXTENSION`. For example,
 enabled, while `--from markdown-footnotes-pipe_tables` is pandoc’s
 Markdown without footnotes or pipe tables.
 
-The markdown reader and writer make by far the most use of extensions.
+The Markdown reader and writer make by far the most use of extensions.
 Extensions only used by them are therefore covered in the section
 [Pandoc’s Markdown](#pandocs-markdown) below (see [Markdown
 variants](#markdown-variants) for `commonmark` and `gfm`). In the
 following, extensions that also work for other formats are covered.
 
-Note that markdown extensions added to the `ipynb` format affect
+Note that Markdown extensions added to the `ipynb` format affect
 Markdown cells in Jupyter notebooks (as do command-line options like
 `--markdown-headings`).
 
 ## Typography
 
-#### Extension: `smart`
+### Extension: `smart`
 
 Interpret straight quotes as curly quotes, `---` as em-dashes, `--` as
 en-dashes, and `...` as ellipses. Nonbreaking spaces are inserted after
@@ -52,7 +52,7 @@ quotation mark and dash characters.
 
 ## Headings and sections
 
-#### Extension: `auto_identifiers`
+### Extension: `auto_identifiers`
 
 A heading without an explicitly specified identifier will be
 automatically assigned a unique identifier based on the heading text.
@@ -85,35 +85,35 @@ Thus, for example,
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;">Heading</th>
 <th style="text-align: left;">Identifier</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td
 style="text-align: left;"><code>Heading identifiers in HTML</code></td>
 <td
 style="text-align: left;"><code>heading-identifiers-in-html</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><code>Maître d'hôtel</code></td>
 <td style="text-align: left;"><code>maître-dhôtel</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><code>*Dogs*?--in *my* house?</code></td>
 <td style="text-align: left;"><code>dogs--in-my-house</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><code>[HTML], [S5], or [RTF]?</code></td>
 <td style="text-align: left;"><code>html-s5-or-rtf</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><code>3. Applications</code></td>
 <td style="text-align: left;"><code>applications</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><code>33</code></td>
 <td style="text-align: left;"><code>section</code></td>
 </tr>
@@ -146,13 +146,13 @@ identifier will be attached to the enclosing `<section>` (or `<div>`)
 tag rather than the heading itself. This allows entire sections to be
 manipulated using JavaScript or treated differently in CSS.
 
-#### Extension: `ascii_identifiers`
+### Extension: `ascii_identifiers`
 
 Causes the identifiers produced by `auto_identifiers` to be pure ASCII.
 Accents are stripped off of accented Latin letters, and non-Latin
 letters are omitted.
 
-#### Extension: `gfm_auto_identifiers`
+### Extension: `gfm_auto_identifiers`
 
 Changes the algorithm used by `auto_identifiers` to conform to GitHub’s
 method. Spaces are converted to dashes (`-`), uppercase characters to
@@ -191,7 +191,7 @@ respective sections of [Pandoc’s Markdown](#pandocs-markdown):
   `textile`, `commonmark`
 
   Note: as applied to `ipynb`, `raw_html` and `raw_tex` affect not only
-  raw TeX in markdown cells, but data with mime type `text/html` in
+  raw TeX in Markdown cells, but data with mime type `text/html` in
   output cells. Since the `ipynb` reader attempts to preserve the
   richest possible outputs when several options are given, you will get
   best results if you disable `raw_html` and `raw_tex` when converting
@@ -209,7 +209,7 @@ respective sections of [Pandoc’s Markdown](#pandocs-markdown):
 
 ## Literate Haskell support
 
-#### Extension: `literate_haskell`
+### Extension: `literate_haskell`
 
 Treat the document as literate Haskell source.
 
@@ -270,7 +270,7 @@ picked up by the Haskell compiler.
 
 ## Other extensions
 
-#### Extension: `empty_paragraphs`
+### Extension: `empty_paragraphs`
 
 Allows empty paragraphs. By default empty paragraphs are omitted.
 
@@ -280,9 +280,9 @@ input formats
 `docx`, `html`
 
 output formats  
-`docx`, `odt`, `opendocument`, `html`
+`docx`, `odt`, `opendocument`, `html`, `latex`
 
-#### Extension: `native_numbering`
+### Extension: `native_numbering`
 
 Enables native numbering of figures and tables. Enumeration starts at 1.
 
@@ -291,7 +291,7 @@ This extension can be enabled/disabled for the following formats:
 output formats  
 `odt`, `opendocument`, `docx`
 
-#### Extension: `xrefs_name`
+### Extension: `xrefs_name`
 
 Links to headings, figures and tables inside the document are
 substituted with cross-references that will use the name or caption of
@@ -307,7 +307,7 @@ This extension can be enabled/disabled for the following formats:
 output formats  
 `odt`, `opendocument`
 
-#### Extension: `xrefs_number`
+### Extension: `xrefs_number`
 
 Links to headings, figures and tables inside the document are
 substituted with cross-references that will use the number of the
@@ -327,39 +327,51 @@ This extension can be enabled/disabled for the following formats:
 output formats  
 `odt`, `opendocument`
 
-#### Extension: `styles`
+### Extension: `styles`
 
-When converting from docx, read all docx styles as divs (for paragraph
-styles) and spans (for character styles) regardless of whether pandoc
-understands the meaning of these styles. This can be used with [docx
-custom styles](#custom-styles). Disabled by default.
+When converting from docx, add `custom-styles` attributes for all docx
+styles, regardless of whether pandoc understands the meanings of these
+styles. Because attributes cannot be added directly to paragraphs or
+text in the pandoc AST, paragraph styles will cause Divs to be created
+and character styles will cause Spans to be created to hold the
+attributes. (Table styles will be added to the Table elements directly.)
+This extension can be used with [docx custom styles](#custom-styles).
 
 input formats  
 `docx`
 
-#### Extension: `amuse`
+### Extension: `amuse`
 
 In the `muse` input format, this enables Text::Amuse extensions to Emacs
 Muse markup.
 
-#### Extension: `raw_markdown`
+### Extension: `raw_markdown`
 
 In the `ipynb` input format, this causes Markdown cells to be included
 as raw Markdown blocks (allowing lossless round-tripping) rather than
 being parsed. Use this only when you are targeting `ipynb` or a
-markdown-based output format.
+Markdown-based output format.
 
-#### Extension: `citations`
+### Extension: `citations` (typst)
+
+When the `citations` extension is enabled in `typst` (as it is by
+default), `typst` citations will be parsed as native pandoc citations,
+and native pandoc citations will be rendered as `typst` citations.
+
+### Extension: `citations` (org)
 
 When the `citations` extension is enabled in `org`, org-cite and org-ref
-style citations will be parsed as native pandoc citations.
+style citations will be parsed as native pandoc citations, and org-cite
+citations will be used to render native pandoc citations.
+
+### Extension: `citations` (docx)
 
 When `citations` is enabled in `docx`, citations inserted by Zotero or
 Mendeley or EndNote plugins will be parsed as native pandoc citations.
 (Otherwise, the formatted citations generated by the bibliographic
 software will be parsed as regular text.)
 
-#### Extension: `fancy_lists`
+### Extension: `fancy_lists` (org)
 
 Some aspects of [Pandoc’s Markdown fancy lists](#extension-fancy_lists)
 are also accepted in `org` input, mimicking the option
@@ -369,13 +381,13 @@ ordered lists to be parsed in addition to arabic ones. Note that for
 Org, this does not include roman numerals or the `#` placeholder that
 are enabled by the extension in Pandoc’s Markdown.
 
-#### Extension: `element_citations`
+### Extension: `element_citations`
 
 In the `jats` output formats, this causes reference items to be replaced
 with `<element-citation>` elements. These elements are not influenced by
 CSL styles, but all information on the item is included in tags.
 
-#### Extension: `ntb`
+### Extension: `ntb`
 
 In the `context` output format this enables the use of [Natural Tables
 (TABLE)](https://wiki.contextgarden.net/TABLE) instead of the default
@@ -383,7 +395,7 @@ In the `context` output format this enables the use of [Natural Tables
 Natural tables allow more fine-grained global customization but come at
 a performance penalty compared to extreme tables.
 
-#### Extension: `tagging`
+### Extension: `tagging`
 
 Enabling this extension with `context` output will produce markup
 suitable for the production of tagged PDFs. This includes additional

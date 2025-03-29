@@ -1,6 +1,6 @@
 # Authors
 
-Copyright 2006–2022 John MacFarlane (jgm@berkeley.edu). Released under
+Copyright 2006–2024 John MacFarlane (jgm@berkeley.edu). Released under
 the
 [GPL](https://www.gnu.org/copyleft/gpl.html "GNU General Public License"),
 version 2 or greater. This software carries no warranty of any kind.

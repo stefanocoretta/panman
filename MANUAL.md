@@ -145,7 +145,8 @@ Live](https://www.tug.org/texlive/)):
 [`listings`](https://ctan.org/pkg/listings) (if the `--listings` option
 is used), [`fancyvrb`](https://ctan.org/pkg/fancyvrb),
 [`longtable`](https://ctan.org/pkg/longtable),
-[`booktabs`](https://ctan.org/pkg/booktabs),
+[`booktabs`](https://ctan.org/pkg/booktabs), \[`multirow`\] (if the
+document contains a table with cells that cross multiple rows),
 [`graphicx`](https://ctan.org/pkg/graphicx) (if the document contains
 images), [`bookmark`](https://ctan.org/pkg/bookmark),
 [`xcolor`](https://ctan.org/pkg/xcolor),
@@ -153,10 +154,14 @@ images), [`bookmark`](https://ctan.org/pkg/bookmark),
 [`geometry`](https://ctan.org/pkg/geometry) (with the `geometry`
 variable set), [`setspace`](https://ctan.org/pkg/setspace) (with
 `linestretch`), and [`babel`](https://ctan.org/pkg/babel) (with `lang`).
-If `CJKmainfont` is set, [`xeCJK`](https://ctan.org/pkg/xecjk) is
-needed. The use of `xelatex` or `lualatex` as the PDF engine requires
-[`fontspec`](https://ctan.org/pkg/fontspec). `lualatex` uses
-[`selnolig`](https://ctan.org/pkg/selnolig). `xelatex` uses
+If `CJKmainfont` is set, [`xeCJK`](https://ctan.org/pkg/xecjk) is needed
+if `xelatex` is used, else [`luatexja`](https://ctan.org/pkg/luatexja)
+is needed if `lualatex` is used. [`framed`](https://ctan.org/pkg/framed)
+is required if code is highlighted in a scheme that use a colored
+background. The use of `xelatex` or `lualatex` as the PDF engine
+requires [`fontspec`](https://ctan.org/pkg/fontspec). `lualatex` uses
+[`selnolig`](https://ctan.org/pkg/selnolig) and
+[`lua-ul`](https://ctan.org/pkg/lua-ul). `xelatex` uses
 [`bidi`](https://ctan.org/pkg/bidi) (with the `dir` variable set). If
 the `mathspec` variable is set, `xelatex` will use
 [`mathspec`](https://ctan.org/pkg/mathspec) instead of
@@ -219,6 +224,7 @@ Specify input format. *FORMAT* can be:
 - `tsv`
   ([TSV](https://www.iana.org/assignments/media-types/text/tab-separated-values)
   table)
+- `djot` ([Djot markup](https://djot.net))
 - `docbook` ([DocBook](https://docbook.org))
 - `docx` ([Word docx](https://en.wikipedia.org/wiki/Office_Open_XML))
 - `dokuwiki` ([DokuWiki markup](https://www.dokuwiki.org/dokuwiki))
@@ -254,11 +260,16 @@ Specify input format. *FORMAT* can be:
 - `mediawiki` ([MediaWiki
   markup](https://www.mediawiki.org/wiki/Help:Formatting))
 - `man` ([roff man](https://man.cx/groff_man(7)))
+- `mdoc` ([mdoc](https://mandoc.bsd.lv/man/mdoc.7.html) manual page
+  markup)
 - `muse` ([Muse](https://amusewiki.org/library/manual))
 - `native` (native Haskell)
-- `odt` ([ODT](https://en.wikipedia.org/wiki/OpenDocument))
+- `odt` ([OpenDocument text
+  document](https://en.wikipedia.org/wiki/OpenDocument))
 - `opml` ([OPML](http://dev.opml.org/spec2.html))
 - `org` ([Emacs Org mode](https://orgmode.org))
+- `pod` (Perl’s [Plain Old
+  Documentation](https://perldoc.perl.org/perlpod))
 - `ris` ([RIS](https://en.wikipedia.org/wiki/RIS_(file_format))
   bibliography)
 - `rtf` ([Rich Text
@@ -288,10 +299,12 @@ Specify output format. *FORMAT* can be:
 
 <div id="output-formats">
 
-- `asciidoc` (modern [AsciiDoc](https://www.methods.co.nz/asciidoc/) as
-  interpreted by [AsciiDoctor](https://asciidoctor.org/))
-- `asciidoc_legacy` ([AsciiDoc](https://www.methods.co.nz/asciidoc/) as
-  interpreted by
+- `ansi` (text with [ANSI escape
+  codes](https://en.wikipedia.org/wiki/ANSI_escape_code), for terminal
+  viewing)
+- `asciidoc` (modern [AsciiDoc](https://asciidoc.org/) as interpreted by
+  [AsciiDoctor](https://asciidoctor.org/))
+- `asciidoc_legacy` ([AsciiDoc](https://asciidoc.org/) as interpreted by
   [`asciidoc-py`](https://github.com/asciidoc-py/asciidoc-py)).
 - `asciidoctor` (deprecated synonym for `asciidoc`)
 - `beamer` ([LaTeX beamer](https://ctan.org/pkg/beamer) slide show)
@@ -305,6 +318,7 @@ Specify output format. *FORMAT* can be:
 - `csljson` ([CSL
   JSON](https://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html)
   bibliography)
+- `djot` ([Djot markup](https://djot.net))
 - `docbook` or `docbook4` ([DocBook](https://docbook.org) 4)
 - `docbook5` (DocBook 5)
 - `docx` ([Word docx](https://en.wikipedia.org/wiki/Office_Open_XML))
@@ -326,7 +340,7 @@ Specify output format. *FORMAT* can be:
   markup](https://www.w3.org/TR/html-polyglot/))
 - `html4` ([XHTML](https://www.w3.org/TR/xhtml1/) 1.0 Transitional)
 - `icml` ([InDesign
-  ICML](https://wwwimages.adobe.com/www.adobe.com/content/dam/acom/en/devnet/indesign/sdk/cs6/idml/idml-cookbook.pdf))
+  ICML](https://manualzz.com/doc/9627253/adobe-indesign-cs6-idml-cookbook))
 - `ipynb` ([Jupyter
   notebook](https://nbformat.readthedocs.io/en/latest/))
 - `jats_archiving` ([JATS](https://jats.nlm.nih.gov) XML, Archiving and
@@ -355,10 +369,11 @@ Specify output format. *FORMAT* can be:
 - `ms` ([roff ms](https://man.cx/groff_ms(7)))
 - `muse` ([Muse](https://amusewiki.org/library/manual))
 - `native` (native Haskell)
-- `odt` ([OpenOffice text
+- `odt` ([OpenDocument text
   document](https://en.wikipedia.org/wiki/OpenDocument))
 - `opml` ([OPML](http://dev.opml.org/spec2.html))
-- `opendocument` ([OpenDocument](http://opendocument.xml.org))
+- `opendocument` ([OpenDocument
+  XML](https://www.oasis-open.org/2021/06/16/opendocument-v1-3-oasis-standard-published/))
 - `org` ([Emacs Org mode](https://orgmode.org))
 - `pdf` ([PDF](https://www.adobe.com/pdf/))
 - `plain` (plain text)
@@ -499,7 +514,7 @@ render the document title.
 NUMBER - 1.* Specify the base level for headings (defaults to 1).
 
 `--indented-code-classes=`*CLASSES*  
-Specify classes to use for indented code blocks–for example,
+Specify classes to use for indented code blocks—for example,
 `perl,numberLines` or `haskell`. Multiple classes may be separated by
 spaces or commas.
 
@@ -521,10 +536,6 @@ on the filenames will be added to identifiers in order to disambiguate
 them, and internal links will be adjusted accordingly. For example, a
 header with identifier `foo` in `subdir/file1.txt` will have its
 identifier changed to `subdir__file1.txt__foo`.
-
-In addition, a Div with an identifier based on the filename will be
-added around the file’s content, so that internal links to the filename
-will point to this Div’s identifier.
 
 `-F` *PROGRAM*, `--filter=`*PROGRAM*  
 Specify an executable to be used as a filter transforming the pandoc AST
@@ -671,18 +682,21 @@ otherwise, metadata is suppressed.
 `--template=`*FILE*|*URL*  
 Use the specified file as a custom template for the generated document.
 Implies `--standalone`. See [Templates](#templates), below, for a
-description of template syntax. If no extension is specified, an
-extension corresponding to the writer will be added, so that
-`--template=special` looks for `special.html` for HTML output. If the
-template is not found, pandoc will search for it in the `templates`
-subdirectory of the user data directory (see `--data-dir`). If this
+description of template syntax. If the template is not found, pandoc
+will search for it in the `templates` subdirectory of the user data
+directory (see `--data-dir`). If no extension is specified and an
+extensionless template is not found, pandoc will look for a template
+with an extension corresponding to the writer, so that
+`--template=special` looks for `special.html` for HTML output. If this
 option is not used, a default template appropriate for the output format
 will be used (see `-D/--print-default-template`).
 
 `-V` *KEY*\[`=`*VAL*\], `--variable=`*KEY*\[`:`*VAL*\]  
-Set the template variable *KEY* to the value *VAL* when rendering the
-document in standalone mode. If no *VAL* is specified, the key will be
-given the value `true`.
+Set the template variable *KEY* to the string value *VAL* when rendering
+the document in standalone mode. If no *VAL* is specified, the key will
+be given the value `true`. Structured values (lists, maps) cannot be
+assigned using this option, but they can be assigned in the `variables`
+section of a [defaults file](#defaults-files).
 
 `--sandbox[=true|false]`  
 Run pandoc in a sandbox, limiting IO operations in readers and writers
@@ -736,7 +750,7 @@ With `none`, pandoc will not wrap lines at all. With `preserve`, pandoc
 will attempt to preserve the wrapping from the source document (that is,
 where there are nonsemantic newlines in the source, there will be
 nonsemantic newlines in the output as well). In `ipynb` output, this
-option affects wrapping of the contents of markdown cells.
+option affects wrapping of the contents of Markdown cells.
 
 `--columns=`*NUMBER*  
 Specify length of lines in characters. This affects text wrapping in the
@@ -759,6 +773,18 @@ would prefer it to be at the end of the document, use the option
 Specify the number of section levels to include in the table of
 contents. The default is 3 (which means that level-1, 2, and 3 headings
 will be listed in the contents).
+
+`--lof[=true|false]`, `--list-of-figures[=true|false]`  
+Include an automatically generated list of figures (or, in some formats,
+an instruction to create one) in the output document. This option has no
+effect unless `-s/--standalone` is used, and it only has an effect on
+`latex`, `context`, and `docx` output.
+
+`--lot[=true|false]`, `--list-of-tables[=true|false]`  
+Include an automatically generated list of tables (or, in some formats,
+an instruction to create one) in the output document. This option has no
+effect unless `-s/--standalone` is used, and it only has an effect on
+`latex`, `context`, and `docx` output.
 
 `--strip-comments[=true|false]`  
 Strip out HTML comments in the Markdown or Textile source, rather than
@@ -812,13 +838,20 @@ body (e.g. after the `<body>` tag in HTML, or the `\begin{document}`
 command in LaTeX). This can be used to include navigation bars or
 banners in HTML documents. This option can be used repeatedly to include
 multiple files. They will be included in the order specified. Implies
-`--standalone`.
+`--standalone`. Note that if the output format is `odt`, this file must
+be in OpenDocument XML format suitable for insertion into the body of
+the document, and if the output is `docx`, this file must be in
+appropriate OpenXML format.
 
 `-A` *FILE*, `--include-after-body=`*FILE*|*URL*  
 Include contents of *FILE*, verbatim, at the end of the document body
 (before the `</body>` tag in HTML, or the `\end{document}` command in
 LaTeX). This option can be used repeatedly to include multiple files.
 They will be included in the order specified. Implies `--standalone`.
+Note that if the output format is `odt`, this file must be in
+OpenDocument XML format suitable for insertion into the body of the
+document, and if the output is `docx`, this file must be in appropriate
+OpenXML format.
 
 `--resource-path=`*SEARCHPATH*  
 List of paths to search for images and other resources. The paths should
@@ -831,7 +864,11 @@ working directory and the `test` subdirectory, in that order. This
 option can be used repeatedly. Search path components that come later on
 the command line will be searched before those that come earlier, so
 `--resource-path foo:bar --resource-path baz:bim` is equivalent to
-`--resource-path baz:bim:foo:bar`.
+`--resource-path baz:bim:foo:bar`. Note that this option only has an
+effect when pandoc itself needs to find an image (e.g., in producing a
+PDF or docx, or when `--embed-resources` is used.) It will not cause
+image paths to be rewritten in other cases (e.g., when pandoc is
+generating LaTeX or HTML).
 
 `--request-header=`*NAME*`:`*VAL*  
 Set the request header *NAME* to the value *VAL* when making HTTP
@@ -869,6 +906,16 @@ when `--mathjax` is used, and some advanced features (e.g. zoom or
 speaker notes) may not work in an offline “self-contained” `reveal.js`
 slide show.
 
+For SVG images, `img` tags with `data:` URIs are used, unless the image
+has the class `inline-svg`, in which case an inline SVG element is
+inserted. This approach is recommended when there are many occurrences
+of the same SVG in a document, as `<use>` elements will be used to
+reduce duplication.
+
+`--link-images[=true|false]`  
+Include links to images instead of embedding the images in ODT. (This
+option currently only affects ODT output.)
+
 `--html-q-tags[=true|false]`  
 Use `<q>` tags for quotes in HTML. (This option only has an effect if
 the `smart` extension is enabled for the input format used.)
@@ -894,6 +941,16 @@ option only affects the `markdown`, `muse`, `html`, `epub`, `slidy`,
 specifying `--reference-location=section` will cause notes to be
 rendered at the bottom of a slide.
 
+`--figure-caption-position=above`|`below`  
+Specify whether figure captions go above or below figures (default is
+`below`). This option only affects HTML, LaTeX, Docx, ODT, and Typst
+output.
+
+`--table-caption-position=above`|`below`  
+Specify whether table captions go above or below tables (default is
+`above`). This option only affects HTML, LaTeX, Docx, ODT, and Typst
+output.
+
 `--markdown-headings=setext`|`atx`  
 Specify whether to use ATX-style (`#`-prefixed) or Setext-style
 (underlined) headings for level 1 and 2 headings in Markdown output.
@@ -916,21 +973,28 @@ specified), `chapter` is implied as the setting for this option. If
 will cause top-level headings to become `\part{..}`, while second-level
 headings remain as their default type.
 
-`-N`, `--number-sections`  
+In Docx output, this option adds section breaks before first-level
+headings if `chapter` is selected, and before first- and second-level
+headings if `part` is selected. Footnote numbers will restart with each
+section break unless the reference doc modifies this.
+
+`-N`, `--number-sections=[true|false]`  
 Number section headings in LaTeX, ConTeXt, HTML, Docx, ms, or EPUB
 output. By default, sections are not numbered. Sections with class
 `unnumbered` will never be numbered, even if `--number-sections` is
 specified.
 
 `--number-offset=`*NUMBER*\[`,`*NUMBER*`,`*…*\]  
-Offset for section headings in HTML output (ignored in other output
-formats). The first number is added to the section number for top-level
-headings, the second for second-level headings, and so on. So, for
-example, if you want the first top-level heading in your document to be
-numbered “6”, specify `--number-offset=5`. If your document starts with
-a level-2 heading which you want to be numbered “1.5”, specify
-`--number-offset=1,4`. Offsets are 0 by default. Implies
-`--number-sections`.
+Offsets for section heading numbers. The first number is added to the
+section number for level-1 headings, the second for level-2 headings,
+and so on. So, for example, if you want the first level-1 heading in
+your document to be numbered “6” instead of “1”, specify
+`--number-offset=5`. If your document starts with a level-2 heading
+which you want to be numbered “1.5”, specify `--number-offset=1,4`.
+`--number-offset` only directly affects the number of the first section
+heading in a document; subsequent numbers increment in the normal way.
+Implies `--number-sections`. Currently this feature only affects HTML
+and Docx output.
 
 `--listings[=true|false]`  
 Use the [`listings`](https://ctan.org/pkg/listings) package for LaTeX
@@ -945,14 +1009,15 @@ default is for lists to be displayed all at once.
 
 `--slide-level=`*NUMBER*  
 Specifies that headings with the specified level create slides (for
-`beamer`, `s5`, `slidy`, `slideous`, `dzslides`). Headings above this
-level in the hierarchy are used to divide the slide show into sections;
-headings below this level create subheads within a slide. Valid values
-are 0-6. If a slide level of 0 is specified, slides will not be split
-automatically on headings, and horizontal rules must be used to indicate
-slide boundaries. If a slide level is not specified explicitly, the
-slide level will be set automatically based on the contents of the
-document; see [Structuring the slide show](#structuring-the-slide-show).
+`beamer`, `revealjs`, `pptx`, `s5`, `slidy`, `slideous`, `dzslides`).
+Headings above this level in the hierarchy are used to divide the slide
+show into sections; headings below this level create subheads within a
+slide. Valid values are 0-6. If a slide level of 0 is specified, slides
+will not be split automatically on headings, and horizontal rules must
+be used to indicate slide boundaries. If a slide level is not specified
+explicitly, the slide level will be set automatically based on the
+contents of the document; see [Structuring the slide
+show](#structuring-the-slide-show).
 
 `--section-divs[=true|false]`  
 Wrap sections in `<section>` tags (or `<div>` tags for `html4`), and
@@ -990,7 +1055,7 @@ this option (or the `css` or `stylesheet` metadata fields), pandoc will
 look for a file `epub.css` in the user data directory (see
 `--data-dir`). If it is not found there, sensible defaults will be used.
 
-`--reference-doc=`*FILE*|*URL*  
+<span id="option--reference-doc">`--reference-doc=`*FILE*|*URL*</span>  
 Use the specified file as a style reference in producing a docx or ODT
 file.
 
@@ -1216,7 +1281,7 @@ following defaults depending on the output format specified using
 - `-t latex` or none: `pdflatex` (other options: `xelatex`, `lualatex`,
   `tectonic`, `latexmk`)
 - `-t context`: `context`
-- `-t html`: `wkhtmltopdf` (other options: `prince`, `weasyprint`,
+- `-t html`: `weasyprint` (other options: `prince`, `wkhtmltopdf`,
   `pagedjs-cli`; see [print-css.rocks](https://print-css.rocks) for a
   good introduction to PDF generation from HTML/CSS)
 - `-t ms`: `pdfroff`
@@ -1246,6 +1311,11 @@ may be applied before or after filters or Lua filters (see `--filter`,
 `--lua-filter`): these transformations are applied in the order they
 appear on the command line. For more information, see the section on
 [Citations](#citations).
+
+Note: if this option is specified, the `citations` extension will be
+disabled automatically in the writer, to ensure that the
+citeproc-generated citations will be rendered instead of the format’s
+own citation syntax.
 
 `--bibliography=`*FILE*  
 Set the `bibliography` field in the document’s metadata to *FILE*,
@@ -1362,129 +1432,129 @@ exit codes have the following meanings:
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: right;">Code</th>
 <th style="text-align: left;">Error</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">PandocIOError</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: right;">3</td>
 <td style="text-align: left;">PandocFailOnWarningError</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: right;">4</td>
 <td style="text-align: left;">PandocAppError</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: right;">5</td>
 <td style="text-align: left;">PandocTemplateError</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: right;">6</td>
 <td style="text-align: left;">PandocOptionError</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: right;">21</td>
 <td style="text-align: left;">PandocUnknownReaderError</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: right;">22</td>
 <td style="text-align: left;">PandocUnknownWriterError</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: right;">23</td>
 <td style="text-align: left;">PandocUnsupportedExtensionError</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: right;">24</td>
 <td style="text-align: left;">PandocCiteprocError</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: right;">25</td>
 <td style="text-align: left;">PandocBibliographyError</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: right;">31</td>
 <td style="text-align: left;">PandocEpubSubdirectoryError</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: right;">43</td>
 <td style="text-align: left;">PandocPDFError</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: right;">44</td>
 <td style="text-align: left;">PandocXMLError</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: right;">47</td>
 <td style="text-align: left;">PandocPDFProgramNotFoundError</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: right;">61</td>
 <td style="text-align: left;">PandocHttpError</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: right;">62</td>
 <td style="text-align: left;">PandocShouldNeverHappenError</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: right;">63</td>
 <td style="text-align: left;">PandocSomeError</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: right;">64</td>
 <td style="text-align: left;">PandocParseError</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: right;">66</td>
 <td style="text-align: left;">PandocMakePDFError</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: right;">67</td>
 <td style="text-align: left;">PandocSyntaxMapError</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: right;">83</td>
 <td style="text-align: left;">PandocFilterError</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: right;">84</td>
 <td style="text-align: left;">PandocLuaError</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: right;">89</td>
 <td style="text-align: left;">PandocNoScriptingEngine</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: right;">91</td>
 <td style="text-align: left;">PandocMacroLoop</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: right;">92</td>
 <td style="text-align: left;">PandocUTF8DecodingError</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: right;">93</td>
 <td style="text-align: left;">PandocIpynbDecodingError</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: right;">94</td>
 <td style="text-align: left;">PandocUnsupportedCharsetError</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: right;">97</td>
 <td style="text-align: left;">PandocCouldNotFindDataFileError</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: right;">98</td>
 <td style="text-align: left;">PandocCouldNotFindMetadataFileError</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: right;">99</td>
 <td style="text-align: left;">PandocResourceNotFound</td>
 </tr>
@@ -1555,18 +1625,18 @@ defaults file entries.
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;">command line</th>
 <th style="text-align: left;">defaults file</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>foo.md</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb2"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">input-file</span><span class="kw">:</span><span class="at"> foo.md</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><pre><code>foo.md bar.md
 &#10;</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb4"><pre
@@ -1588,68 +1658,68 @@ stdin, and it can be an empty sequence `[]` for no input.
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;">command line</th>
 <th style="text-align: left;">defaults file</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--from markdown+emoji</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb2"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">from</span><span class="kw">:</span><span class="at"> markdown+emoji</span></span></code></pre></div>
 <div class="sourceCode" id="cb3"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">reader</span><span class="kw">:</span><span class="at"> markdown+emoji</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><pre><code>--to markdown+hard_line_breaks</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb5"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">to</span><span class="kw">:</span><span class="at"> markdown+hard_line_breaks</span></span></code></pre></div>
 <div class="sourceCode" id="cb6"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">writer</span><span class="kw">:</span><span class="at"> markdown+hard_line_breaks</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--output foo.pdf</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb8"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">output-file</span><span class="kw">:</span><span class="at"> foo.pdf</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><pre><code>--output -</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb10"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">output-file</span><span class="kw">:</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--data-dir dir</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb12"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data-dir</span><span class="kw">:</span><span class="at"> dir</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><pre><code>--defaults file</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb14"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">defaults</span><span class="kw">:</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> file</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--verbose</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb16"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">verbosity</span><span class="kw">:</span><span class="at"> INFO</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><pre><code>--quiet</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb18"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">verbosity</span><span class="kw">:</span><span class="at"> ERROR</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--fail-if-warnings</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb20"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fail-if-warnings</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><pre><code>--sandbox</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb22"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sandbox</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--log=FILE</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb24"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log-file</span><span class="kw">:</span><span class="at"> FILE</span></span></code></pre></div></td>
@@ -1670,35 +1740,35 @@ those in another file included with a `defaults:` entry.
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;">command line</th>
 <th style="text-align: left;">defaults file</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--shift-heading-level-by -1</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb2"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shift-heading-level-by</span><span class="kw">:</span><span class="at"> </span><span class="dv">-1</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><pre><code>--indented-code-classes python
 </code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb4"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">indented-code-classes</span><span class="kw">:</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> python</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--default-image-extension &quot;.jpg&quot;</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb6"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">default-image-extension</span><span class="kw">:</span><span class="at"> </span><span class="st">&#39;.jpg&#39;</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><pre><code>--file-scope</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb8"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">file-scope</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--citeproc \
  --lua-filter count-words.lua \
  --filter special.lua
@@ -1710,7 +1780,7 @@ class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb10-1"><a href=
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">type</span><span class="kw">:</span><span class="at"> json</span></span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">path</span><span class="kw">:</span><span class="at"> special.lua</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><pre><code>--metadata key=value \
  --metadata key2
 </code></pre></td>
@@ -1719,7 +1789,7 @@ class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb12-1"><a href=
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">key</span><span class="kw">:</span><span class="at"> value</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">key2</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--metadata-file meta.yaml
 </code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb14"><pre
@@ -1728,32 +1798,32 @@ class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb14-1"><a href=
 <div class="sourceCode" id="cb15"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata-file</span><span class="kw">:</span><span class="at"> meta.yaml</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><pre><code>--preserve-tabs</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb17"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">preserve-tabs</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--tab-stop 8</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb19"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tab-stop</span><span class="kw">:</span><span class="at"> </span><span class="dv">8</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><pre><code>--track-changes accept</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb21"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">track-changes</span><span class="kw">:</span><span class="at"> accept</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--extract-media dir</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb23"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">extract-media</span><span class="kw">:</span><span class="at"> dir</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><pre><code>--abbreviations abbrevs.txt</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb25"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">abbreviations</span><span class="kw">:</span><span class="at"> abbrevs.txt</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--trace</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb27"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">trace</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
@@ -1778,23 +1848,23 @@ To include the built-in citeproc filter, use either `citeproc` or
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;">command line</th>
 <th style="text-align: left;">defaults file</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--standalone</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb2"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">standalone</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><pre><code>--template letter</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb4"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">template</span><span class="kw">:</span><span class="at"> letter</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--variable key=val \
   --variable key2
 </code></pre></td>
@@ -1803,57 +1873,57 @@ class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb6-1"><a href="
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">key</span><span class="kw">:</span><span class="at"> val</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">key2</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><pre><code>--eol nl</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb8"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">eol</span><span class="kw">:</span><span class="at"> nl</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--dpi 300</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb10"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dpi</span><span class="kw">:</span><span class="at"> </span><span class="dv">300</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><pre><code>--wrap 60</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb12"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wrap</span><span class="kw">:</span><span class="at"> </span><span class="dv">60</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--columns 72</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb14"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">columns</span><span class="kw">:</span><span class="at"> </span><span class="dv">72</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><pre><code>--table-of-contents</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb16"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table-of-contents</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--toc</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb18"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><pre><code>--toc-depth 3</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb20"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">toc-depth</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--strip-comments</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb22"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">strip-comments</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><pre><code>--no-highlight</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb24"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">highlight-style</span><span class="kw">:</span><span class="at"> </span><span class="ch">null</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--highlight-style kate</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb26"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">highlight-style</span><span class="kw">:</span><span class="at"> kate</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><pre><code>--syntax-definition mylang.xml
 </code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb28"><pre
@@ -1862,40 +1932,40 @@ class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb28-1"><a href=
 <div class="sourceCode" id="cb29"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">syntax-definition</span><span class="kw">:</span><span class="at"> mylang.xml</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--include-in-header inc.tex
 </code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb31"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">include-in-header</span><span class="kw">:</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> inc.tex</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><pre><code>--include-before-body inc.tex
 </code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb33"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">include-before-body</span><span class="kw">:</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> inc.tex</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--include-after-body inc.tex
 </code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb35"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">include-after-body</span><span class="kw">:</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> inc.tex</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><pre><code>--resource-path .:foo</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb37"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">resource-path</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&#39;.&#39;</span><span class="kw">,</span><span class="st">&#39;foo&#39;</span><span class="kw">]</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--request-header foo:bar
 </code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb39"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">request-headers</span><span class="kw">:</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;User-Agent&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;Mozilla/5.0&quot;</span><span class="kw">]</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><pre><code>--no-check-certificate</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb41"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">no-check-certificate</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
@@ -1911,168 +1981,203 @@ class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb41-1"><a href=
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;">command line</th>
 <th style="text-align: left;">defaults file</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--self-contained</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb2"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">self-contained</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
-<td style="text-align: left;"><pre><code>--html-q-tags</code></pre></td>
+<tr>
+<td style="text-align: left;"><pre><code>--link-images</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb4"><pre
-class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">html-q-tags</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">link-images</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;"><pre><code>--ascii</code></pre></td>
+<tr>
+<td style="text-align: left;"><pre><code>--html-q-tags</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb6"><pre
-class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ascii</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">html-q-tags</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
-<td style="text-align: left;"><pre><code>--reference-links</code></pre></td>
+<tr>
+<td style="text-align: left;"><pre><code>--ascii</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb8"><pre
-class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">reference-links</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ascii</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;"><pre><code>--reference-location block</code></pre></td>
+<tr>
+<td style="text-align: left;"><pre><code>--reference-links</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb10"><pre
-class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">reference-location</span><span class="kw">:</span><span class="at"> block</span></span></code></pre></div></td>
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">reference-links</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
-<td style="text-align: left;"><pre><code>--markdown-headings atx</code></pre></td>
+<tr>
+<td style="text-align: left;"><pre><code>--reference-location block</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb12"><pre
-class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">markdown-headings</span><span class="kw">:</span><span class="at"> atx</span></span></code></pre></div></td>
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">reference-location</span><span class="kw">:</span><span class="at"> block</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;"><pre><code>--list-tables</code></pre></td>
+<tr>
+<td style="text-align: left;"><pre><code>--figure-caption-position=above</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb14"><pre
-class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list-tables</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">figure-caption-position</span><span class="kw">:</span><span class="at"> above</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
-<td style="text-align: left;"><pre><code>--top-level-division chapter</code></pre></td>
+<tr>
+<td style="text-align: left;"><pre><code>--table-caption-position=below</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb16"><pre
-class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">top-level-division</span><span class="kw">:</span><span class="at"> chapter</span></span></code></pre></div></td>
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table-caption-position</span><span class="kw">:</span><span class="at"> below</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;"><pre><code>--number-sections</code></pre></td>
+<tr>
+<td style="text-align: left;"><pre><code>--markdown-headings atx</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb18"><pre
-class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">number-sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">markdown-headings</span><span class="kw">:</span><span class="at"> atx</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
-<td style="text-align: left;"><pre><code>--number-offset=1,4</code></pre></td>
+<tr>
+<td style="text-align: left;"><pre><code>--list-tables</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb20"><pre
-class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">number-offset</span><span class="kw">:</span><span class="at"> \[1,4\]</span></span></code></pre></div></td>
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list-tables</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;"><pre><code>--listings</code></pre></td>
+<tr>
+<td style="text-align: left;"><pre><code>--top-level-division chapter</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb22"><pre
-class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">listings</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">top-level-division</span><span class="kw">:</span><span class="at"> chapter</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
-<td style="text-align: left;"><pre><code>--incremental</code></pre></td>
+<tr>
+<td style="text-align: left;"><pre><code>--number-sections</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb24"><pre
-class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">incremental</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">number-sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;"><pre><code>--slide-level 2</code></pre></td>
+<tr>
+<td style="text-align: left;"><pre><code>--number-offset=1,4</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb26"><pre
-class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">slide-level</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span></code></pre></div></td>
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">number-offset</span><span class="kw">:</span><span class="at"> \[1,4\]</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
-<td style="text-align: left;"><pre><code>--section-divs</code></pre></td>
+<tr>
+<td style="text-align: left;"><pre><code>--listings</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb28"><pre
-class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">section-divs</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">listings</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;"><pre><code>--email-obfuscation references</code></pre></td>
+<tr>
+<td style="text-align: left;"><pre><code>--list-of-figures</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb30"><pre
-class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">email-obfuscation</span><span class="kw">:</span><span class="at"> references</span></span></code></pre></div></td>
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list-of-figures</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
-<td style="text-align: left;"><pre><code>--id-prefix ch1</code></pre></td>
+<tr>
+<td style="text-align: left;"><pre><code>--lof</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb32"><pre
-class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">identifier-prefix</span><span class="kw">:</span><span class="at"> ch1</span></span></code></pre></div></td>
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lof</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;"><pre><code>--title-prefix MySite</code></pre></td>
+<tr>
+<td style="text-align: left;"><pre><code>--list-of-tables</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb34"><pre
-class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">title-prefix</span><span class="kw">:</span><span class="at"> MySite</span></span></code></pre></div></td>
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list-of-tables</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
+<td style="text-align: left;"><pre><code>--lot</code></pre></td>
+<td style="text-align: left;"><div class="sourceCode" id="cb36"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lot</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
+</tr>
+<tr>
+<td style="text-align: left;"><pre><code>--incremental</code></pre></td>
+<td style="text-align: left;"><div class="sourceCode" id="cb38"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">incremental</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
+</tr>
+<tr>
+<td style="text-align: left;"><pre><code>--slide-level 2</code></pre></td>
+<td style="text-align: left;"><div class="sourceCode" id="cb40"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">slide-level</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span></code></pre></div></td>
+</tr>
+<tr>
+<td style="text-align: left;"><pre><code>--section-divs</code></pre></td>
+<td style="text-align: left;"><div class="sourceCode" id="cb42"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">section-divs</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
+</tr>
+<tr>
+<td style="text-align: left;"><pre><code>--email-obfuscation references</code></pre></td>
+<td style="text-align: left;"><div class="sourceCode" id="cb44"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">email-obfuscation</span><span class="kw">:</span><span class="at"> references</span></span></code></pre></div></td>
+</tr>
+<tr>
+<td style="text-align: left;"><pre><code>--id-prefix ch1</code></pre></td>
+<td style="text-align: left;"><div class="sourceCode" id="cb46"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">identifier-prefix</span><span class="kw">:</span><span class="at"> ch1</span></span></code></pre></div></td>
+</tr>
+<tr>
+<td style="text-align: left;"><pre><code>--title-prefix MySite</code></pre></td>
+<td style="text-align: left;"><div class="sourceCode" id="cb48"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">title-prefix</span><span class="kw">:</span><span class="at"> MySite</span></span></code></pre></div></td>
+</tr>
+<tr>
 <td style="text-align: left;"><pre><code>--css styles/screen.css  \
   --css styles/special.css
 </code></pre></td>
-<td style="text-align: left;"><div class="sourceCode" id="cb36"><pre
-class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">css</span><span class="kw">:</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> styles/screen.css</span></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> styles/special.css</span></span></code></pre></div></td>
+<td style="text-align: left;"><div class="sourceCode" id="cb50"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">css</span><span class="kw">:</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> styles/screen.css</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> styles/special.css</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--reference-doc my.docx</code></pre></td>
-<td style="text-align: left;"><div class="sourceCode" id="cb38"><pre
-class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">reference-doc</span><span class="kw">:</span><span class="at"> my.docx</span></span></code></pre></div></td>
+<td style="text-align: left;"><div class="sourceCode" id="cb52"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">reference-doc</span><span class="kw">:</span><span class="at"> my.docx</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><pre><code>--epub-cover-image cover.jpg</code></pre></td>
-<td style="text-align: left;"><div class="sourceCode" id="cb40"><pre
-class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">epub-cover-image</span><span class="kw">:</span><span class="at"> cover.jpg</span></span></code></pre></div></td>
+<td style="text-align: left;"><div class="sourceCode" id="cb54"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">epub-cover-image</span><span class="kw">:</span><span class="at"> cover.jpg</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--epub-title-page=false</code></pre></td>
-<td style="text-align: left;"><div class="sourceCode" id="cb42"><pre
-class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">epub-title-page</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span></code></pre></div></td>
+<td style="text-align: left;"><div class="sourceCode" id="cb56"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">epub-title-page</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><pre><code>--epub-metadata meta.xml</code></pre></td>
-<td style="text-align: left;"><div class="sourceCode" id="cb44"><pre
-class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">epub-metadata</span><span class="kw">:</span><span class="at"> meta.xml</span></span></code></pre></div></td>
+<td style="text-align: left;"><div class="sourceCode" id="cb58"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">epub-metadata</span><span class="kw">:</span><span class="at"> meta.xml</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--epub-embed-font special.otf \
   --epub-embed-font headline.otf
 </code></pre></td>
-<td style="text-align: left;"><div class="sourceCode" id="cb46"><pre
-class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">epub-fonts</span><span class="kw">:</span></span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> special.otf</span></span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> headline.otf</span></span></code></pre></div></td>
+<td style="text-align: left;"><div class="sourceCode" id="cb60"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">epub-fonts</span><span class="kw">:</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> special.otf</span></span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> headline.otf</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><pre><code>--split-level 2</code></pre></td>
-<td style="text-align: left;"><div class="sourceCode" id="cb48"><pre
-class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">split-level</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span></code></pre></div></td>
+<td style="text-align: left;"><div class="sourceCode" id="cb62"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">split-level</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--chunk-template=&quot;%i.html&quot;</code></pre></td>
-<td style="text-align: left;"><div class="sourceCode" id="cb50"><pre
-class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chunk-template</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;%i.html&quot;</span></span></code></pre></div></td>
+<td style="text-align: left;"><div class="sourceCode" id="cb64"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chunk-template</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;%i.html&quot;</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><pre><code>--epub-subdirectory=&quot;&quot;</code></pre></td>
-<td style="text-align: left;"><div class="sourceCode" id="cb52"><pre
-class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">epub-subdirectory</span><span class="kw">:</span><span class="at"> </span><span class="st">&#39;&#39;</span></span></code></pre></div></td>
+<td style="text-align: left;"><div class="sourceCode" id="cb66"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">epub-subdirectory</span><span class="kw">:</span><span class="at"> </span><span class="st">&#39;&#39;</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--ipynb-output best</code></pre></td>
-<td style="text-align: left;"><div class="sourceCode" id="cb54"><pre
-class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ipynb-output</span><span class="kw">:</span><span class="at"> best</span></span></code></pre></div></td>
+<td style="text-align: left;"><div class="sourceCode" id="cb68"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ipynb-output</span><span class="kw">:</span><span class="at"> best</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><pre><code>--pdf-engine xelatex</code></pre></td>
-<td style="text-align: left;"><div class="sourceCode" id="cb56"><pre
-class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf-engine</span><span class="kw">:</span><span class="at"> xelatex</span></span></code></pre></div></td>
+<td style="text-align: left;"><div class="sourceCode" id="cb70"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf-engine</span><span class="kw">:</span><span class="at"> xelatex</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--pdf-engine-opt=--shell-escape
 </code></pre></td>
-<td style="text-align: left;"><div class="sourceCode" id="cb58"><pre
-class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf-engine-opts</span><span class="kw">:</span></span>
-<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">&#39;-shell-escape&#39;</span></span></code></pre></div>
-<div class="sourceCode" id="cb59"><pre
-class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf-engine-opt</span><span class="kw">:</span><span class="at"> </span><span class="st">&#39;-shell-escape&#39;</span></span></code></pre></div></td>
+<td style="text-align: left;"><div class="sourceCode" id="cb72"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf-engine-opts</span><span class="kw">:</span></span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">&#39;-shell-escape&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf-engine-opt</span><span class="kw">:</span><span class="at"> </span><span class="st">&#39;-shell-escape&#39;</span></span></code></pre></div></td>
 </tr>
 </tbody>
 </table>
@@ -2085,38 +2190,38 @@ class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb59-1"><a href=
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;">command line</th>
 <th style="text-align: left;">defaults file</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--citeproc</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb2"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">citeproc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><pre><code>--bibliography logic.bib</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb4"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bibliography</span><span class="kw">:</span><span class="at"> logic.bib</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--csl ieee.csl</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb6"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">csl</span><span class="kw">:</span><span class="at"> ieee.csl</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><pre><code>--citation-abbreviations ab.json</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb8"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">citation-abbreviations</span><span class="kw">:</span><span class="at"> ab.json</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--natbib</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb10"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cite-method</span><span class="kw">:</span><span class="at"> natbib</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><pre><code>--biblatex</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb12"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cite-method</span><span class="kw">:</span><span class="at"> biblatex</span></span></code></pre></div></td>
@@ -2140,41 +2245,41 @@ to other filters, you should instead use `citeproc` in the list of
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;">command line</th>
 <th style="text-align: left;">defaults file</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--mathjax
 </code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb2"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">html-math-method</span><span class="kw">:</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">method</span><span class="kw">:</span><span class="at"> mathjax</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><pre><code>--mathml
 </code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb4"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">html-math-method</span><span class="kw">:</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">method</span><span class="kw">:</span><span class="at"> mathml</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--webtex
 </code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb6"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">html-math-method</span><span class="kw">:</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">method</span><span class="kw">:</span><span class="at"> webtex</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><pre><code>--katex
 </code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb8"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">html-math-method</span><span class="kw">:</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">method</span><span class="kw">:</span><span class="at"> katex</span></span></code></pre></div></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--gladtex
 </code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb10"><pre
@@ -2198,18 +2303,18 @@ be added to `html-math-method:`.
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;">command line</th>
 <th style="text-align: left;">defaults file</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><pre><code>--dump-args</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb2"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dump-args</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><pre><code>--ignore-args</code></pre></td>
 <td style="text-align: left;"><div class="sourceCode" id="cb4"><pre
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ignore-args</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div></td>
@@ -2232,12 +2337,18 @@ file `templates/default.*FORMAT*` in the user data directory (see
 `--data-dir`, above). *Exceptions:*
 
 - For `odt` output, customize the `default.opendocument` template.
+- For `docx` output, customize the `default.openxml` template.
 - For `pdf` output, customize the `default.latex` template (or the
   `default.context` template, if you use `-t context`, or the
   `default.ms` template, if you use `-t ms`, or the `default.html`
   template, if you use `-t html`).
-- `docx` and `pptx` have no template (however, you can use
-  `--reference-doc` to customize the output).
+- `pptx` has no template.
+
+Note that `docx`, `odt`, and `pptx` output can also be customized using
+`--reference-doc`. Use a reference doc to adjust the styles in your
+document; use a template to handle variable interpolation and customize
+the presentation of metadata, the position of the table of contents,
+boilerplate text, etc.
 
 Templates contain *variables*, which allow for the inclusion of
 arbitrary information at any point in the file. They may be set at the
@@ -2306,8 +2417,22 @@ values. So, for example, `employee.salary` will return the value of the
 A conditional begins with `if(variable)` (enclosed in matched
 delimiters) and ends with `endif` (enclosed in matched delimiters). It
 may optionally contain an `else` (enclosed in matched delimiters). The
-`if` section is used if `variable` has a non-empty value, otherwise the
-`else` section is used (if present). Examples:
+`if` section is used if `variable` has a true value, otherwise the
+`else` section is used (if present). The following values count as true:
+
+- any map
+- any array containing at least one true value
+- any nonempty string
+- boolean True
+
+Note that in YAML metadata (and metadata specified on the command line
+using `-M/--metadata`), unquoted `true` and `false` will be interpreted
+as Boolean values. But a variable specified on the command line using
+`-V/--variable` will always be given a string value. Hence a conditional
+`if(foo)` will be triggered if you use `-V foo=false`, but not if you
+use `-M foo=false`.
+
+Examples:
 
     $if(foo)$bar$endif$
 
@@ -2428,9 +2553,9 @@ Partials may include other partials.
 A separator between values of an array may be specified in square
 brackets, immediately after the variable name or partial:
 
-    ${months[, ]}$
+    ${months[, ]}
 
-    ${articles:bibentry()[; ]$
+    ${articles:bibentry()[; ]}
 
 The separator in this case is literal and (unlike with `sep` in an
 explicit `for` loop) cannot contain interpolated variables or other
@@ -2682,8 +2807,8 @@ Enables inclusion of most of the
 [CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS) in the
 `styles.html` [partial](#partials) (have a look with
 `pandoc --print-default-data-file=templates/styles.html`). Unless you
-use [`--css`](#option--css), this variable is set to `true` by default.
-You can disable it with e.g. `pandoc -M document-css=false`.
+use `--css`, this variable is set to `true` by default. You can disable
+it with e.g. `pandoc -M document-css=false`.
 
 `mainfont`  
 sets the CSS `font-family` property on the `html` element.
@@ -2710,7 +2835,7 @@ sets the CSS `line-height` property on the `html` element, which is
 preferred to be unitless.
 
 `maxwidth`  
-sets the CSS `max-width` property (default is 32em).
+sets the CSS `max-width` property (default is 36em).
 
 `backgroundcolor`  
 sets the CSS `background-color` property on the `html` element.
@@ -2743,9 +2868,8 @@ document, include for example:
 ### Variables for HTML math
 
 `classoption`  
-when using [KaTeX](#option--katex), you can render display math
-equations flush left using [YAML metadata](#layout) or with
-`-M classoption=fleqn`.
+when using `--katex`, you can render display math equations flush left
+using [YAML metadata](#layout) or with `-M classoption=fleqn`.
 
 ### Variables for HTML slides
 
@@ -2757,7 +2881,7 @@ author affiliations: can be a list when there are multiple authors
 
 `revealjs-url`  
 base URL for reveal.js documents (defaults to
-`https://unpkg.com/reveal.js@^4/`)
+`https://unpkg.com/reveal.js@^4`)
 
 `s5-url`  
 base URL for S5 documents (defaults to `s5/default`)
@@ -2806,11 +2930,18 @@ enables “title pages” for new sections (default is true)
 `theme`, `colortheme`, `fonttheme`, `innertheme`, `outertheme`  
 beamer themes
 
-`themeoptions`  
-options for LaTeX beamer themes (a list).
+`themeoptions`, `colorthemeoptions`, `fontthemeoptions`, `innerthemeoptions`, `outerthemeoptions`  
+options for LaTeX beamer themes (lists)
 
 `titlegraphic`  
-image for title slide
+image for title slide: can be a list
+
+`titlegraphicoptions`  
+options for title slide image
+
+`shorttitle`, `shortsubtitle`, `shortauthor`, `shortinstitute`, `shortdate`  
+some beamer themes use short versions of the title, subtitle, author,
+institute, date
 
 ### Variables for PowerPoint
 
@@ -2915,7 +3046,27 @@ numbering depth for sections (with `--number-sections` option or
 `numbersections` variable)
 
 `beamerarticle`  
-produce an article from Beamer slides
+produce an article from Beamer slides. Note: if you set this variable,
+you must specify the beamer writer but use the default *LaTeX* template:
+for example,
+`pandoc -Vbeamerarticle -t beamer --template default.latex`.
+
+`handout`  
+produce a handout version of Beamer slides (with overlays condensed into
+single slides)
+
+`csquotes`  
+load `csquotes` package and use `\enquote` or `\enquote*` for quoted
+text.
+
+`csquotesoptions`  
+options to use for `csquotes` package (repeat for multiple options).
+
+`babeloptions`  
+options to pass to the babel package (may be repeated for multiple
+options). This defaults to `provide=*` if the main language isn’t a
+European language written with Latin or Cyrillic script or Vietnamese.
+Most users will not need to adjust the default setting.
 
 #### Fonts
 
@@ -2953,9 +3104,11 @@ font size for body text. The standard classes allow 10pt, 11pt, and
 font families for use with `xelatex` or `lualatex`: take the name of any
 system font, using the [`fontspec`](https://ctan.org/pkg/fontspec)
 package. `CJKmainfont` uses the [`xecjk`](https://ctan.org/pkg/xecjk)
-package.
+package if `xelatex` is used, or the
+[`luatexja`](https://ctan.org/pkg/luatexja) package if `lualatex` is
+used.
 
-`mainfontoptions`, `sansfontoptions`, `monofontoptions`, `mathfontoptions`, `CJKoptions`  
+`mainfontoptions`, `sansfontoptions`, `monofontoptions`, `mathfontoptions`, `CJKoptions`, `luatexjapresetoptions`  
 options to use with `mainfont`, `sansfont`, `monofont`, `mathfont`,
 `CJKmainfont` in `xelatex` and `lualatex`. Allow for any choices
 available through [`fontspec`](https://ctan.org/pkg/fontspec); repeat
@@ -2970,13 +3123,28 @@ Palatino with lowercase figures:
     - Numbers=Proportional
     ...
 
+`mainfontfallback`, `sansfontfallback`, `monofontfallback`  
+fonts to try if a glyph isn’t found in `mainfont`, `sansfont`, or
+`monofont` respectively. These are lists. The font name must be followed
+by a colon and optionally a set of options, for example:
+
+    ---
+    mainfontfallback:
+      - "FreeSans:"
+      - "NotoColorEmoji:mode=harf"
+    ...
+
+Font fallbacks currently only work with `lualatex`.
+
 `babelfonts`  
 a map of Babel language names (e.g. `chinese`) to the font to be used
 with the language:
 
-------------------------------------------------------------------------
-
-babelfonts: chinese-hant: “Noto Serif CJK TC” russian: “Noto Serif” …
+    ---
+    babelfonts:
+      chinese-hant: "Noto Serif CJK TC"
+      russian: "Noto Serif"
+    ...
 
 `microtypeoptions`  
 options to pass to the microtype package
@@ -3005,7 +3173,8 @@ style for URLs (e.g., `tt`, `rm`, `sf`, and, the default, `same`)
 #### Front matter
 
 `lof`, `lot`  
-include list of figures, list of tables
+include list of figures, list of tables (can also be set using
+`--lof/--list-of-figures`, `--lot/--list-of-tables`)
 
 `thanks`  
 contents of acknowledgments footnote after document title
@@ -3079,6 +3248,11 @@ include list of figures, list of tables
 `mainfont`, `sansfont`, `monofont`, `mathfont`  
 font families: take the name of any system font (see [ConTeXt Font
 Switching](https://wiki.contextgarden.net/Font_Switching))
+
+`mainfontfallback`, `sansfontfallback`, `monofontfallback`  
+list of fonts to try, in order, if a glyph is not found in the main
+font. Use `\definefallbackfamily`-compatible font name syntax. Emoji
+fonts are unsupported.
 
 `margin-left`, `margin-right`, `margin-top`, `margin-bottom`  
 sets margins, if `layout` is not used (otherwise `layout` overrides
@@ -3165,7 +3339,19 @@ header in man pages
 `section`  
 section number in man pages
 
+### Variables for Texinfo
+
+`version`  
+version of software (used in title and title page)
+
+`filename`  
+name of info file to be generated (defaults to a name based on the texi
+filename)
+
 ### Variables for Typst
+
+`template`  
+Typst template to use.
 
 `margin`  
 A dictionary with the fields defined in the Typst documentation: `x`,
@@ -3182,6 +3368,10 @@ Font size (e.g., `12pt`).
 
 `section-numbering`  
 Schema to use for numbering sections, e.g. `1.A.1`.
+
+`page-numbering`  
+Schema to use for numbering pages, e.g. `1` or `i`, or an empty string
+to omit page numbering.
 
 `columns`  
 Number of columns for body text.
@@ -3273,7 +3463,9 @@ non-null value if `--toc/--table-of-contents` was specified
 
 `toc-title`  
 title of table of contents (works only with EPUB, HTML, revealjs,
-opendocument, odt, docx, pptx, beamer, LaTeX)
+opendocument, odt, docx, pptx, beamer, LaTeX). Note that in docx and
+pptx a custom `toc-title` will be picked up from metadata, but cannot be
+set as a variable.
 
 # Extensions
 
@@ -3286,19 +3478,19 @@ and disabled by adding `-EXTENSION`. For example,
 enabled, while `--from markdown-footnotes-pipe_tables` is pandoc’s
 Markdown without footnotes or pipe tables.
 
-The markdown reader and writer make by far the most use of extensions.
+The Markdown reader and writer make by far the most use of extensions.
 Extensions only used by them are therefore covered in the section
 [Pandoc’s Markdown](#pandocs-markdown) below (see [Markdown
 variants](#markdown-variants) for `commonmark` and `gfm`). In the
 following, extensions that also work for other formats are covered.
 
-Note that markdown extensions added to the `ipynb` format affect
+Note that Markdown extensions added to the `ipynb` format affect
 Markdown cells in Jupyter notebooks (as do command-line options like
 `--markdown-headings`).
 
 ## Typography
 
-#### Extension: `smart`
+### Extension: `smart`
 
 Interpret straight quotes as curly quotes, `---` as em-dashes, `--` as
 en-dashes, and `...` as ellipses. Nonbreaking spaces are inserted after
@@ -3329,7 +3521,7 @@ quotation mark and dash characters.
 
 ## Headings and sections
 
-#### Extension: `auto_identifiers`
+### Extension: `auto_identifiers`
 
 A heading without an explicitly specified identifier will be
 automatically assigned a unique identifier based on the heading text.
@@ -3362,35 +3554,35 @@ Thus, for example,
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;">Heading</th>
 <th style="text-align: left;">Identifier</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td
 style="text-align: left;"><code>Heading identifiers in HTML</code></td>
 <td
 style="text-align: left;"><code>heading-identifiers-in-html</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><code>Maître d'hôtel</code></td>
 <td style="text-align: left;"><code>maître-dhôtel</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><code>*Dogs*?--in *my* house?</code></td>
 <td style="text-align: left;"><code>dogs--in-my-house</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><code>[HTML], [S5], or [RTF]?</code></td>
 <td style="text-align: left;"><code>html-s5-or-rtf</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><code>3. Applications</code></td>
 <td style="text-align: left;"><code>applications</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><code>33</code></td>
 <td style="text-align: left;"><code>section</code></td>
 </tr>
@@ -3423,13 +3615,13 @@ identifier will be attached to the enclosing `<section>` (or `<div>`)
 tag rather than the heading itself. This allows entire sections to be
 manipulated using JavaScript or treated differently in CSS.
 
-#### Extension: `ascii_identifiers`
+### Extension: `ascii_identifiers`
 
 Causes the identifiers produced by `auto_identifiers` to be pure ASCII.
 Accents are stripped off of accented Latin letters, and non-Latin
 letters are omitted.
 
-#### Extension: `gfm_auto_identifiers`
+### Extension: `gfm_auto_identifiers`
 
 Changes the algorithm used by `auto_identifiers` to conform to GitHub’s
 method. Spaces are converted to dashes (`-`), uppercase characters to
@@ -3468,7 +3660,7 @@ respective sections of [Pandoc’s Markdown](#pandocs-markdown):
   `textile`, `commonmark`
 
   Note: as applied to `ipynb`, `raw_html` and `raw_tex` affect not only
-  raw TeX in markdown cells, but data with mime type `text/html` in
+  raw TeX in Markdown cells, but data with mime type `text/html` in
   output cells. Since the `ipynb` reader attempts to preserve the
   richest possible outputs when several options are given, you will get
   best results if you disable `raw_html` and `raw_tex` when converting
@@ -3486,7 +3678,7 @@ respective sections of [Pandoc’s Markdown](#pandocs-markdown):
 
 ## Literate Haskell support
 
-#### Extension: `literate_haskell`
+### Extension: `literate_haskell`
 
 Treat the document as literate Haskell source.
 
@@ -3547,7 +3739,7 @@ picked up by the Haskell compiler.
 
 ## Other extensions
 
-#### Extension: `empty_paragraphs`
+### Extension: `empty_paragraphs`
 
 Allows empty paragraphs. By default empty paragraphs are omitted.
 
@@ -3557,9 +3749,9 @@ input formats
 `docx`, `html`
 
 output formats  
-`docx`, `odt`, `opendocument`, `html`
+`docx`, `odt`, `opendocument`, `html`, `latex`
 
-#### Extension: `native_numbering`
+### Extension: `native_numbering`
 
 Enables native numbering of figures and tables. Enumeration starts at 1.
 
@@ -3568,7 +3760,7 @@ This extension can be enabled/disabled for the following formats:
 output formats  
 `odt`, `opendocument`, `docx`
 
-#### Extension: `xrefs_name`
+### Extension: `xrefs_name`
 
 Links to headings, figures and tables inside the document are
 substituted with cross-references that will use the name or caption of
@@ -3584,7 +3776,7 @@ This extension can be enabled/disabled for the following formats:
 output formats  
 `odt`, `opendocument`
 
-#### Extension: `xrefs_number`
+### Extension: `xrefs_number`
 
 Links to headings, figures and tables inside the document are
 substituted with cross-references that will use the number of the
@@ -3604,39 +3796,51 @@ This extension can be enabled/disabled for the following formats:
 output formats  
 `odt`, `opendocument`
 
-#### Extension: `styles`
+### Extension: `styles`
 
-When converting from docx, read all docx styles as divs (for paragraph
-styles) and spans (for character styles) regardless of whether pandoc
-understands the meaning of these styles. This can be used with [docx
-custom styles](#custom-styles). Disabled by default.
+When converting from docx, add `custom-styles` attributes for all docx
+styles, regardless of whether pandoc understands the meanings of these
+styles. Because attributes cannot be added directly to paragraphs or
+text in the pandoc AST, paragraph styles will cause Divs to be created
+and character styles will cause Spans to be created to hold the
+attributes. (Table styles will be added to the Table elements directly.)
+This extension can be used with [docx custom styles](#custom-styles).
 
 input formats  
 `docx`
 
-#### Extension: `amuse`
+### Extension: `amuse`
 
 In the `muse` input format, this enables Text::Amuse extensions to Emacs
 Muse markup.
 
-#### Extension: `raw_markdown`
+### Extension: `raw_markdown`
 
 In the `ipynb` input format, this causes Markdown cells to be included
 as raw Markdown blocks (allowing lossless round-tripping) rather than
 being parsed. Use this only when you are targeting `ipynb` or a
-markdown-based output format.
+Markdown-based output format.
 
-#### Extension: `citations`
+### Extension: `citations` (typst)
+
+When the `citations` extension is enabled in `typst` (as it is by
+default), `typst` citations will be parsed as native pandoc citations,
+and native pandoc citations will be rendered as `typst` citations.
+
+### Extension: `citations` (org)
 
 When the `citations` extension is enabled in `org`, org-cite and org-ref
-style citations will be parsed as native pandoc citations.
+style citations will be parsed as native pandoc citations, and org-cite
+citations will be used to render native pandoc citations.
+
+### Extension: `citations` (docx)
 
 When `citations` is enabled in `docx`, citations inserted by Zotero or
 Mendeley or EndNote plugins will be parsed as native pandoc citations.
 (Otherwise, the formatted citations generated by the bibliographic
 software will be parsed as regular text.)
 
-#### Extension: `fancy_lists`
+### Extension: `fancy_lists` (org)
 
 Some aspects of [Pandoc’s Markdown fancy lists](#extension-fancy_lists)
 are also accepted in `org` input, mimicking the option
@@ -3646,13 +3850,13 @@ ordered lists to be parsed in addition to arabic ones. Note that for
 Org, this does not include roman numerals or the `#` placeholder that
 are enabled by the extension in Pandoc’s Markdown.
 
-#### Extension: `element_citations`
+### Extension: `element_citations`
 
 In the `jats` output formats, this causes reference items to be replaced
 with `<element-citation>` elements. These elements are not influenced by
 CSL styles, but all information on the item is included in tags.
 
-#### Extension: `ntb`
+### Extension: `ntb`
 
 In the `context` output format this enables the use of [Natural Tables
 (TABLE)](https://wiki.contextgarden.net/TABLE) instead of the default
@@ -3660,7 +3864,7 @@ In the `context` output format this enables the use of [Natural Tables
 Natural tables allow more fine-grained global customization but come at
 a performance penalty compared to extreme tables.
 
-#### Extension: `tagging`
+### Extension: `tagging`
 
 Enabling this extension with `context` output will produce markup
 suitable for the production of tagged PDFs. This includes additional
@@ -3686,7 +3890,8 @@ easy to read:
 
 > A Markdown-formatted document should be publishable as-is, as plain
 > text, without looking like it’s been marked up with tags or formatting
-> instructions. – [John
+> instructions.  
+> – [John
 > Gruber](https://daringfireball.net/projects/markdown/syntax#philosophy)
 
 This principle has guided pandoc’s decisions in finding syntax for
@@ -3707,7 +3912,7 @@ lines. Newlines are treated as spaces, so you can reflow your paragraphs
 as you like. If you need a hard line break, put two or more spaces at
 the end of a line.
 
-#### Extension: `escaped_line_breaks`
+### Extension: `escaped_line_breaks`
 
 A backslash followed by a newline is also a hard line break. Note: in
 multiline and grid table cells, this is the only way to create a hard
@@ -3745,7 +3950,7 @@ As with setext-style headings, the heading text can contain formatting:
 
     # A level-one heading with a [link](/url) and *emphasis*
 
-#### Extension: `blank_before_header`
+### Extension: `blank_before_header`
 
 Original Markdown syntax does not require a blank line before a heading.
 Pandoc does require this (except, of course, at the beginning of the
@@ -3756,7 +3961,7 @@ line wrapping). Consider, for example:
     I like several of their flavors of ice cream:
     #22, for example, and #5.
 
-#### Extension: `space_in_atx_header`
+### Extension: `space_in_atx_header`
 
 Many Markdown implementations do not require a space between the opening
 `#`s of an ATX heading and the heading text, so that `#5 bolt` and
@@ -3768,7 +3973,7 @@ the space.
 See also the [`auto_identifiers` extension](#extension-auto_identifiers)
 above.
 
-#### Extension: `header_attributes`
+### Extension: `header_attributes`
 
 Headings can be assigned attributes using this syntax at the end of the
 line containing the heading text:
@@ -3811,7 +4016,7 @@ heading will not be included in a table of contents. (Currently this
 feature is only implemented for certain formats: those based on LaTeX
 and HTML, PowerPoint, and RTF.)
 
-#### Extension: `implicit_header_references`
+### Extension: `implicit_header_references`
 
 Pandoc behaves as if reference links have been defined for each heading.
 So, to link to a heading
@@ -3888,7 +4093,7 @@ block quote, you need five spaces after the `>`:
 
     >     code
 
-#### Extension: `blank_before_blockquote`
+### Extension: `blank_before_blockquote`
 
 Original Markdown syntax does not require a blank line before a block
 quote. Pandoc does require this (except, of course, at the beginning of
@@ -3919,7 +4124,7 @@ Note: blank lines in the verbatim text need not begin with four spaces.
 
 ### Fenced code blocks
 
-#### Extension: `fenced_code_blocks`
+### Extension: `fenced_code_blocks`
 
 In addition to standard indented code blocks, pandoc supports *fenced*
 code blocks. These begin with a row of three or more tildes (`~`) and
@@ -3945,12 +4150,12 @@ longer row of tildes or backticks at the start and end:
     ~~~~~~~~~~
     ~~~~~~~~~~~~~~~~
 
-#### Extension: `backtick_code_blocks`
+### Extension: `backtick_code_blocks`
 
 Same as `fenced_code_blocks`, but uses backticks (`` ` ``) instead of
 tildes (`~`).
 
-#### Extension: `fenced_code_attributes`
+### Extension: `fenced_code_attributes`
 
 Optionally, you may attach attributes to fenced or backtick code block
 using this syntax:
@@ -4017,7 +4222,7 @@ highlighting, see [Syntax highlighting](#syntax-highlighting), below.
 
 ## Line blocks
 
-#### Extension: `line_blocks`
+### Extension: `line_blocks`
 
 A line block is a sequence of lines beginning with a vertical bar (`|`)
 followed by a space. The division into lines will be preserved in the
@@ -4157,7 +4362,7 @@ and this one:
     7.  two
     1.  three
 
-#### Extension: `fancy_lists`
+### Extension: `fancy_lists`
 
 Unlike original Markdown, pandoc allows ordered list items to be marked
 with uppercase and lowercase letters and roman numerals, in addition to
@@ -4174,7 +4379,7 @@ list marker in place of a numeral:
 
 Note: the ‘`#`’ ordered list marker doesn’t work with `commonmark`.
 
-#### Extension: `startnum`
+### Extension: `startnum`
 
 Pandoc also pays attention to the type of list marker used, and to the
 starting number, and both of these are preserved where possible in the
@@ -4203,7 +4408,7 @@ If default list markers are desired, use `#.`:
     #.  two
     #.  three
 
-#### Extension: `task_lists`
+### Extension: `task_lists`
 
 Pandoc supports task lists, using the syntax of GitHub-Flavored
 Markdown.
@@ -4213,7 +4418,7 @@ Markdown.
 
 ### Definition lists
 
-#### Extension: `definition_lists`
+### Extension: `definition_lists`
 
 Pandoc supports definition lists, using the syntax of [PHP Markdown
 Extra](https://michelf.ca/projects/php-markdown/extra/) with some
@@ -4270,7 +4475,7 @@ extension](#extension-compact_definition_lists).)
 
 ### Numbered example lists
 
-#### Extension: `example_lists`
+### Extension: `example_lists`
 
 The special list marker `@` can be used for sequentially numbered
 examples. The first list item with a `@` marker will be numbered ‘1’,
@@ -4295,12 +4500,25 @@ document:
 The label can be any string of alphanumeric characters, underscores, or
 hyphens.
 
-Note: continuation paragraphs in example lists must always be indented
-four spaces, regardless of the length of the list marker. That is,
-example lists always behave as if the `four_space_rule` extension is
-set. This is because example labels tend to be long, and indenting
-content to the first non-space character after the label would be
-awkward.
+Continuation paragraphs in example lists must always be indented four
+spaces, regardless of the length of the list marker. That is, example
+lists always behave as if the `four_space_rule` extension is set. This
+is because example labels tend to be long, and indenting content to the
+first non-space character after the label would be awkward.
+
+You can repeat an earlier numbered example by re-using its label:
+
+    (@foo) Sample sentence.
+
+    Intervening text...
+
+    This theory can explain the case we saw earlier (repeated):
+
+    (@foo) Sample sentence.
+
+This only works reliably, though, if the repeated item is in a list by
+itself, because each numbered example list will be numbered continuously
+from its starting number.
 
 ### Ending a list
 
@@ -4360,14 +4578,14 @@ use of a fixed-width font, such as Courier. The fourth kind can be used
 with proportionally spaced fonts, as it does not require lining up
 columns.
 
-#### Extension: `table_captions`
+### Extension: `table_captions`
 
 A caption may optionally be provided with all 4 kinds of tables (as
 illustrated in the examples below). A caption is a paragraph beginning
 with the string `Table:` (or `table:` or just `:`), which will be
 stripped off. It may appear either before or after the table.
 
-#### Extension: `simple_tables`
+### Extension: `simple_tables`
 
 Simple tables look like this:
 
@@ -4408,7 +4626,7 @@ When the header row is omitted, column alignments are determined on the
 basis of the first line of the table body. So, in the tables above, the
 columns would be right, left, center, and right aligned, respectively.
 
-#### Extension: `multiline_tables`
+### Extension: `multiline_tables`
 
 Multiline tables allow header and table rows to span multiple lines of
 text (but cells that span multiple columns or rows of the table are not
@@ -4458,7 +4676,7 @@ It is possible for a multiline table to have just one row, but the row
 should be followed by a blank line (and then the row of dashes that ends
 the table), or the table may be interpreted as a simple table.
 
-#### Extension: `grid_tables`
+### Extension: `grid_tables`
 
 Grid tables look like this:
 
@@ -4537,7 +4755,7 @@ The foot must always be placed at the very bottom of the table.
 Grid tables can be created easily using Emacs’ table-mode
 (`M-x table-insert`).
 
-#### Extension: `pipe_tables`
+### Extension: `pipe_tables`
 
 Pipe tables look like this:
 
@@ -4567,7 +4785,7 @@ perfectly legal (though ugly) pipe table:
     orange|3.09
 
 The cells of pipe tables cannot contain block elements like paragraphs
-and lists, and cannot span multiple lines. If any line of the markdown
+and lists, and cannot span multiple lines. If any line of the Markdown
 source is longer than the column width (see `--columns`), then the table
 will take up the full text width and the cell contents will wrap, with
 the relative cell widths determined by the number of dashes in the line
@@ -4591,7 +4809,7 @@ you’ll need to add colons as above.
 
 ## Metadata blocks
 
-#### Extension: `pandoc_title_block`
+### Extension: `pandoc_title_block`
 
 If the file begins with a title block
 
@@ -4601,7 +4819,7 @@ If the file begins with a title block
 
 it will be parsed as bibliographic information, not regular text. (It
 will be used, for example, in the title of standalone LaTeX or HTML
-output.) The block may contain just a title, a title and an author, or
+output.) The block may contain just a title, a date and an author, or
 all three elements. If you want to include an author but no title, or a
 title and a date but no author, you need a blank line:
 
@@ -4637,11 +4855,11 @@ All three metadata fields may contain standard inline formatting
 
 Title blocks will always be parsed, but they will affect the output only
 when the `--standalone` (`-s`) option is chosen. In HTML output, titles
-will appear twice: once in the document head – this is the title that
-will appear at the top of the window in a browser – and once at the
-beginning of the document body. The title in the document head can have
-an optional prefix attached (`--title-prefix` or `-T` option). The title
-in the body appears as an H1 element with class “title”, so it can be
+will appear twice: once in the document head—this is the title that will
+appear at the top of the window in a browser—and once at the beginning
+of the document body. The title in the document head can have an
+optional prefix attached (`--title-prefix` or `-T` option). The title in
+the body appears as an H1 element with class “title”, so it can be
 suppressed or reformatted with CSS. If a title prefix is specified with
 `-T` and no title block appears in the document, the title prefix will
 be used by itself as the HTML title.
@@ -4666,7 +4884,7 @@ will also have “Pandoc User Manuals” in the footer.
 
 will also have “Version 4.0” in the header.
 
-#### Extension: `yaml_metadata_block`
+### Extension: `yaml_metadata_block`
 
 A [YAML](https://yaml.org/spec/1.2/spec.html "YAML v1.2 Spec") metadata
 block is a valid YAML object, delimited by a line of three hyphens
@@ -4685,7 +4903,7 @@ files:
 Just be sure that the YAML file begins with `---` and ends with `---` or
 `...`. Alternatively, you can use the `--metadata-file` option. Using
 that approach however, you cannot reference content (like footnotes)
-from the main markdown input document.
+from the main Markdown input document.
 
 Metadata will be taken from the fields of the YAML object and added to
 any existing document metadata. Metadata can contain lists and objects
@@ -4772,7 +4990,7 @@ Raw content to include in the document’s header may be specified using
 `header-includes`; however, it is important to mark up this content as
 raw code for a particular output format, using the [`raw_attribute`
 extension](#extension-raw_attribute), or it will be interpreted as
-markdown. For example:
+Markdown. For example:
 
     header-includes:
     - |
@@ -4797,7 +5015,7 @@ apply:
 
 ## Backslash escapes
 
-#### Extension: `all_symbols_escapable`
+### Extension: `all_symbols_escapable`
 
 Except inside a code block or inline code, any punctuation or space
 character preceded by a backslash will be treated literally, even if it
@@ -4854,7 +5072,7 @@ not trigger emphasis:
 
     This is * not emphasized *, and \*neither is this\*.
 
-#### Extension: `intraword_underscores`
+### Extension: `intraword_underscores`
 
 Because `_` is sometimes used inside words and identifiers, pandoc does
 not interpret a `_` surrounded by alphanumeric characters as an emphasis
@@ -4864,7 +5082,7 @@ marker. If you want to emphasize just part of a word, use `*`:
 
 ### Strikeout
 
-#### Extension: `strikeout`
+### Extension: `strikeout`
 
 To strike out a section of text with a horizontal line, begin and end it
 with `~~`. Thus, for example,
@@ -4873,7 +5091,7 @@ with `~~`. Thus, for example,
 
 ### Superscripts and subscripts
 
-#### Extension: `superscript`, `subscript`
+### Extension: `superscript`, `subscript`
 
 Superscripts may be written by surrounding the superscripted text by `^`
 characters; subscripts may be written by surrounding the subscripted
@@ -4910,7 +5128,7 @@ in verbatim contexts:
 
     This is a backslash followed by an asterisk: `\*`.
 
-#### Extension: `inline_code_attributes`
+### Extension: `inline_code_attributes`
 
 Attributes can be attached to verbatim text, just as with [fenced code
 blocks](#fenced-code-blocks):
@@ -4959,7 +5177,7 @@ This will work in all output formats that support highlighting.
 
 ## Math
 
-#### Extension: `tex_math_dollars`
+### Extension: `tex_math_dollars`
 
 Anything between two `$` characters will be treated as TeX math. The
 opening `$` must have a non-space character immediately to its right,
@@ -5035,7 +5253,7 @@ HTML](#math-rendering-in-html) above.
 
 ## Raw HTML
 
-#### Extension: `raw_html`
+### Extension: `raw_html`
 
 Markdown allows you to insert raw HTML (or DocBook) anywhere in a
 document (except verbatim contexts, where `<`, `>`, and `&` are
@@ -5056,7 +5274,7 @@ Otherwise, plain-text fallbacks will be used. Note that even if
 `raw_html` is disabled, tables will be rendered with HTML syntax if they
 cannot use pipe syntax.
 
-#### Extension: `markdown_in_html_blocks`
+### Extension: `markdown_in_html_blocks`
 
 Original Markdown allows you to include HTML “blocks”: blocks of HTML
 between balanced tags that are separated from the surrounding text with
@@ -5087,27 +5305,27 @@ into
 whereas `Markdown.pl` will preserve it as is.
 
 There is one exception to this rule: text between `<script>`, `<style>`,
-and `<textarea>` tags is not interpreted as Markdown.
+`<pre>`, and `<textarea>` tags is not interpreted as Markdown.
 
 This departure from original Markdown should make it easier to mix
 Markdown with HTML block elements. For example, one can surround a block
 of Markdown text with `<div>` tags without preventing it from being
 interpreted as Markdown.
 
-#### Extension: `native_divs`
+### Extension: `native_divs`
 
 Use native pandoc `Div` blocks for content inside `<div>` tags. For the
 most part this should give the same output as `markdown_in_html_blocks`,
 but it makes it easier to write pandoc filters to manipulate groups of
 blocks.
 
-#### Extension: `native_spans`
+### Extension: `native_spans`
 
 Use native pandoc `Span` blocks for content inside `<span>` tags. For
 the most part this should give the same output as `raw_html`, but it
 makes it easier to write pandoc filters to manipulate groups of inlines.
 
-#### Extension: `raw_tex`
+### Extension: `raw_tex`
 
 In addition to raw HTML, pandoc allows raw LaTeX, TeX, and ConTeXt to be
 included in a document. Inline TeX commands will be preserved and passed
@@ -5136,7 +5354,7 @@ Emacs Org mode, and ConTeXt.
 
 ### Generic raw attribute
 
-#### Extension: `raw_attribute`
+### Extension: `raw_attribute`
 
 Inline spans and fenced code blocks with a special kind of attribute
 will be parsed as raw content with the designated format. For example,
@@ -5176,7 +5394,7 @@ The raw attribute cannot be combined with regular attributes.
 
 ## LaTeX macros
 
-#### Extension: `latex_macros`
+### Extension: `latex_macros`
 
 When this extension is enabled, pandoc will parse LaTeX macro
 definitions and apply the resulting macros to all LaTeX math and raw
@@ -5283,7 +5501,7 @@ other implementations:
     >
     > [quote]: /foo
 
-#### Extension: `shortcut_reference_links`
+### Extension: `shortcut_reference_links`
 
 In a *shortcut* reference link, the second pair of brackets may be
 omitted entirely:
@@ -5320,7 +5538,7 @@ link text will be used as the image’s alt text:
 
     [movie reel]: movie.gif
 
-#### Extension: `implicit_figures`
+### Extension: `implicit_figures`
 
 An image with nonempty alt text, occurring by itself in a paragraph,
 will be rendered as a figure with a caption. The image’s alt text will
@@ -5342,7 +5560,7 @@ Note that in reveal.js slide shows, an image in a paragraph by itself
 that has the `r-stretch` class will fill the screen, and the caption and
 figure tags will be omitted.
 
-#### Extension: `link_attributes`
+### Extension: `link_attributes`
 
 Attributes can be set on links and images:
 
@@ -5394,10 +5612,10 @@ unit. For example:
 
 Using the `native_divs` and `native_spans` extensions (see
 [above](#extension-native_divs)), HTML syntax can be used as part of
-markdown to create native `Div` and `Span` elements in the pandoc AST
+Markdown to create native `Div` and `Span` elements in the pandoc AST
 (as opposed to raw HTML). However, there is also nicer syntax available:
 
-#### Extension: `fenced_divs`
+### Extension: `fenced_divs`
 
 Allow special fenced syntax for native `Div` blocks. A Div starts with a
 fence containing at least three consecutive colons plus some attributes.
@@ -5441,7 +5659,7 @@ the number in the opening fence. However, it can be helpful for visual
 clarity to use fences of different lengths to distinguish nested divs
 from their parents.
 
-#### Extension: `bracketed_spans`
+### Extension: `bracketed_spans`
 
 A bracketed sequence of inlines, as one would use to begin a link, will
 be treated as a `Span` with attributes if it is followed immediately by
@@ -5451,7 +5669,7 @@ attributes:
 
 ## Footnotes
 
-#### Extension: `footnotes`
+### Extension: `footnotes`
 
 Pandoc’s Markdown allows footnotes, using the following syntax:
 
@@ -5483,7 +5701,7 @@ They may appear anywhere except inside other block elements (lists,
 block quotes, tables, etc.). Each footnote should be separated from
 surrounding content (including other footnotes) by blank lines.
 
-#### Extension: `inline_notes`
+### Extension: `inline_notes`
 
 Inline footnotes are also allowed (though, unlike regular notes, they
 cannot contain multiple paragraphs). The syntax is as follows:
@@ -5496,7 +5714,7 @@ Inline and regular footnotes may be mixed freely.
 
 ## Citation syntax
 
-#### Extension: `citations`
+### Extension: `citations`
 
 To cite a bibliographic item with an identifier foo, use the syntax
 `@foo`. Normal citations should be included in square brackets, with
@@ -5592,7 +5810,7 @@ pandoc, but may be enabled by adding `+EXTENSION` to the format name,
 where `EXTENSION` is the name of the extension. Thus, for example,
 `markdown+hard_line_breaks` is Markdown with hard line breaks.
 
-#### Extension: `rebase_relative_paths`
+### Extension: `rebase_relative_paths`
 
 Rewrite relative paths for Markdown links and images, depending on the
 path of the file containing the link or image link. For each link or
@@ -5621,14 +5839,14 @@ Note that relative paths in reference links and images will be rewritten
 relative to the file containing the link reference definition, not the
 file containing the reference link or image itself, if these differ.
 
-#### Extension: `mark`
+### Extension: `mark`
 
 To highlight out a section of text, begin and end it with with `==`.
 Thus, for example,
 
     This ==is deleted text.==
 
-#### Extension: `attributes`
+### Extension: `attributes`
 
 Allows attributes to be attached to any inline or block-level element
 when parsing `commonmark`. The syntax for the attributes is the same as
@@ -5655,49 +5873,49 @@ Note that pandoc’s AST does not currently allow attributes to be
 attached to arbitrary elements. Hence a Span or Div container will be
 added if needed.
 
-#### Extension: `old_dashes`
+### Extension: `old_dashes`
 
 Selects the pandoc \<= 1.8.2.1 behavior for parsing smart dashes: `-`
 before a numeral is an en-dash, and `--` is an em-dash. This option only
 has an effect if `smart` is enabled. It is selected automatically for
 `textile` input.
 
-#### Extension: `angle_brackets_escapable`
+### Extension: `angle_brackets_escapable`
 
 Allow `<` and `>` to be backslash-escaped, as they can be in GitHub
 flavored Markdown but not original Markdown. This is implied by pandoc’s
 default `all_symbols_escapable`.
 
-#### Extension: `lists_without_preceding_blankline`
+### Extension: `lists_without_preceding_blankline`
 
 Allow a list to occur right after a paragraph, with no intervening blank
 space.
 
-#### Extension: `four_space_rule`
+### Extension: `four_space_rule`
 
 Selects the pandoc \<= 2.0 behavior for parsing lists, so that four
 spaces indent are needed for list item continuation paragraphs.
 
-#### Extension: `spaced_reference_links`
+### Extension: `spaced_reference_links`
 
 Allow whitespace between the two components of a reference link, for
 example,
 
     [foo] [bar].
 
-#### Extension: `hard_line_breaks`
+### Extension: `hard_line_breaks`
 
 Causes all newlines within a paragraph to be interpreted as hard line
 breaks instead of spaces.
 
-#### Extension: `ignore_line_breaks`
+### Extension: `ignore_line_breaks`
 
 Causes newlines within a paragraph to be ignored, rather than being
 treated as spaces or as hard line breaks. This option is intended for
 use with East Asian languages where spaces are not used between words,
 but text is divided into lines for readability.
 
-#### Extension: `east_asian_line_breaks`
+### Extension: `east_asian_line_breaks`
 
 Causes newlines within a paragraph to be ignored, rather than being
 treated as spaces or as hard line breaks, when they occur between two
@@ -5705,11 +5923,11 @@ East Asian wide characters. This is a better choice than
 `ignore_line_breaks` for texts that include a mix of East Asian wide
 characters and other characters.
 
-#### Extension: `emoji`
+### Extension: `emoji`
 
 Parses textual emojis like `:smile:` as Unicode emoticons.
 
-#### Extension: `tex_math_gfm`
+### Extension: `tex_math_gfm`
 
 Supports two GitHub-specific formats for math. Inline math:
 `` $`e=mc^2`$ ``.
@@ -5720,27 +5938,27 @@ Display math:
     e=mc^2
     ```
 
-#### Extension: `tex_math_single_backslash`
+### Extension: `tex_math_single_backslash`
 
 Causes anything between `\(` and `\)` to be interpreted as inline TeX
 math, and anything between `\[` and `\]` to be interpreted as display
 TeX math. Note: a drawback of this extension is that it precludes
 escaping `(` and `[`.
 
-#### Extension: `tex_math_double_backslash`
+### Extension: `tex_math_double_backslash`
 
 Causes anything between `\\(` and `\\)` to be interpreted as inline TeX
 math, and anything between `\\[` and `\\]` to be interpreted as display
 TeX math.
 
-#### Extension: `markdown_attribute`
+### Extension: `markdown_attribute`
 
 By default, pandoc interprets material inside block-level tags as
 Markdown. This extension changes the behavior so that Markdown is only
 parsed inside block-level tags if the tags have the attribute
 `markdown=1`.
 
-#### Extension: `mmd_title_block`
+### Extension: `mmd_title_block`
 
 Enables a [MultiMarkdown](https://fletcherpenney.net/multimarkdown/)
 style title block at the top of the document, for example:
@@ -5755,7 +5973,7 @@ See the MultiMarkdown documentation for details. If `pandoc_title_block`
 or `yaml_metadata_block` is enabled, it will take precedence over
 `mmd_title_block`.
 
-#### Extension: `abbreviations`
+### Extension: `abbreviations`
 
 Parses PHP Markdown Extra abbreviation keys, like
 
@@ -5765,37 +5983,37 @@ Note that the pandoc document model does not support abbreviations, so
 if this extension is enabled, abbreviation keys are simply skipped (as
 opposed to being parsed as paragraphs).
 
-#### Extension: `alerts`
+### Extension: `alerts`
 
-Supports [GitHub-style markdown
+Supports [GitHub-style Markdown
 alerts](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts),
 like
 
-    > [!INFO]
-    > This is an informational message.
+    > [!TIP]
+    > Helpful advice for doing things better or more easily.
 
-#### Extension: `autolink_bare_uris`
+### Extension: `autolink_bare_uris`
 
 Makes all absolute URIs into links, even when not surrounded by pointy
 braces `<...>`.
 
-#### Extension: `mmd_link_attributes`
+### Extension: `mmd_link_attributes`
 
-Parses multimarkdown style key-value attributes on link and image
+Parses MultiMarkdown-style key-value attributes on link and image
 references. This extension should not be confused with the
 [`link_attributes`](#extension-link_attributes) extension.
 
-    This is a reference ![image][ref] with multimarkdown attributes.
+    This is a reference ![image][ref] with MultiMarkdown attributes.
 
     [ref]: https://path.to/image "Image title" width=20px height=30px
            id=myId class="myClass1 myClass2"
 
-#### Extension: `mmd_header_identifiers`
+### Extension: `mmd_header_identifiers`
 
-Parses multimarkdown style heading identifiers (in square brackets,
+Parses MultiMarkdown-style heading identifiers (in square brackets,
 after the heading but before any trailing `#`s in an ATX heading).
 
-#### Extension: `compact_definition_lists`
+### Extension: `compact_definition_lists`
 
 Activates the definition list syntax of pandoc 1.12.x and earlier. This
 syntax differs from the one described above under [Definition
@@ -5809,22 +6027,22 @@ lists](#definition-lists) in several respects:
 - Lazy wrapping of paragraphs is not allowed: the entire definition must
   be indented four spaces.[4]
 
-#### Extension: `gutenberg`
+### Extension: `gutenberg`
 
 Use [Project Gutenberg](https://www.gutenberg.org) conventions for
 `plain` output: all-caps for strong emphasis, surround by underscores
 for regular emphasis, add extra blank space around headings.
 
-#### Extension: `sourcepos`
+### Extension: `sourcepos`
 
 Include source position attributes when parsing `commonmark`. For
 elements that accept attributes, a `data-pos` attribute is added; other
 elements are placed in a surrounding Div or Span element with a
 `data-pos` attribute.
 
-#### Extension: `short_subsuperscripts`
+### Extension: `short_subsuperscripts`
 
-Parse multimarkdown style subscripts and superscripts, which start with
+Parse MultiMarkdown-style subscripts and superscripts, which start with
 a ‘~’ or ‘^’ character, respectively, and include the alphanumeric
 sequence that follows. For example:
 
@@ -5834,9 +6052,9 @@ or
 
     Oxygen is O~2.
 
-#### Extension: `wikilinks_title_after_pipe`
+### Extension: `wikilinks_title_after_pipe`
 
-Pandoc supports multiple markdown wikilink syntaxes, regardless of
+Pandoc supports multiple Markdown wikilink syntaxes, regardless of
 whether the title is before or after the pipe.
 
 Using `--from=markdown+wikilinks_title_after_pipe` results in
@@ -5904,29 +6122,29 @@ formats:
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;">Format</th>
 <th>File extension</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">BibLaTeX</td>
 <td>.bib</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;">BibTeX</td>
 <td>.bibtex</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">CSL JSON</td>
 <td>.json</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;">CSL YAML</td>
 <td>.yaml</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">RIS</td>
 <td>.ris</td>
 </tr>
@@ -5939,7 +6157,7 @@ the extension `.bibtex` to force interpretation as BibTeX.
 In BibTeX and BibLaTeX databases, pandoc parses LaTeX markup inside
 fields such as `title`; in CSL YAML databases, pandoc Markdown; and in
 CSL JSON databases, an [HTML-like
-markup](https://docs.citationstyles.org/en/1.0/release-notes.html#rich-text-markup-within-fields):
+markup](https://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html#html-like-formatting-tags):
 
 `<i>...</i>`  
 italics
@@ -6102,7 +6320,7 @@ can be illustrated with an example:
 ## Citations in note styles
 
 Pandoc’s citation processing is designed to allow you to move between
-author-date, numerical, and note styles without modifying the markdown
+author-date, numerical, and note styles without modifying the Markdown
 source. When you’re using a note style, avoid inserting footnotes
 manually. Instead, insert citations just as you would in an author-date
 style—for example,
@@ -6222,12 +6440,12 @@ A BCP 47 language tag is expected: for example, `en`, `de`, `en-US`,
 used to specify options for collation (sorting) more precisely. Here are
 some examples:
 
-- `zh-u-co-pinyin` – Chinese with the Pinyin collation.
-- `es-u-co-trad` – Spanish with the traditional collation (with `Ch`
+- `zh-u-co-pinyin`: Chinese with the Pinyin collation.
+- `es-u-co-trad`: Spanish with the traditional collation (with `Ch`
   sorting after `C`).
-- `fr-u-kb` – French with “backwards” accent sorting (with `coté`
-  sorting after `côte`).
-- `en-US-u-kf-upper` – English with uppercase letters sorting before
+- `fr-u-kb`: French with “backwards” accent sorting (with `coté` sorting
+  after `côte`).
+- `en-US-u-kf-upper`: English with uppercase letters sorting before
   lower (default is lower before upper).
 
 `notes-after-punctuation`  
@@ -6537,6 +6755,8 @@ with class `column` and a `width` attribute:
     :::
     ::::::::::::::
 
+Note: Specifying column widths does not currently work for PowerPoint.
+
 ### Additional columns attributes in beamer
 
 The div containers with classes `columns` and `column` can optionally
@@ -6613,9 +6833,8 @@ variable to get the same image on every slide.
 Note that for reveal.js, the `background-image` will be used as a
 `parallaxBackgroundImage` (see below).
 
-For pptx, you can use a [reference doc](#option--reference-doc) in which
-background images have been set on the [relevant
-layouts](#powerpoint-layout-choice).
+For pptx, you can use a `--reference-doc` in which background images
+have been set on the [relevant layouts](#powerpoint-layout-choice).
 
 #### `parallaxBackgroundImage` (reveal.js)
 
@@ -6655,8 +6874,8 @@ metadata block. It must contain a map of attribute names and values.
 (Note that the `data-` prefix is required here, as it isn’t added
 automatically.)
 
-For pptx, pass a [reference doc](#option--reference-doc) with the
-background image set on the “Title Slide” layout.
+For pptx, pass a `--reference-doc` with the background image set on the
+“Title Slide” layout.
 
 ### Example (reveal.js)
 
@@ -6680,9 +6899,15 @@ background image set on the “Title Slide” layout.
 
 ## EPUB Metadata
 
-EPUB metadata may be specified using the `--epub-metadata` option, but
-if the source document is Markdown, it is better to use a [YAML metadata
-block](#extension-yaml_metadata_block). Here is an example:
+There are two ways to specify metadata for an EPUB. The first is to use
+the `--epub-metadata` option, which takes as its argument an XML file
+with [Dublin Core
+elements](https://www.dublincore.org/specifications/dublin-core/dces/).
+
+The second way is to use YAML, either in a [YAML metadata
+block](#extension-yaml_metadata_block) in a Markdown document, or in a
+separate YAML file specified with `--metadata-file`. Here is an example
+of a YAML metadata block with EPUB metadata:
 
     ---
     title:
@@ -6782,6 +7007,34 @@ Either `ltr` or `rtl`. Specifies the `page-progression-direction`
 attribute for the [`spine`
 element](http://idpf.org/epub/301/spec/epub-publications.html#sec-spine-elem).
 
+`accessModes`  
+An array of strings
+([schema](https://kb.daisy.org/publishing/docs/metadata/schema.org/index.html)).
+Defaults to `["textual"]`.
+
+`accessModeSufficient`  
+An array of strings
+([schema](https://kb.daisy.org/publishing/docs/metadata/schema.org/index.html)).
+Defaults to `["textual"]`.
+
+`accessibilityHazards`  
+An array of strings
+([schema](https://kb.daisy.org/publishing/docs/metadata/schema.org/index.html)).
+Defaults to `["none"]`.
+
+`accessibilityFeatures`  
+An array of strings
+([schema](https://kb.daisy.org/publishing/docs/metadata/schema.org/index.html)).
+Defaults to
+
+    - "alternativeText"
+    - "readingOrder"
+    - "structuralNavigation"
+    - "tableOfContents"
+
+`accessibilitySummary`  
+A string value.
+
 `ibooks`  
 iBooks-specific metadata, with the following fields:
 
@@ -6798,7 +7051,7 @@ For `epub3` output, you can mark up the heading that corresponds to an
 EPUB chapter using the [`epub:type`
 attribute](http://www.idpf.org/epub/31/spec/epub-contentdocs.html#sec-epub-type-attribute).
 For example, to set the attribute to the value `prologue`, use this
-markdown:
+Markdown:
 
     # My chapter {epub:type=prologue}
 
@@ -6814,97 +7067,97 @@ of the following values, in which case either `frontmatter` or
 
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th><code>epub:type</code> of first section</th>
 <th><code>epub:type</code> of body</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>prologue</td>
 <td>frontmatter</td>
 </tr>
-<tr class="even">
+<tr>
 <td>abstract</td>
 <td>frontmatter</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>acknowledgments</td>
 <td>frontmatter</td>
 </tr>
-<tr class="even">
+<tr>
 <td>copyright-page</td>
 <td>frontmatter</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>dedication</td>
 <td>frontmatter</td>
 </tr>
-<tr class="even">
+<tr>
 <td>credits</td>
 <td>frontmatter</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>keywords</td>
 <td>frontmatter</td>
 </tr>
-<tr class="even">
+<tr>
 <td>imprint</td>
 <td>frontmatter</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>contributors</td>
 <td>frontmatter</td>
 </tr>
-<tr class="even">
+<tr>
 <td>other-credits</td>
 <td>frontmatter</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>errata</td>
 <td>frontmatter</td>
 </tr>
-<tr class="even">
+<tr>
 <td>revision-history</td>
 <td>frontmatter</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>titlepage</td>
 <td>frontmatter</td>
 </tr>
-<tr class="even">
+<tr>
 <td>halftitlepage</td>
 <td>frontmatter</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>seriespage</td>
 <td>frontmatter</td>
 </tr>
-<tr class="even">
+<tr>
 <td>foreword</td>
 <td>frontmatter</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>preface</td>
 <td>frontmatter</td>
 </tr>
-<tr class="even">
+<tr>
 <td>frontispiece</td>
 <td>frontmatter</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>appendix</td>
 <td>backmatter</td>
 </tr>
-<tr class="even">
+<tr>
 <td>colophon</td>
 <td>backmatter</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>bibliography</td>
 <td>backmatter</td>
 </tr>
-<tr class="even">
+<tr>
 <td>index</td>
 <td>backmatter</td>
 </tr>
@@ -7090,8 +7343,8 @@ Pandoc will automatically highlight syntax in [fenced code
 blocks](#fenced-code-blocks) that are marked with a language name. The
 Haskell library [skylighting](https://github.com/jgm/skylighting) is
 used for highlighting. Currently highlighting is supported only for
-HTML, EPUB, Docx, Ms, and LaTeX/PDF output. To see a list of language
-names that pandoc will recognize, type
+HTML, EPUB, Docx, Ms, Man, and LaTeX/PDF output. To see a list of
+language names that pandoc will recognize, type
 `pandoc --list-highlight-languages`.
 
 The color scheme can be selected using the `--highlight-style` option.
@@ -7105,7 +7358,7 @@ If you are not satisfied with the predefined styles, you can use
 modified and used as the argument to `--highlight-style`. To get a JSON
 version of the `pygments` style, for example:
 
-    pandoc --print-highlight-style pygments > my.theme
+    pandoc -o my.theme --print-highlight-style pygments
 
 Then edit `my.theme` and use it like this:
 
@@ -7118,23 +7371,28 @@ file](https://docs.kde.org/stable5/en/kate/katepart/highlight.html).
 Before writing your own, have a look at KDE’s [repository of syntax
 definitions](https://github.com/KDE/syntax-highlighting/tree/master/data/syntax).
 
+If you receive an error that pandoc “Could not read highlighting theme”,
+check that the JSON file is encoded with UTF-8 and has no Byte-Order
+Mark (BOM).
+
 To disable highlighting, use the `--no-highlight` option.
 
 # Custom Styles
 
-Custom styles can be used in the docx and ICML formats.
+Custom styles can be used in the docx, odt and ICML formats.
 
 ## Output
 
-By default, pandoc’s docx and ICML output applies a predefined set of
-styles for blocks such as paragraphs and block quotes, and uses largely
-default formatting (italics, bold) for inlines. This will work for most
-purposes, especially alongside a `reference.docx` file. However, if you
-need to apply your own styles to blocks, or match a preexisting set of
-styles, pandoc allows you to define custom styles for blocks and text
-using `div`s and `span`s, respectively.
+By default, pandoc’s odt, docx and ICML output applies a predefined set
+of styles for blocks such as paragraphs and block quotes, and uses
+largely default formatting (italics, bold) for inlines. This will work
+for most purposes, especially alongside a [reference
+doc](#option--reference-doc) file. However, if you need to apply your
+own styles to blocks, or match a preexisting set of styles, pandoc
+allows you to define custom styles for blocks and text using `div`s and
+`span`s, respectively.
 
-If you define a `div` or `span` with the attribute `custom-style`,
+If you define a Div, Span, or Table with the attribute `custom-style`,
 pandoc will apply your specified style to the contained elements (with
 the exception of elements whose function depends on a style, like
 headings, code blocks, block quotes, or links). So, for example, using
@@ -7142,7 +7400,7 @@ the `bracketed_spans` syntax,
 
     [Get out]{custom-style="Emphatically"}, he said.
 
-would produce a docx file with “Get out” styled with character style
+would produce a file with “Get out” styled with character style
 `Emphatically`. Similarly, using the `fenced_divs` syntax,
 
     Dickinson starts the poem simply:
@@ -7154,9 +7412,10 @@ would produce a docx file with “Get out” styled with character style
 
 would style the two contained lines with the `Poetry` paragraph style.
 
-For docx output, styles will be defined in the output file as inheriting
-from normal text, if the styles are not yet in your reference.docx. If
-they are already defined, pandoc will not alter the definition.
+Styles will be defined in the output file as inheriting from normal text
+(docx) or Default Paragraph Style (odt), if the styles are not yet in
+your [reference doc](#option--reference-doc). If they are already
+defined, pandoc will not alter the definition.
 
 This feature allows for greatest customization in conjunction with
 [pandoc filters](https://pandoc.org/filters.html). If you want all
@@ -7166,8 +7425,8 @@ the `Emphasis` character style (perhaps to change their color), you can
 write a filter which will transform all italicized inlines to inlines
 within an `Emphasis` custom-style `span`.
 
-For docx output, you don’t need to enable any extensions for custom
-styles to work.
+For docx or odt output, you don’t need to enable any extensions for
+custom styles to work.
 
 ## Input
 
@@ -7177,8 +7436,10 @@ derivation of the input document’s styles.
 
 By enabling the [`styles` extension](#ext-styles) in the docx reader
 (`-f docx+styles`), you can produce output that maintains the styles of
-the input document, using the `custom-style` class. Paragraph styles are
-interpreted as divs, while character styles are interpreted as spans.
+the input document, using the `custom-style` class. A `custom-style`
+attribute will be added for each style. Divs will be created to hold the
+paragraph styles, and Spans to hold the character styles. Table styles
+will be applied directly to the Table.
 
 For example, using the `custom-style-reference.docx` file in the test
 directory, we have the following different outputs:
@@ -7327,6 +7588,12 @@ various PDF standards as well as tagging. E.g.:
 
 See the prince documentation for more info.
 
+## Typst
+
+Typst 0.12 can produce PDF/A-2b:
+
+    pandoc --pdf-engine=typst --pdf-engine-opt=--pdf-standard=a-2b ...
+
 ## Word Processors
 
 Word processors like LibreOffice and MS Word can also be used to
@@ -7337,7 +7604,7 @@ converted to PDF with the respective word processor. See the
 documentation for
 [Word](https://support.microsoft.com/en-us/office/create-accessible-pdfs-064625e0-56ea-4e16-ad71-3aa33bb4b7ed)
 and
-[LibreOffice](https://help.libreoffice.org/7.1/en-US/text/shared/01/ref_pdf_export_general.html).
+[LibreOffice](https://help.libreoffice.org/latest/en-US/text/shared/01/ref_pdf_export_general.html).
 
 # Running pandoc as a web server
 
@@ -7362,8 +7629,7 @@ Calling the pandoc executable under the name `pandoc-lua` or with `lua`
 as the first argument will make it function as a standalone Lua
 interpreter. The behavior is mostly identical to that of the [standalone
 `lua` executable](https://www.lua.org/manual/5.4/manual.html#7), version
-5.4. However, there is no REPL yet, and the `-i` option has no effect.
-For full documentation, see the
+5.4. For full documentation, see the
 [pandoc-lua](https://github.com/jgm/pandoc/blob/master/doc/pandoc-lua.md)
 man page.
 
@@ -7375,7 +7641,7 @@ man page.
     could in principle do anything on your file system. Please audit
     filters and custom writers very carefully before using them.
 
-2.  Several input formats (including HTML, Org, and RST) support
+2.  Several input formats (including LaTeX, Org, RST, and Typst) support
     `include` directives that allow the contents of a file to be
     included in the output. An untrusted attacker could use these to
     view the contents of files on the file system. (Using the
@@ -7388,7 +7654,15 @@ man page.
     (Using the `--sandbox` option can protect against this threat, but
     will also prevent including images in these formats.)
 
-4.  If your application uses pandoc as a Haskell library (rather than
+4.  In reading HTML files, pandoc will attempt to include the contents
+    of `iframe` elements by fetching content from the local file or URL
+    specified by `src`. If untrusted HTML is processed on a server, this
+    has the potential to reveal anything readable by the process running
+    the server. Using the `-f html+raw_html` will mitigate this threat
+    by causing the whole `iframe` to be parsed as a raw HTML block.
+    Using \`–sandbox will also protect against the threat.
+
+5.  If your application uses pandoc as a Haskell library (rather than
     shelling out to the executable), it is possible to use it in a mode
     that fully isolates pandoc from your file system, by running the
     pandoc operations in the `PandocPure` monad. See the document [Using
@@ -7396,7 +7670,7 @@ man page.
     more details. (This corresponds to the use of the `--sandbox` option
     on the command line.)
 
-5.  Pandoc’s parsers can exhibit pathological performance on some corner
+6.  Pandoc’s parsers can exhibit pathological performance on some corner
     cases. It is wise to put any pandoc operations under a timeout, to
     avoid DOS attacks that exploit these issues. If you are using the
     pandoc executable, you can add the command line options
@@ -7406,7 +7680,7 @@ man page.
     `markdown` parser, so it is a better choice when processing
     untrusted input.
 
-6.  The HTML generated by pandoc is not guaranteed to be safe. If
+7.  The HTML generated by pandoc is not guaranteed to be safe. If
     `raw_html` is enabled for the Markdown input, users can inject
     arbitrary HTML. Even if `raw_html` is disabled, users can include
     dangerous content in URLs and attributes. To be safe, you should run
@@ -7415,7 +7689,7 @@ man page.
 
 # Authors
 
-Copyright 2006–2022 John MacFarlane (jgm@berkeley.edu). Released under
+Copyright 2006–2024 John MacFarlane (jgm@berkeley.edu). Released under
 the
 [GPL](https://www.gnu.org/copyleft/gpl.html "GNU General Public License"),
 version 2 or greater. This software carries no warranty of any kind.

@@ -22,6 +22,7 @@ Specify input format. *FORMAT* can be:
 - `tsv`
   ([TSV](https://www.iana.org/assignments/media-types/text/tab-separated-values)
   table)
+- `djot` ([Djot markup](https://djot.net))
 - `docbook` ([DocBook](https://docbook.org))
 - `docx` ([Word docx](https://en.wikipedia.org/wiki/Office_Open_XML))
 - `dokuwiki` ([DokuWiki markup](https://www.dokuwiki.org/dokuwiki))
@@ -57,11 +58,16 @@ Specify input format. *FORMAT* can be:
 - `mediawiki` ([MediaWiki
   markup](https://www.mediawiki.org/wiki/Help:Formatting))
 - `man` ([roff man](https://man.cx/groff_man(7)))
+- `mdoc` ([mdoc](https://mandoc.bsd.lv/man/mdoc.7.html) manual page
+  markup)
 - `muse` ([Muse](https://amusewiki.org/library/manual))
 - `native` (native Haskell)
-- `odt` ([ODT](https://en.wikipedia.org/wiki/OpenDocument))
+- `odt` ([OpenDocument text
+  document](https://en.wikipedia.org/wiki/OpenDocument))
 - `opml` ([OPML](http://dev.opml.org/spec2.html))
 - `org` ([Emacs Org mode](https://orgmode.org))
+- `pod` (Perl’s [Plain Old
+  Documentation](https://perldoc.perl.org/perlpod))
 - `ris` ([RIS](https://en.wikipedia.org/wiki/RIS_(file_format))
   bibliography)
 - `rtf` ([Rich Text
@@ -91,10 +97,12 @@ Specify output format. *FORMAT* can be:
 
 <div id="output-formats">
 
-- `asciidoc` (modern [AsciiDoc](https://www.methods.co.nz/asciidoc/) as
-  interpreted by [AsciiDoctor](https://asciidoctor.org/))
-- `asciidoc_legacy` ([AsciiDoc](https://www.methods.co.nz/asciidoc/) as
-  interpreted by
+- `ansi` (text with [ANSI escape
+  codes](https://en.wikipedia.org/wiki/ANSI_escape_code), for terminal
+  viewing)
+- `asciidoc` (modern [AsciiDoc](https://asciidoc.org/) as interpreted by
+  [AsciiDoctor](https://asciidoctor.org/))
+- `asciidoc_legacy` ([AsciiDoc](https://asciidoc.org/) as interpreted by
   [`asciidoc-py`](https://github.com/asciidoc-py/asciidoc-py)).
 - `asciidoctor` (deprecated synonym for `asciidoc`)
 - `beamer` ([LaTeX beamer](https://ctan.org/pkg/beamer) slide show)
@@ -108,6 +116,7 @@ Specify output format. *FORMAT* can be:
 - `csljson` ([CSL
   JSON](https://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html)
   bibliography)
+- `djot` ([Djot markup](https://djot.net))
 - `docbook` or `docbook4` ([DocBook](https://docbook.org) 4)
 - `docbook5` (DocBook 5)
 - `docx` ([Word docx](https://en.wikipedia.org/wiki/Office_Open_XML))
@@ -129,7 +138,7 @@ Specify output format. *FORMAT* can be:
   markup](https://www.w3.org/TR/html-polyglot/))
 - `html4` ([XHTML](https://www.w3.org/TR/xhtml1/) 1.0 Transitional)
 - `icml` ([InDesign
-  ICML](https://wwwimages.adobe.com/www.adobe.com/content/dam/acom/en/devnet/indesign/sdk/cs6/idml/idml-cookbook.pdf))
+  ICML](https://manualzz.com/doc/9627253/adobe-indesign-cs6-idml-cookbook))
 - `ipynb` ([Jupyter
   notebook](https://nbformat.readthedocs.io/en/latest/))
 - `jats_archiving` ([JATS](https://jats.nlm.nih.gov) XML, Archiving and
@@ -158,10 +167,11 @@ Specify output format. *FORMAT* can be:
 - `ms` ([roff ms](https://man.cx/groff_ms(7)))
 - `muse` ([Muse](https://amusewiki.org/library/manual))
 - `native` (native Haskell)
-- `odt` ([OpenOffice text
+- `odt` ([OpenDocument text
   document](https://en.wikipedia.org/wiki/OpenDocument))
 - `opml` ([OPML](http://dev.opml.org/spec2.html))
-- `opendocument` ([OpenDocument](http://opendocument.xml.org))
+- `opendocument` ([OpenDocument
+  XML](https://www.oasis-open.org/2021/06/16/opendocument-v1-3-oasis-standard-published/))
 - `org` ([Emacs Org mode](https://orgmode.org))
 - `pdf` ([PDF](https://www.adobe.com/pdf/))
 - `plain` (plain text)
@@ -302,7 +312,7 @@ render the document title.
 NUMBER - 1.* Specify the base level for headings (defaults to 1).
 
 `--indented-code-classes=`*CLASSES*  
-Specify classes to use for indented code blocks–for example,
+Specify classes to use for indented code blocks—for example,
 `perl,numberLines` or `haskell`. Multiple classes may be separated by
 spaces or commas.
 
@@ -324,10 +334,6 @@ on the filenames will be added to identifiers in order to disambiguate
 them, and internal links will be adjusted accordingly. For example, a
 header with identifier `foo` in `subdir/file1.txt` will have its
 identifier changed to `subdir__file1.txt__foo`.
-
-In addition, a Div with an identifier based on the filename will be
-added around the file’s content, so that internal links to the filename
-will point to this Div’s identifier.
 
 `-F` *PROGRAM*, `--filter=`*PROGRAM*  
 Specify an executable to be used as a filter transforming the pandoc AST
@@ -474,18 +480,21 @@ otherwise, metadata is suppressed.
 `--template=`*FILE*|*URL*  
 Use the specified file as a custom template for the generated document.
 Implies `--standalone`. See [Templates](#templates), below, for a
-description of template syntax. If no extension is specified, an
-extension corresponding to the writer will be added, so that
-`--template=special` looks for `special.html` for HTML output. If the
-template is not found, pandoc will search for it in the `templates`
-subdirectory of the user data directory (see `--data-dir`). If this
+description of template syntax. If the template is not found, pandoc
+will search for it in the `templates` subdirectory of the user data
+directory (see `--data-dir`). If no extension is specified and an
+extensionless template is not found, pandoc will look for a template
+with an extension corresponding to the writer, so that
+`--template=special` looks for `special.html` for HTML output. If this
 option is not used, a default template appropriate for the output format
 will be used (see `-D/--print-default-template`).
 
 `-V` *KEY*\[`=`*VAL*\], `--variable=`*KEY*\[`:`*VAL*\]  
-Set the template variable *KEY* to the value *VAL* when rendering the
-document in standalone mode. If no *VAL* is specified, the key will be
-given the value `true`.
+Set the template variable *KEY* to the string value *VAL* when rendering
+the document in standalone mode. If no *VAL* is specified, the key will
+be given the value `true`. Structured values (lists, maps) cannot be
+assigned using this option, but they can be assigned in the `variables`
+section of a [defaults file](#defaults-files).
 
 `--sandbox[=true|false]`  
 Run pandoc in a sandbox, limiting IO operations in readers and writers
@@ -539,7 +548,7 @@ With `none`, pandoc will not wrap lines at all. With `preserve`, pandoc
 will attempt to preserve the wrapping from the source document (that is,
 where there are nonsemantic newlines in the source, there will be
 nonsemantic newlines in the output as well). In `ipynb` output, this
-option affects wrapping of the contents of markdown cells.
+option affects wrapping of the contents of Markdown cells.
 
 `--columns=`*NUMBER*  
 Specify length of lines in characters. This affects text wrapping in the
@@ -562,6 +571,18 @@ would prefer it to be at the end of the document, use the option
 Specify the number of section levels to include in the table of
 contents. The default is 3 (which means that level-1, 2, and 3 headings
 will be listed in the contents).
+
+`--lof[=true|false]`, `--list-of-figures[=true|false]`  
+Include an automatically generated list of figures (or, in some formats,
+an instruction to create one) in the output document. This option has no
+effect unless `-s/--standalone` is used, and it only has an effect on
+`latex`, `context`, and `docx` output.
+
+`--lot[=true|false]`, `--list-of-tables[=true|false]`  
+Include an automatically generated list of tables (or, in some formats,
+an instruction to create one) in the output document. This option has no
+effect unless `-s/--standalone` is used, and it only has an effect on
+`latex`, `context`, and `docx` output.
 
 `--strip-comments[=true|false]`  
 Strip out HTML comments in the Markdown or Textile source, rather than
@@ -615,13 +636,20 @@ body (e.g. after the `<body>` tag in HTML, or the `\begin{document}`
 command in LaTeX). This can be used to include navigation bars or
 banners in HTML documents. This option can be used repeatedly to include
 multiple files. They will be included in the order specified. Implies
-`--standalone`.
+`--standalone`. Note that if the output format is `odt`, this file must
+be in OpenDocument XML format suitable for insertion into the body of
+the document, and if the output is `docx`, this file must be in
+appropriate OpenXML format.
 
 `-A` *FILE*, `--include-after-body=`*FILE*|*URL*  
 Include contents of *FILE*, verbatim, at the end of the document body
 (before the `</body>` tag in HTML, or the `\end{document}` command in
 LaTeX). This option can be used repeatedly to include multiple files.
 They will be included in the order specified. Implies `--standalone`.
+Note that if the output format is `odt`, this file must be in
+OpenDocument XML format suitable for insertion into the body of the
+document, and if the output is `docx`, this file must be in appropriate
+OpenXML format.
 
 `--resource-path=`*SEARCHPATH*  
 List of paths to search for images and other resources. The paths should
@@ -634,7 +662,11 @@ working directory and the `test` subdirectory, in that order. This
 option can be used repeatedly. Search path components that come later on
 the command line will be searched before those that come earlier, so
 `--resource-path foo:bar --resource-path baz:bim` is equivalent to
-`--resource-path baz:bim:foo:bar`.
+`--resource-path baz:bim:foo:bar`. Note that this option only has an
+effect when pandoc itself needs to find an image (e.g., in producing a
+PDF or docx, or when `--embed-resources` is used.) It will not cause
+image paths to be rewritten in other cases (e.g., when pandoc is
+generating LaTeX or HTML).
 
 `--request-header=`*NAME*`:`*VAL*  
 Set the request header *NAME* to the value *VAL* when making HTTP
@@ -672,6 +704,16 @@ when `--mathjax` is used, and some advanced features (e.g. zoom or
 speaker notes) may not work in an offline “self-contained” `reveal.js`
 slide show.
 
+For SVG images, `img` tags with `data:` URIs are used, unless the image
+has the class `inline-svg`, in which case an inline SVG element is
+inserted. This approach is recommended when there are many occurrences
+of the same SVG in a document, as `<use>` elements will be used to
+reduce duplication.
+
+`--link-images[=true|false]`  
+Include links to images instead of embedding the images in ODT. (This
+option currently only affects ODT output.)
+
 `--html-q-tags[=true|false]`  
 Use `<q>` tags for quotes in HTML. (This option only has an effect if
 the `smart` extension is enabled for the input format used.)
@@ -697,6 +739,16 @@ option only affects the `markdown`, `muse`, `html`, `epub`, `slidy`,
 specifying `--reference-location=section` will cause notes to be
 rendered at the bottom of a slide.
 
+`--figure-caption-position=above`|`below`  
+Specify whether figure captions go above or below figures (default is
+`below`). This option only affects HTML, LaTeX, Docx, ODT, and Typst
+output.
+
+`--table-caption-position=above`|`below`  
+Specify whether table captions go above or below tables (default is
+`above`). This option only affects HTML, LaTeX, Docx, ODT, and Typst
+output.
+
 `--markdown-headings=setext`|`atx`  
 Specify whether to use ATX-style (`#`-prefixed) or Setext-style
 (underlined) headings for level 1 and 2 headings in Markdown output.
@@ -719,21 +771,28 @@ specified), `chapter` is implied as the setting for this option. If
 will cause top-level headings to become `\part{..}`, while second-level
 headings remain as their default type.
 
-`-N`, `--number-sections`  
+In Docx output, this option adds section breaks before first-level
+headings if `chapter` is selected, and before first- and second-level
+headings if `part` is selected. Footnote numbers will restart with each
+section break unless the reference doc modifies this.
+
+`-N`, `--number-sections=[true|false]`  
 Number section headings in LaTeX, ConTeXt, HTML, Docx, ms, or EPUB
 output. By default, sections are not numbered. Sections with class
 `unnumbered` will never be numbered, even if `--number-sections` is
 specified.
 
 `--number-offset=`*NUMBER*\[`,`*NUMBER*`,`*…*\]  
-Offset for section headings in HTML output (ignored in other output
-formats). The first number is added to the section number for top-level
-headings, the second for second-level headings, and so on. So, for
-example, if you want the first top-level heading in your document to be
-numbered “6”, specify `--number-offset=5`. If your document starts with
-a level-2 heading which you want to be numbered “1.5”, specify
-`--number-offset=1,4`. Offsets are 0 by default. Implies
-`--number-sections`.
+Offsets for section heading numbers. The first number is added to the
+section number for level-1 headings, the second for level-2 headings,
+and so on. So, for example, if you want the first level-1 heading in
+your document to be numbered “6” instead of “1”, specify
+`--number-offset=5`. If your document starts with a level-2 heading
+which you want to be numbered “1.5”, specify `--number-offset=1,4`.
+`--number-offset` only directly affects the number of the first section
+heading in a document; subsequent numbers increment in the normal way.
+Implies `--number-sections`. Currently this feature only affects HTML
+and Docx output.
 
 `--listings[=true|false]`  
 Use the [`listings`](https://ctan.org/pkg/listings) package for LaTeX
@@ -748,14 +807,15 @@ default is for lists to be displayed all at once.
 
 `--slide-level=`*NUMBER*  
 Specifies that headings with the specified level create slides (for
-`beamer`, `s5`, `slidy`, `slideous`, `dzslides`). Headings above this
-level in the hierarchy are used to divide the slide show into sections;
-headings below this level create subheads within a slide. Valid values
-are 0-6. If a slide level of 0 is specified, slides will not be split
-automatically on headings, and horizontal rules must be used to indicate
-slide boundaries. If a slide level is not specified explicitly, the
-slide level will be set automatically based on the contents of the
-document; see [Structuring the slide show](#structuring-the-slide-show).
+`beamer`, `revealjs`, `pptx`, `s5`, `slidy`, `slideous`, `dzslides`).
+Headings above this level in the hierarchy are used to divide the slide
+show into sections; headings below this level create subheads within a
+slide. Valid values are 0-6. If a slide level of 0 is specified, slides
+will not be split automatically on headings, and horizontal rules must
+be used to indicate slide boundaries. If a slide level is not specified
+explicitly, the slide level will be set automatically based on the
+contents of the document; see [Structuring the slide
+show](#structuring-the-slide-show).
 
 `--section-divs[=true|false]`  
 Wrap sections in `<section>` tags (or `<div>` tags for `html4`), and
@@ -793,7 +853,7 @@ this option (or the `css` or `stylesheet` metadata fields), pandoc will
 look for a file `epub.css` in the user data directory (see
 `--data-dir`). If it is not found there, sensible defaults will be used.
 
-`--reference-doc=`*FILE*|*URL*  
+<span id="option--reference-doc">`--reference-doc=`*FILE*|*URL*</span>  
 Use the specified file as a style reference in producing a docx or ODT
 file.
 
@@ -1019,7 +1079,7 @@ following defaults depending on the output format specified using
 - `-t latex` or none: `pdflatex` (other options: `xelatex`, `lualatex`,
   `tectonic`, `latexmk`)
 - `-t context`: `context`
-- `-t html`: `wkhtmltopdf` (other options: `prince`, `weasyprint`,
+- `-t html`: `weasyprint` (other options: `prince`, `wkhtmltopdf`,
   `pagedjs-cli`; see [print-css.rocks](https://print-css.rocks) for a
   good introduction to PDF generation from HTML/CSS)
 - `-t ms`: `pdfroff`
@@ -1049,6 +1109,11 @@ may be applied before or after filters or Lua filters (see `--filter`,
 `--lua-filter`): these transformations are applied in the order they
 appear on the command line. For more information, see the section on
 [Citations](#citations).
+
+Note: if this option is specified, the `citations` extension will be
+disabled automatically in the writer, to ensure that the
+citeproc-generated citations will be rendered instead of the format’s
+own citation syntax.
 
 `--bibliography=`*FILE*  
 Set the `bibliography` field in the document’s metadata to *FILE*,

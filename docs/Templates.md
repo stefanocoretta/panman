@@ -13,12 +13,18 @@ file `templates/default.*FORMAT*` in the user data directory (see
 `--data-dir`, above). *Exceptions:*
 
 - For `odt` output, customize the `default.opendocument` template.
+- For `docx` output, customize the `default.openxml` template.
 - For `pdf` output, customize the `default.latex` template (or the
   `default.context` template, if you use `-t context`, or the
   `default.ms` template, if you use `-t ms`, or the `default.html`
   template, if you use `-t html`).
-- `docx` and `pptx` have no template (however, you can use
-  `--reference-doc` to customize the output).
+- `pptx` has no template.
+
+Note that `docx`, `odt`, and `pptx` output can also be customized using
+`--reference-doc`. Use a reference doc to adjust the styles in your
+document; use a template to handle variable interpolation and customize
+the presentation of metadata, the position of the table of contents,
+boilerplate text, etc.
 
 Templates contain *variables*, which allow for the inclusion of
 arbitrary information at any point in the file. They may be set at the
@@ -87,8 +93,22 @@ values. So, for example, `employee.salary` will return the value of the
 A conditional begins with `if(variable)` (enclosed in matched
 delimiters) and ends with `endif` (enclosed in matched delimiters). It
 may optionally contain an `else` (enclosed in matched delimiters). The
-`if` section is used if `variable` has a non-empty value, otherwise the
-`else` section is used (if present). Examples:
+`if` section is used if `variable` has a true value, otherwise the
+`else` section is used (if present). The following values count as true:
+
+- any map
+- any array containing at least one true value
+- any nonempty string
+- boolean True
+
+Note that in YAML metadata (and metadata specified on the command line
+using `-M/--metadata`), unquoted `true` and `false` will be interpreted
+as Boolean values. But a variable specified on the command line using
+`-V/--variable` will always be given a string value. Hence a conditional
+`if(foo)` will be triggered if you use `-V foo=false`, but not if you
+use `-M foo=false`.
+
+Examples:
 
     $if(foo)$bar$endif$
 
@@ -209,9 +229,9 @@ Partials may include other partials.
 A separator between values of an array may be specified in square
 brackets, immediately after the variable name or partial:
 
-    ${months[, ]}$
+    ${months[, ]}
 
-    ${articles:bibentry()[; ]$
+    ${articles:bibentry()[; ]}
 
 The separator in this case is literal and (unlike with `sep` in an
 explicit `for` loop) cannot contain interpolated variables or other
@@ -463,8 +483,8 @@ Enables inclusion of most of the
 [CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS) in the
 `styles.html` [partial](#partials) (have a look with
 `pandoc --print-default-data-file=templates/styles.html`). Unless you
-use [`--css`](#option--css), this variable is set to `true` by default.
-You can disable it with e.g. `pandoc -M document-css=false`.
+use `--css`, this variable is set to `true` by default. You can disable
+it with e.g. `pandoc -M document-css=false`.
 
 `mainfont`  
 sets the CSS `font-family` property on the `html` element.
@@ -491,7 +511,7 @@ sets the CSS `line-height` property on the `html` element, which is
 preferred to be unitless.
 
 `maxwidth`  
-sets the CSS `max-width` property (default is 32em).
+sets the CSS `max-width` property (default is 36em).
 
 `backgroundcolor`  
 sets the CSS `background-color` property on the `html` element.
@@ -524,9 +544,8 @@ document, include for example:
 ### Variables for HTML math
 
 `classoption`  
-when using [KaTeX](#option--katex), you can render display math
-equations flush left using [YAML metadata](#layout) or with
-`-M classoption=fleqn`.
+when using `--katex`, you can render display math equations flush left
+using [YAML metadata](#layout) or with `-M classoption=fleqn`.
 
 ### Variables for HTML slides
 
@@ -538,7 +557,7 @@ author affiliations: can be a list when there are multiple authors
 
 `revealjs-url`  
 base URL for reveal.js documents (defaults to
-`https://unpkg.com/reveal.js@^4/`)
+`https://unpkg.com/reveal.js@^4`)
 
 `s5-url`  
 base URL for S5 documents (defaults to `s5/default`)
@@ -587,11 +606,18 @@ enables “title pages” for new sections (default is true)
 `theme`, `colortheme`, `fonttheme`, `innertheme`, `outertheme`  
 beamer themes
 
-`themeoptions`  
-options for LaTeX beamer themes (a list).
+`themeoptions`, `colorthemeoptions`, `fontthemeoptions`, `innerthemeoptions`, `outerthemeoptions`  
+options for LaTeX beamer themes (lists)
 
 `titlegraphic`  
-image for title slide
+image for title slide: can be a list
+
+`titlegraphicoptions`  
+options for title slide image
+
+`shorttitle`, `shortsubtitle`, `shortauthor`, `shortinstitute`, `shortdate`  
+some beamer themes use short versions of the title, subtitle, author,
+institute, date
 
 ### Variables for PowerPoint
 
@@ -696,7 +722,27 @@ numbering depth for sections (with `--number-sections` option or
 `numbersections` variable)
 
 `beamerarticle`  
-produce an article from Beamer slides
+produce an article from Beamer slides. Note: if you set this variable,
+you must specify the beamer writer but use the default *LaTeX* template:
+for example,
+`pandoc -Vbeamerarticle -t beamer --template default.latex`.
+
+`handout`  
+produce a handout version of Beamer slides (with overlays condensed into
+single slides)
+
+`csquotes`  
+load `csquotes` package and use `\enquote` or `\enquote*` for quoted
+text.
+
+`csquotesoptions`  
+options to use for `csquotes` package (repeat for multiple options).
+
+`babeloptions`  
+options to pass to the babel package (may be repeated for multiple
+options). This defaults to `provide=*` if the main language isn’t a
+European language written with Latin or Cyrillic script or Vietnamese.
+Most users will not need to adjust the default setting.
 
 #### Fonts
 
@@ -734,9 +780,11 @@ font size for body text. The standard classes allow 10pt, 11pt, and
 font families for use with `xelatex` or `lualatex`: take the name of any
 system font, using the [`fontspec`](https://ctan.org/pkg/fontspec)
 package. `CJKmainfont` uses the [`xecjk`](https://ctan.org/pkg/xecjk)
-package.
+package if `xelatex` is used, or the
+[`luatexja`](https://ctan.org/pkg/luatexja) package if `lualatex` is
+used.
 
-`mainfontoptions`, `sansfontoptions`, `monofontoptions`, `mathfontoptions`, `CJKoptions`  
+`mainfontoptions`, `sansfontoptions`, `monofontoptions`, `mathfontoptions`, `CJKoptions`, `luatexjapresetoptions`  
 options to use with `mainfont`, `sansfont`, `monofont`, `mathfont`,
 `CJKmainfont` in `xelatex` and `lualatex`. Allow for any choices
 available through [`fontspec`](https://ctan.org/pkg/fontspec); repeat
@@ -751,13 +799,28 @@ Palatino with lowercase figures:
     - Numbers=Proportional
     ...
 
+`mainfontfallback`, `sansfontfallback`, `monofontfallback`  
+fonts to try if a glyph isn’t found in `mainfont`, `sansfont`, or
+`monofont` respectively. These are lists. The font name must be followed
+by a colon and optionally a set of options, for example:
+
+    ---
+    mainfontfallback:
+      - "FreeSans:"
+      - "NotoColorEmoji:mode=harf"
+    ...
+
+Font fallbacks currently only work with `lualatex`.
+
 `babelfonts`  
 a map of Babel language names (e.g. `chinese`) to the font to be used
 with the language:
 
-------------------------------------------------------------------------
-
-babelfonts: chinese-hant: “Noto Serif CJK TC” russian: “Noto Serif” …
+    ---
+    babelfonts:
+      chinese-hant: "Noto Serif CJK TC"
+      russian: "Noto Serif"
+    ...
 
 `microtypeoptions`  
 options to pass to the microtype package
@@ -786,7 +849,8 @@ style for URLs (e.g., `tt`, `rm`, `sf`, and, the default, `same`)
 #### Front matter
 
 `lof`, `lot`  
-include list of figures, list of tables
+include list of figures, list of tables (can also be set using
+`--lof/--list-of-figures`, `--lot/--list-of-tables`)
 
 `thanks`  
 contents of acknowledgments footnote after document title
@@ -860,6 +924,11 @@ include list of figures, list of tables
 `mainfont`, `sansfont`, `monofont`, `mathfont`  
 font families: take the name of any system font (see [ConTeXt Font
 Switching](https://wiki.contextgarden.net/Font_Switching))
+
+`mainfontfallback`, `sansfontfallback`, `monofontfallback`  
+list of fonts to try, in order, if a glyph is not found in the main
+font. Use `\definefallbackfamily`-compatible font name syntax. Emoji
+fonts are unsupported.
 
 `margin-left`, `margin-right`, `margin-top`, `margin-bottom`  
 sets margins, if `layout` is not used (otherwise `layout` overrides
@@ -946,7 +1015,19 @@ header in man pages
 `section`  
 section number in man pages
 
+### Variables for Texinfo
+
+`version`  
+version of software (used in title and title page)
+
+`filename`  
+name of info file to be generated (defaults to a name based on the texi
+filename)
+
 ### Variables for Typst
+
+`template`  
+Typst template to use.
 
 `margin`  
 A dictionary with the fields defined in the Typst documentation: `x`,
@@ -963,6 +1044,10 @@ Font size (e.g., `12pt`).
 
 `section-numbering`  
 Schema to use for numbering sections, e.g. `1.A.1`.
+
+`page-numbering`  
+Schema to use for numbering pages, e.g. `1` or `i`, or an empty string
+to omit page numbering.
 
 `columns`  
 Number of columns for body text.
@@ -1054,5 +1139,7 @@ non-null value if `--toc/--table-of-contents` was specified
 
 `toc-title`  
 title of table of contents (works only with EPUB, HTML, revealjs,
-opendocument, odt, docx, pptx, beamer, LaTeX)
+opendocument, odt, docx, pptx, beamer, LaTeX). Note that in docx and
+pptx a custom `toc-title` will be picked up from metadata, but cannot be
+set as a variable.
 

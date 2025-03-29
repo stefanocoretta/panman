@@ -23,7 +23,7 @@ function HomepageHeader() {
             Go to the Docs
           </Link>
         </div>
-        <p style={{marginTop: 2 + 'em'}}>Pandoc is free software, released under the GPL. Copyright 2006–2022 John MacFarlane.</p>
+        <p style={{marginTop: 2 + 'em'}}>Pandoc is free software, released under the GPL. Copyright 2006–2025 John MacFarlane.</p>
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
